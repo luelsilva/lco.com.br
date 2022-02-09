@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luiz Carlos Oliveira</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular Taxa de Juros</title>
 </head>
 <body>
-    <h1>Novo Projeto</h1>
+    <div class="fundo">
+        <h1>Calcular Taxa de Juros</h1>
+        <div class="calculadora">
+            <h1>Calculadora</h1>   
+            <table>
+                <tr>
+                    <td>Valor Financiado</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Número de parcelas</td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Valor das Parcelas</td>
+                    <td><input type="number"></td>
+                </tr>
+                <td></td>
+                <td><input type="button" value="Calcule os Juros" onclick="CalcJuros()"></td>
+                <tr>
+                    <td><p>resultado</p></td>
+                </tr>
+            </table>         
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
