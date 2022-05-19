@@ -14,7 +14,7 @@
   .zoom_outer {
     border: 2px solid green;
   }
-  .divzoom {
+  #divzoom {
     border: 2px solid yellow;
   }
   #zoom {
