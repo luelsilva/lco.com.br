@@ -104,8 +104,7 @@ function log(prefix, ev) {
   var s = prefix + ": pointerID = " + ev.pointerId +
                 " ; pointerType = " + ev.pointerType +
                 " ; isPrimary = " + ev.isPrimary;
-  o.innerHTML += s + "
-";
+  o.innerHTML += s + " ";
 }
 
 function clearLog(event) {
