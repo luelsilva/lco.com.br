@@ -20,7 +20,7 @@ function init() {
     // The pointerdown event signals the start of a touch interaction.
     // This event is cached to support 2-finger gestures
     evCache.push(ev);
-    log("pointerDown", ev);
+    // log("pointerDown", ev);
    }
    
    function pointermove_handler(ev) {
@@ -32,7 +32,7 @@ function init() {
     //
     // This function sets the target element's border to "dashed" to visually
     // indicate the pointer's target received a move event.
-    log("pointerMove", ev);
+    // log("pointerMove", ev);
     ev.target.style.border = "dashed";
    
     // Find this event in the cache and update its record with this event
@@ -67,7 +67,7 @@ function init() {
    }
    
    function pointerup_handler(ev) {
-    log(ev.type, ev);
+    // log(ev.type, ev);
     // Remove this pointer from the cache and reset the target's
     // background and border
     remove_event(ev);
@@ -110,5 +110,4 @@ function log(prefix, ev) {
 function clearLog(event) {
  var o = document.getElementsByTagName('output')[0];
  o.innerHTML = "";
- console.log(event);
 }
