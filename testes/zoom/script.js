@@ -31,6 +31,7 @@ function mousedown_handler(e) {
     y: e.clientY - pointY
   };
   panning = true;
+  evCache.push(ev);
 };
 
 function mouseup_handler(e) {
