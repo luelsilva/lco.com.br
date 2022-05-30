@@ -54,7 +54,5 @@ function mousewhell_handler(e) {
   pointX = e.clientX - xs * scale;
   pointY = e.clientY - ys * scale;
 
-  console.log(scale);
-
   setTransform();
 }
