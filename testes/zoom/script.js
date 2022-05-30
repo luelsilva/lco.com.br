@@ -43,8 +43,11 @@ function mousewhell_handler(e) {
     ys = (e.clientY - pointY) / scale,
     delta = e.wheelDelta ? e.wheelDelta : -e.deltaY;
   delta > 0 ? (scale *= 1.2) : (scale /= 1.2);
+  
   pointX = e.clientX - xs * scale;
   pointY = e.clientY - ys * scale;
+
+  console.log(scale);
 
   setTransform();
 }
