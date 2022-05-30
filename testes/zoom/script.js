@@ -15,6 +15,8 @@ function init() {
     el = document.getElementById("target");
 
   el.onpointerdown = pointerdown_handler;
+  el.onmousedown = mousedown_handler;
+
   el.onpointermove = pointermove_handler;
 
   // Use same handler for pointer{up,cancel,out,leave} events since
@@ -31,6 +33,14 @@ function pointerdown_handler(ev) {
   evCache.push(ev);
   // log("pointerDown", ev);
 }
+
+function mousedown_handler(e) {
+  e.preventDefault();
+  start = { x: e.clientX - pointX, y: e.clientY - pointY };
+  panning = true;
+  log("pointerDown", ev);
+};
+
 
 function pointermove_handler(ev) {
   // This function implements a 2-pointer horizontal pinch/zoom gesture.
