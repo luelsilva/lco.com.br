@@ -21,6 +21,7 @@ function mousedown_handler(e) {
   e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
+  log('mouse_down');
 }
 
 function mouseup_handler(e) {
@@ -56,3 +57,23 @@ function mousewhell_handler(e) {
 
   setTransform();
 }
+
+  // Log events flag
+  var logEvents = false;
+
+  // Logging/debugging functions
+  function enableLog(ev) {
+    logEvents = logEvents ? false : true;
+  }
+  
+  function log(texto) {
+    if (!logEvents) return;
+    var o = document.getElementsByTagName('output')[0];
+    o.innerHTML += texto + " ";
+  }
+  
+  function clearLog(event) {
+   var o = document.getElementsByTagName('output')[0];
+   o.innerHTML = "";
+  }
+  
