@@ -17,12 +17,20 @@ function init() {
   zoom.onmouseup = mouseup_handler;
   zoom.onmousemove = mousemove_handler;
   zoom.onwheel = mousewheel_handler;
+
+  zoom.onpointerdown = mousedown_handler;
+  zoom.onpointerup = mouseup_handler;
+  zoom.onpointercancel = mouseup_handler;
+  zoom.onpointerout = mouseup_handler;
+  zoom.onpointerleave = mouseup_handler;
+
+  zoom.onpointermove = pointermove_handler;
 };
 
 function setTransform() {
   zoom.style.transform =
     "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
-}
+};
 
 function mousedown_handler(e) {
   e.preventDefault();
@@ -31,11 +39,30 @@ function mousedown_handler(e) {
     y: e.clientY - pointY
   };
   panning = true;
-  evCache.push(ev);
+  evCache.push(e); // adicionado para a função touche
 };
 
 function mouseup_handler(e) {
   panning = false;
+
+  // Remove this pointer from the cache and reset the target's
+  // background and border
+  remove_event(e);
+
+  // If the number of pointers down is less than two then reset diff tracker
+  if (evCache.length < 2) {
+    prevDiff = -1;
+  }
+};
+
+function remove_event(ev) {
+  // Remove this event from the target's cache
+  for (var i = 0; i < evCache.length; i++) {
+    if (evCache[i].pointerId == ev.pointerId) {
+      evCache.splice(i, 1);
+      break;
+    }
+  }
 };
 
 function mousemove_handler(e) {
@@ -47,6 +74,48 @@ function mousemove_handler(e) {
   pointY = e.clientY - start.y;
   setTransform();
 };
+
+
+function pointermove_handler(ev) {
+  // Find this event in the cache and update its record with this event
+  for (var i = 0; i < evCache.length; i++) {
+    if (ev.pointerId == evCache[i].pointerId) {
+      evCache[i] = ev;
+      break;
+    }
+  }
+
+  if (evCache.length == 1) {
+    mousemove_handler(ev);
+  };
+
+
+  // If two pointers are down, check for pinch gestures
+  if (evCache.length == 2) {
+    // Calculate the distance between the two pointers
+    var curDiff = Math.abs(evCache[0].clientX - evCache[1].clientX);
+
+    if (prevDiff > 0) {
+      if (curDiff > prevDiff) {
+        // The distance between the two pointers has increased
+        // Pinch moving OUT -> Zoom in
+        ev.target.style.background = "pink";
+      }
+      if (curDiff < prevDiff) {
+        // The distance between the two pointers has decreased
+        // Pinch moving IN -> Zoom out
+        ev.target.style.background = "lightblue";
+      }
+    }
+
+    // Cache the distance for the next move event
+    prevDiff = curDiff;
+  }
+}
+
+
+
+
 
 function mousewheel_handler(e) {
   e.preventDefault();
