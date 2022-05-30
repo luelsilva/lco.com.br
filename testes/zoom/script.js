@@ -8,7 +8,7 @@ function init() {
   var zoom = document.getElementById("zoom");
   zoom.onmousedown = mousedown_handler;
   zoom.onmouseup = mouseup_handler;
-  zoom.onmousemove = mousemode_handler;
+  zoom.onmousemove = mousemove_handler;
   zoom.onwheel = mousewhell_handler;
 }
 
@@ -25,11 +25,11 @@ function mousedown_handler(e) {
 
 function mouseup_handler(e) {
   panning = false;
-  log('mouse_up');
 }
 
-function mousemode_handler(e) {
+function mousemove_handler(e) {
   e.preventDefault();
+  log('mouse_move');
   if (!panning) {
     return;
   }
