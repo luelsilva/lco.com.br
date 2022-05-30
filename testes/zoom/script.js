@@ -133,6 +133,8 @@ function mousewheel_handler(e) {
     ys = (e.clientY - pointY) / scale,
     delta = e.wheelDelta ? e.wheelDelta : -e.deltaY;
   delta > 0 ? (scale *= 1.2) : (scale /= 1.2);
+  if (scale < 1) { scale = 1 };
+  if (scale > 20) { scale = 20 };
   pointX = e.clientX - xs * scale;
   pointY = e.clientY - ys * scale;
 
