@@ -13,7 +13,7 @@
   }
   .zoom_outer {
     border: 2px solid red;
-    height: max-content;
+    height: 100vh;
   }
   #zoom {
     border: 2px solid green;
