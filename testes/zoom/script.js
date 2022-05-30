@@ -103,14 +103,14 @@ function pointermove_handler(ev) {
         // The distance between the two pointers has increased
         // Pinch moving OUT -> Zoom in
         ev.target.style.background = "pink";
-        scale *= 1.2;
+        scale *= 1.1;
       }
 
       if (curDiff < prevDiff) {
         // The distance between the two pointers has decreased
         // Pinch moving IN -> Zoom out
         ev.target.style.background = "lightblue";
-        scale /= 1.2;
+        scale /= 1.1;
       }
 
       pointX = ev.clientX - xs * scale;
