@@ -21,11 +21,11 @@ function mousedown_handler(e) {
   e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
-  log('mouse_down');
 }
 
 function mouseup_handler(e) {
   panning = false;
+  log('mouse_up');
 }
 
 function mousemode_handler(e) {
