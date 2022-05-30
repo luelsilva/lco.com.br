@@ -77,6 +77,7 @@ function mousemove_handler(e) {
 
 
 function pointermove_handler(ev) {
+  ev.preventDefault();
   // Find this event in the cache and update its record with this event
   for (var i = 0; i < evCache.length; i++) {
     if (ev.pointerId == evCache[i].pointerId) {
@@ -94,26 +95,35 @@ function pointermove_handler(ev) {
   if (evCache.length == 2) {
     // Calculate the distance between the two pointers
     var curDiff = Math.abs(evCache[0].clientX - evCache[1].clientX);
+    var xs = (ev.clientX - pointX) / scale;
+    var ys = (ev.clientY - pointY) / scale;
 
     if (prevDiff > 0) {
       if (curDiff > prevDiff) {
         // The distance between the two pointers has increased
         // Pinch moving OUT -> Zoom in
         ev.target.style.background = "pink";
+        scale *= 1.2;
       }
+
       if (curDiff < prevDiff) {
         // The distance between the two pointers has decreased
         // Pinch moving IN -> Zoom out
         ev.target.style.background = "lightblue";
+        scale /= 1.2;
       }
-    }
 
-    // Cache the distance for the next move event
-    prevDiff = curDiff;
+      pointX = ev.clientX - xs * scale;
+      pointY = ev.clientY - ys * scale;
+
+      setTransform();
+    };
+
   }
+
+  // Cache the distance for the next move event
+  prevDiff = curDiff;
 }
-
-
 
 
 
