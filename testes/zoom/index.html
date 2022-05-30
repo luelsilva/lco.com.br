@@ -12,8 +12,10 @@
 </head>
 
 <body onload="init();" style="touch-action:none">
-    <div id="target">
-        <img src="mapa.png" alt="zoom" />
+    <div class="zoom_outer">
+        <div id="target">
+            <img src="mapa.png" alt="zoom" />
+        </div>
     </div>
     <!-- UI for logging/debugging -->
     <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
