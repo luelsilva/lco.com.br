@@ -36,20 +36,20 @@ function pointerdown_handler(e) {
   //e.preventDefault();
   evCache.push(e);
   log('pointer_down');
- }
- 
+}
+
 function mouseup_handler(e) {
-  e.preventDefault();
+  // e.preventDefault();
   panning = false;
   log('mouse_up');
 }
 
 function pointerup_handler(e) {
-  e.preventDefault();
+  //  e.preventDefault();
   // Remove this pointer from the cache and reset the target's
   // background and border
   remove_event(e);
-  
+
   // If the number of pointers down is less than two then reset diff tracker
   if (evCache.length < 2) {
     prevDiff = -1;
@@ -65,7 +65,7 @@ function remove_event(e) {
       break;
     }
   }
- }
+}
 
 function mousemove_handler(e) {
   e.preventDefault();
@@ -97,22 +97,21 @@ function mousewhell_handler(e) {
   setTransform();
 }
 
-  // Log events flag
-  var logEvents = false;
+// Log events flag
+var logEvents = false;
 
-  // Logging/debugging functions
-  function enableLog(ev) {
-    logEvents = logEvents ? false : true;
-  }
-  
-  function log(texto) {
-    if (!logEvents) return;
-    var o = document.getElementsByTagName('output')[0];
-    o.innerHTML += texto + " ";
-  }
-  
-  function clearLog(event) {
-   var o = document.getElementsByTagName('output')[0];
-   o.innerHTML = "";
-  }
-  
+// Logging/debugging functions
+function enableLog(ev) {
+  logEvents = logEvents ? false : true;
+}
+
+function log(texto) {
+  if (!logEvents) return;
+  var o = document.getElementsByTagName('output')[0];
+  o.innerHTML += texto + " ";
+}
+
+function clearLog(event) {
+  var o = document.getElementsByTagName('output')[0];
+  o.innerHTML = "";
+}
