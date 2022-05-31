@@ -16,7 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 9 ');
+  log('Versão 10 ');
 }
 
 function setTransform() {
@@ -26,8 +26,8 @@ function setTransform() {
 
 function mousedown_handler(e) {
   const img = document.getElementById('imagem');
-  const width = img.width;
-  const height = img.height;
+  const width = img.naturalWidth;
+  const height = img.naturalHeight;
 
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
