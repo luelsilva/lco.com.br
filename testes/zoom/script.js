@@ -1,4 +1,4 @@
-const imgNaturalWidth = 0, imgNaturalHeight = 0;
+var imgNaturalWidth = 0, imgNaturalHeight = 0;
 
 var scale = 1,
   panning = false,
