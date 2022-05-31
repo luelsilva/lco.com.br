@@ -16,6 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
+  log('Versão 1 ');
 }
 
 function setTransform() {
@@ -27,7 +28,8 @@ function mousedown_handler(e) {
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
-  log('mouse_dowm ' + e.pointX);
+  log('mouse_dowm');
+  console.log(e);
 }
 
 function pointerdown_handler(e) {
@@ -35,7 +37,7 @@ function pointerdown_handler(e) {
   // This event is cached to support 2-finger gestures
   //e.preventDefault();
   evCache.push(e);
-  log('pointer_down ' + e.pointX);
+  log('pointer_down');
   
 }
 
