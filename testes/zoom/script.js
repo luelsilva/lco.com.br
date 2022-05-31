@@ -4,12 +4,17 @@ var scale = 1,
   pointY = 0,
   start = { x: 0, y: 0 };
 
+var evCache = new Array();
+var prevDiff = -1;
+
+
 function init() {
   var zoom = document.getElementById("zoom");
   zoom.onmousedown = mousedown_handler;
   zoom.onmouseup = mouseup_handler;
   zoom.onmousemove = mousemove_handler;
   zoom.onwheel = mousewhell_handler;
+  zoom.onpointerdown = pointerdown_handler;
 }
 
 function setTransform() {
@@ -19,17 +24,25 @@ function setTransform() {
 
 function mousedown_handler(e) {
   e.preventDefault();
+  log('mouse_dowm');
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
 }
 
+function pointerdown_handler(e) {
+  // The pointerdown event signals the start of a touch interaction.
+  // This event is cached to support 2-finger gestures
+  e.preventDefault();
+  evCache.push(e);
+  log('pointer_down');
+ }
+ 
 function mouseup_handler(e) {
   panning = false;
 }
 
 function mousemove_handler(e) {
   e.preventDefault();
-  log('mouse_move');
   if (!panning) {
     return;
   }
