@@ -16,7 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 4 ');
+  log('Versão 5 ');
 }
 
 function setTransform() {
@@ -32,7 +32,7 @@ function mousedown_handler(e) {
   //log('mouse_dowm');
 
   
-  console.log(myimg);
+  console.log(myimg.clientWidth);
 }
 
 function pointerdown_handler(e) {
