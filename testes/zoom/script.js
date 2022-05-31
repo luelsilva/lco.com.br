@@ -27,7 +27,7 @@ function mousedown_handler(e) {
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
-  log('mouse_dowm ' + e.clientX );
+  log('mouse_dowm ' + e.pointX);
 }
 
 function pointerdown_handler(e) {
@@ -35,7 +35,7 @@ function pointerdown_handler(e) {
   // This event is cached to support 2-finger gestures
   //e.preventDefault();
   evCache.push(e);
-  log('pointer_down ' + e.clientX);
+  log('pointer_down ' + e.pointX);
   
 }
 
