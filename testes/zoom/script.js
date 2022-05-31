@@ -1,3 +1,5 @@
+const imgNaturalWidth = 0, imgNaturalHeight = 0;
+
 var scale = 1,
   panning = false,
   pointX = 0,
@@ -8,6 +10,12 @@ var evCache = new Array();
 var prevDiff = -1;
 
 
+function imgLoad() {
+  const img = document.getElementById('imagem');
+  imgNaturalWidth = img.naturalWidth;
+  imgNaturalHeight = img.naturalHeight;
+}
+
 function init() {
   var zoom = document.getElementById("zoom");
   zoom.onmousedown = mousedown_handler;
@@ -16,7 +24,8 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 10 ');
+  log('Versão 11 ');
+  log(imgNaturalWidth + ' - ' + imgNaturalWidth);
 }
 
 function setTransform() {
@@ -25,17 +34,12 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
-  const img = document.getElementById('imagem');
-  const width = img.naturalWidth;
-  const height = img.naturalHeight;
 
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
   //log('mouse_dowm');
-
-
-  console.log(width + ' - ' + height);
+  log(imgNaturalWidth + ' - ' + imgNaturalWidth);
 }
 
 function pointerdown_handler(e) {

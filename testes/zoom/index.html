@@ -12,7 +12,7 @@
   <body onload="init();" style="touch-action:none">
     <div class="zoom_outer">
       <div id="zoom">
-        <img id="imagem" src="mapa.png" alt="zoom" />
+        <img onLoad="imgLoad();" id="imagem" src="mapa.png" alt="zoom" />
       </div>
     </div>
     <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
