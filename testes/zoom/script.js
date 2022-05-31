@@ -16,7 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 1 ');
+  log('Versão 2 ');
 }
 
 function setTransform() {
