@@ -15,6 +15,7 @@ function init() {
   zoom.onmousemove = mousemove_handler;
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
+  zoom.onpointerup = pointerup_handler;
 }
 
 function setTransform() {
@@ -24,9 +25,9 @@ function setTransform() {
 
 function mousedown_handler(e) {
   e.preventDefault();
-  log('mouse_dowm');
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
+  log('mouse_dowm');
 }
 
 function pointerdown_handler(e) {
@@ -40,7 +41,31 @@ function pointerdown_handler(e) {
 function mouseup_handler(e) {
   e.preventDefault();
   panning = false;
+  log('mouse_up');
 }
+
+function pointerup_handler(e) {
+  e.preventDefault();
+  // Remove this pointer from the cache and reset the target's
+  // background and border
+  remove_event(e);
+  
+  // If the number of pointers down is less than two then reset diff tracker
+  if (evCache.length < 2) {
+    prevDiff = -1;
+  }
+  log('pointer_up');
+}
+
+function remove_event(e) {
+  // Remove this event from the target's cache
+  for (var i = 0; i < evCache.length; i++) {
+    if (evCache[i].pointerId == e.pointerId) {
+      evCache.splice(i, 1);
+      break;
+    }
+  }
+ }
 
 function mousemove_handler(e) {
   e.preventDefault();
