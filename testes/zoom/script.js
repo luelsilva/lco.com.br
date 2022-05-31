@@ -23,7 +23,7 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
-  e.preventDefault();
+  //e.preventDefault();
   log('mouse_dowm');
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
@@ -32,7 +32,7 @@ function mousedown_handler(e) {
 function pointerdown_handler(e) {
   // The pointerdown event signals the start of a touch interaction.
   // This event is cached to support 2-finger gestures
-  e.preventDefault();
+  //e.preventDefault();
   evCache.push(e);
   log('pointer_down');
  }
