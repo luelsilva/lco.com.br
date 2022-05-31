@@ -16,7 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 3 ');
+  log('Versão 4 ');
 }
 
 function setTransform() {
@@ -25,11 +25,14 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
+  var myimg = document.getElementById("imagem");
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
-  log('mouse_dowm');
-  console.log(e);
+  //log('mouse_dowm');
+
+  
+  console.log(myimg);
 }
 
 function pointerdown_handler(e) {
@@ -37,7 +40,7 @@ function pointerdown_handler(e) {
   // This event is cached to support 2-finger gestures
   //e.preventDefault();
   evCache.push(e);
-  log('pointer_down');
+  //log('pointer_down');
   
 }
 
