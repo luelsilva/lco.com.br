@@ -27,7 +27,7 @@ function mousedown_handler(e) {
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
-  log('mouse_dowm');
+  log('mouse_dowm ' + e.clientX );
 }
 
 function pointerdown_handler(e) {
@@ -35,13 +35,14 @@ function pointerdown_handler(e) {
   // This event is cached to support 2-finger gestures
   //e.preventDefault();
   evCache.push(e);
-  log('pointer_down');
+  log('pointer_down ' + e.clientX);
+  
 }
 
 function mouseup_handler(e) {
   // e.preventDefault();
   panning = false;
-  log('mouse_up');
+  // log('mouse_up');
 }
 
 function pointerup_handler(e) {
@@ -54,7 +55,7 @@ function pointerup_handler(e) {
   if (evCache.length < 2) {
     prevDiff = -1;
   }
-  log('pointer_up');
+  // log('pointer_up');
 }
 
 function remove_event(e) {
