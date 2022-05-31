@@ -24,8 +24,8 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 12 ');
-  log(imgNaturalWidth + ' - ' + imgNaturalWidth);
+  log('Versão 13 ');
+  log(imgNaturalWidth + ' - ' + imgNaturalHeight);
 }
 
 function setTransform() {
