@@ -16,7 +16,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 6 ');
+  log('Versão 8 ');
 }
 
 function setTransform() {
@@ -25,15 +25,17 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
-  var myimg = document.getElementById("imagem");
-  var coord = myimg.getBoundingClientRect();
+  const img = document.getElementById('imagem');
+  const width = img.clientWidth;
+  const height = img.clientHeight;
+
   //e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
   //log('mouse_dowm');
 
-  
-  console.log(coord);
+
+  console.log(width + ' - ' + height);
 }
 
 function pointerdown_handler(e) {
@@ -42,7 +44,7 @@ function pointerdown_handler(e) {
   //e.preventDefault();
   evCache.push(e);
   //log('pointer_down');
-  
+
 }
 
 function mouseup_handler(e) {
