@@ -101,7 +101,7 @@ function mousewhell_handler(e) {
 }
 
 // Log events flag
-var logEvents = false;
+var logEvents = true;
 
 // Logging/debugging functions
 function enableLog(ev) {
