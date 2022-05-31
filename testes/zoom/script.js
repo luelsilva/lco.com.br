@@ -14,6 +14,7 @@ function imgLoad() {
   const img = document.getElementById('imagem');
   imgNaturalWidth = img.naturalWidth;
   imgNaturalHeight = img.naturalHeight;
+  console.log(img);
 }
 
 function init() {
@@ -24,8 +25,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 13 ');
-  log(imgNaturalWidth + ' - ' + imgNaturalHeight);
+  log('Versão 13 <br>');
 }
 
 function setTransform() {
@@ -34,12 +34,15 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
-
-  //e.preventDefault();
+  e.preventDefault();
   start = { x: e.clientX - pointX, y: e.clientY - pointY };
   panning = true;
   //log('mouse_dowm');
-  log(imgNaturalWidth + ' - ' + imgNaturalWidth);
+  const img = document.getElementById('imagem');
+
+  log('natWidth ' + imgNaturalWidth + ' - natHeight ' + imgNaturalHeight + '<br>');
+  log('imgWidth ' + img.clientWidth + ' - ' + 'imgHeight ' + img.clientHeight + '<br>');
+  log('divWidth ' + imgNaturalWidth / img.clientWidth + ' - ' + 'divHeight ' + imgNaturalHeight / img.clientHeight + '<br>');
 }
 
 function pointerdown_handler(e) {
