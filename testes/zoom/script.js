@@ -40,9 +40,9 @@ function mousedown_handler(e) {
   //log('mouse_dowm');
   const img = document.getElementById('imagem');
 
-  log('natWidth ' + imgNaturalWidth + ' - natHeight ' + imgNaturalHeight + '<br>');
-  log('imgWidth ' + img.clientWidth + ' - ' + 'imgHeight ' + img.clientHeight + '<br>');
-  log('divWidth ' + imgNaturalWidth / img.clientWidth + ' - ' + 'divHeight ' + imgNaturalHeight / img.clientHeight + '<br>');
+  log('natWidth: ' + imgNaturalWidth + ' - natHeight: ' + imgNaturalHeight + '<br>');
+  log('imgWidth: ' + img.clientWidth + ' - imgHeight: ' + img.clientHeight + '<br>');
+  log('divWidth: ' + imgNaturalWidth / img.clientWidth + ' - divHeight: ' + imgNaturalHeight / img.clientHeight + '<br>');
 }
 
 function pointerdown_handler(e) {
@@ -111,6 +111,7 @@ function mousewhell_handler(e) {
   pointY = e.clientY - ys * scale;
 
   setTransform();
+  console.log(e);
 }
 
 // Log events flag
