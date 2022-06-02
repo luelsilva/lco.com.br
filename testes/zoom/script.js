@@ -14,7 +14,6 @@ function imgLoad() {
   const img = document.getElementById('imagem');
   imgNaturalWidth = img.naturalWidth;
   imgNaturalHeight = img.naturalHeight;
-  console.log(img);
 }
 
 function init() {
@@ -25,7 +24,7 @@ function init() {
   zoom.onwheel = mousewhell_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 13 <br>');
+  log('Versão 14 <br>');
 }
 
 function setTransform() {
@@ -40,9 +39,19 @@ function mousedown_handler(e) {
   //log('mouse_dowm');
   const img = document.getElementById('imagem');
 
-  log('natWidth: ' + imgNaturalWidth + ' - natHeight: ' + imgNaturalHeight + '<br>');
-  log('imgWidth: ' + img.clientWidth + ' - imgHeight: ' + img.clientHeight + '<br>');
-  log('divWidth: ' + imgNaturalWidth / img.clientWidth + ' - divHeight: ' + imgNaturalHeight / img.clientHeight + '<br>');
+  //log('natWidth: ' + imgNaturalWidth + ' - natHeight: ' + imgNaturalHeight + '<br>');
+  //log('imgWidth: ' + img.clientWidth + ' - imgHeight: ' + img.clientHeight + '<br>');
+  //log('divWidth: ' + imgNaturalWidth / img.clientWidth + ' - divHeight: ' + imgNaturalHeight / img.clientHeight + '<br>');
+}
+
+function mousemove_handler(e) {
+  e.preventDefault();
+  if (!panning) {
+    return;
+  }
+  pointX = e.clientX - start.x;
+  pointY = e.clientY - start.y;
+  setTransform();
 }
 
 function pointerdown_handler(e) {
@@ -83,16 +92,6 @@ function remove_event(e) {
   }
 }
 
-function mousemove_handler(e) {
-  e.preventDefault();
-  if (!panning) {
-    return;
-  }
-  pointX = e.clientX - start.x;
-  pointY = e.clientY - start.y;
-  setTransform();
-}
-
 function mousewhell_handler(e) {
   e.preventDefault();
   var xs = (e.clientX - pointX) / scale,
@@ -111,7 +110,6 @@ function mousewhell_handler(e) {
   pointY = e.clientY - ys * scale;
 
   setTransform();
-  console.log(e);
 }
 
 // Log events flag
