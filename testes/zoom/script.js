@@ -1,14 +1,15 @@
+var scale = 1,
+    panning = false,
+    pointX = 0,
+    pointY = 0,
+    start = { x: 0, y: 0 };
+
 function inicializa() {
-    var scale = 1,
-        panning = false,
-        pointX = 0,
-        pointY = 0,
-        start = { x: 0, y: 0 },
-        zoom = document.getElementById("zoom");
-        zoom.onmousedown = mousedown_handler;
-        zoom.onmouseup = mouseup_handler;                
-        zoom.onmousemove = mousemove_handler;
-        zoom.onwheel = mousewheel_handler;
+    zoom = document.getElementById("zoom");
+    zoom.onmousedown = mousedown_handler;
+    zoom.onmouseup = mouseup_handler;
+    zoom.onmousemove = mousemove_handler;
+    zoom.onwheel = mousewheel_handler;
 }
 
 function setTransform() {
