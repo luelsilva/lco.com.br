@@ -1,17 +1,13 @@
-var imgNaturalWidth = 0,
-  imgNaturalHeight = 0;
-
-var scale = 1,
+var
+  imgNaturalWidth = 0,
+  imgNaturalHeight = 0,
+  scale = 1,
   panning = false,
   pointX = 0,
   pointY = 0,
-  start = {
-    x: 0,
-    y: 0
-  };
-
-var evCache = new Array();
-var prevDiff = -1;
+  start = { x: 0, y: 0 },
+  evCache = new Array(),
+  prevDiff = -1;
 
 
 function imgLoad() {
@@ -42,7 +38,7 @@ function mousedown_handler(e) {
     x: e.clientX - pointX,
     y: e.clientY - pointY
   };
-  panning = true;  
+  panning = true;
 }
 
 function mousemove_handler(e) {
