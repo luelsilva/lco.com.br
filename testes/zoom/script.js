@@ -24,7 +24,6 @@ function init() {
   zoom.onwheel = mousewheel_handler;
   zoom.onpointerdown = pointerdown_handler;
   zoom.onpointerup = pointerup_handler;
-  log('Versão 17 <br>');
 }
 
 function setTransform() {
@@ -33,13 +32,12 @@ function setTransform() {
 }
 
 function mousedown_handler(e) {
-  //e.preventDefault();
+  e.preventDefault();
   start = {
     x: e.clientX - pointX,
     y: e.clientY - pointY
   };
   panning = true;
-  console.log('down');
 }
 
 function mousemove_handler(e) {
