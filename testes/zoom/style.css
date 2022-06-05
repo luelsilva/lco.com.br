@@ -11,7 +11,7 @@
     height: 100%;
     overflow: hidden;
   }
-  .zoom_outer {
+  #zoom_outer {
     border: 2px solid red;
   }
   #zoom {

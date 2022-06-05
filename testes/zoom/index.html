@@ -12,11 +12,13 @@
 </head>
 
 <body onload="inicializa()">
-  <div class="zoom_outer">
+  <div id="zoom_outer">
     <div id="zoom">
-      <img src="mapa.png" alt="zoom" />
+      <img onLoad="imgLoad()" id="imgzoom" src="mapa.png" alt="zoom" />
     </div>
   </div>
+  <p></p>
+  <output></output>
 </body>
 
 </html>
