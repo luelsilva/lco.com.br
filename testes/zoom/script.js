@@ -10,10 +10,10 @@ scale = 1,
 function inicializa() {
     zoom = document.getElementById("zoom");
     zoom.onmouseup = mouseup_handler;
-    zoom.onmousemove = mousemove_handler;
-    zoom.onwheel = mousewheel_handler;
+    //zoom.onmousemove = mousemove_handler;
+    //zoom.onwheel = mousewheel_handler;
 
-    zoom.onpointerdown = pointerdown_handler;
+    //zoom.onpointerdown = pointerdown_handler;
     //zoom.onpointerup = pointerup_handler;
 };
 
