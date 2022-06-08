@@ -14,7 +14,7 @@ function inicializa() {
     zoom.onwheel = mousewheel_handler;
 
     zoom.onpointerdown = pointerdown_handler;
-    zoom.onpointerup = pointerup_handler;
+    //zoom.onpointerup = pointerup_handler;
 };
 
 function imgLoad() {
@@ -43,6 +43,7 @@ function pointerdown_handler(e) {
     e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
+    log("pointerdown")
 };
 
 function pointerup_handler(e) {
