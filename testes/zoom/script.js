@@ -9,7 +9,6 @@ scale = 1,
 
 function inicializa() {
     zoom = document.getElementById("zoom");
-    zoom.onmousedown = mousedown_handler;
     zoom.onmouseup = mouseup_handler;
     zoom.onmousemove = mousemove_handler;
     zoom.onwheel = mousewheel_handler;
@@ -39,15 +38,10 @@ function setTransform() {
         "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 };
 
-function mousedown_handler(e) {
+function pointerdown_handler(e) {
     e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
-    log("mousedown_handler");
-};
-
-function pointerdown_handler(e) {
-    log("pointerdown_handler");
 };
 
 function mouseup_handler(e) {
