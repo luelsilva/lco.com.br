@@ -16,7 +16,7 @@ function inicializa() {
     zoom.onpointerdown = pointerdown_handler;
     zoom.onpointerup = pointerup_handler;
 
-    logx("versão 2");
+    logx("versão 3");
 };
 
 function imgLoad() {
@@ -42,14 +42,14 @@ function setTransform() {
 };
 
 function pointerdown_handler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
     log("pointerdown")
 };
 
 function pointerup_handler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     panning = false;
     log("pointerup");
 }
