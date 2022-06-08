@@ -9,7 +9,7 @@ scale = 1,
 
 function inicializa() {
     zoom = document.getElementById("zoom");
-    zoom.onmouseup = mouseup_handler;
+    //zoom.onmouseup = mouseup_handler;
     //zoom.onmousemove = mousemove_handler;
     //zoom.onwheel = mousewheel_handler;
 
