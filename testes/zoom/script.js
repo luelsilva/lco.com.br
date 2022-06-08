@@ -15,6 +15,8 @@ function inicializa() {
 
     zoom.onpointerdown = pointerdown_handler;
     zoom.onpointerup = pointerup_handler;
+
+    logx("versão 1");
 };
 
 function imgLoad() {
