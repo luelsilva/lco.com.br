@@ -45,11 +45,14 @@ function pointerdown_handler(e) {
     panning = true;
 };
 
-function pointerup_handler(e){
-log("pointerup");
+function pointerup_handler(e) {
+    e.preventDefault();
+    panning = false;
+    log("pointerup");
 }
 
 function mouseup_handler(e) {
+    e.preventDefault();
     panning = false;
     log("mouseup");
 };
