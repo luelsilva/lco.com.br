@@ -1,5 +1,8 @@
 
-scale = 1,
+var evCache = new Array();
+var prevDiff = -1;
+
+var scale = 1,
     panning = false,
     pointX = 0,
     pointY = 0,
@@ -18,7 +21,7 @@ function inicializa() {
     zoom.onpointerup = pointerup_handler;
     zoom.onpointermove = pointermove_handler;
 
-    logx("versão 12");
+    logx("versão 13 <br/>");
 };
 
 function imgLoad() {
@@ -43,30 +46,44 @@ function setTransform() {
         "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 };
 
+function remove_event(ev) {
+    // Remove this event from the target's cache
+    for (var i = 0; i < evCache.length; i++) {
+        if (evCache[i].pointerId == ev.pointerId) {
+            evCache.splice(i, 1);
+            break;
+        }
+    }
+}
+
 function mousedown_handler(e) {
     e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
-    log("mousedown")
 };
 
 function pointerdown_handler(e) {
     //e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
-    log("pointerdown")
+    evCache.push(e);
 };
 
 function pointerup_handler(e) {
     //e.preventDefault();
     panning = false;
-    log("pointerup");
+
+    remove_event(e);
+
+    // If the number of pointers down is less than two then reset diff tracker
+    if (evCache.length < 2) {
+        prevDiff = -1;
+    }
 }
 
 function mouseup_handler(e) {
     e.preventDefault();
     panning = false;
-    log("mouseup");
 };
 
 function mousemove_handler(e) {
@@ -90,7 +107,6 @@ function pointermove_handler(e) {
 
     setTransform();
 };
-
 
 function mousewheel_handler(e) {
     e.preventDefault();
