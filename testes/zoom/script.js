@@ -12,12 +12,12 @@ function inicializa() {
     zoom.onmouseup = mouseup_handler;
     zoom.onmousedown = mousedown_handler;
     zoom.onmousemove = mousemove_handler;
-    //zoom.onwheel = mousewheel_handler;
+    zoom.onwheel = mousewheel_handler;
 
-    //zoom.onpointerdown = pointerdown_handler;
-    //zoom.onpointerup = pointerup_handler;
+    zoom.onpointerdown = pointerdown_handler;
+    zoom.onpointerup = pointerup_handler;
 
-    logx("versão 5");
+    logx("versão 6");
 };
 
 function imgLoad() {
