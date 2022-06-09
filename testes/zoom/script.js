@@ -18,7 +18,7 @@ function inicializa() {
     zoom.onpointerup = pointerup_handler;
     zoom.onpointermove = pointermove_handler;
 
-    logx("versão 11");
+    logx("versão 12");
 };
 
 function imgLoad() {
@@ -81,7 +81,7 @@ function mousemove_handler(e) {
 };
 
 function pointermove_handler(e) {
-    //e.preventDefault();
+    e.preventDefault();
     if (!panning) {
         return;
     }
