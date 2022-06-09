@@ -16,9 +16,9 @@ function inicializa() {
 
     zoom.onpointerdown = pointerdown_handler;
     zoom.onpointerup = pointerup_handler;
-    zoom.onmousemove = pointermove_handler;
+    zoom.onpointermove = pointermove_handler;
 
-    logx("versão 9");
+    logx("versão 10");
 };
 
 function imgLoad() {
