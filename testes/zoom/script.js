@@ -9,12 +9,13 @@ scale = 1,
 
 function inicializa() {
     zoom = document.getElementById("zoom");
-    //zoom.onmouseup = mouseup_handler;
-    zoom.onmousemove = mousemove_handler;
+    zoom.onmouseup = mouseup_handler;
+    zoom.onmousedown = mousedown_handler;
+    //zoom.onmousemove = mousemove_handler;
     //zoom.onwheel = mousewheel_handler;
 
-    zoom.onpointerdown = pointerdown_handler;
-    zoom.onpointerup = pointerup_handler;
+    //zoom.onpointerdown = pointerdown_handler;
+    //zoom.onpointerup = pointerup_handler;
 
     logx("versão 3");
 };
@@ -41,15 +42,22 @@ function setTransform() {
         "translate(" + pointX + "px, " + pointY + "px) scale(" + scale + ")";
 };
 
+function mousedown_handler(e) {
+    e.preventDefault();
+    start = { x: e.clientX - pointX, y: e.clientY - pointY };
+    panning = true;
+    log("mousedown")
+};
+
 function pointerdown_handler(e) {
-    //e.preventDefault();
+    e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
     log("pointerdown")
 };
 
 function pointerup_handler(e) {
-    //e.preventDefault();
+    e.preventDefault();
     panning = false;
     log("pointerup");
 }
