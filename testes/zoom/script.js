@@ -11,13 +11,13 @@ function inicializa() {
     zoom = document.getElementById("zoom");
     zoom.onmouseup = mouseup_handler;
     zoom.onmousedown = mousedown_handler;
-    //zoom.onmousemove = mousemove_handler;
+    zoom.onmousemove = mousemove_handler;
     //zoom.onwheel = mousewheel_handler;
 
     //zoom.onpointerdown = pointerdown_handler;
     //zoom.onpointerup = pointerup_handler;
 
-    logx("versão 4");
+    logx("versão 5");
 };
 
 function imgLoad() {
