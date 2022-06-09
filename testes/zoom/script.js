@@ -14,10 +14,10 @@ function inicializa() {
     zoom.onmousemove = mousemove_handler;
     zoom.onwheel = mousewheel_handler;
 
-    //zoom.onpointerdown = pointerdown_handler;
-    //zoom.onpointerup = pointerup_handler;
+    zoom.onpointerdown = pointerdown_handler;
+    zoom.onpointerup = pointerup_handler;
 
-    logx("versão 7");
+    logx("versão 8");
 };
 
 function imgLoad() {
@@ -50,14 +50,14 @@ function mousedown_handler(e) {
 };
 
 function pointerdown_handler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
     log("pointerdown")
 };
 
 function pointerup_handler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     panning = false;
     log("pointerup");
 }
