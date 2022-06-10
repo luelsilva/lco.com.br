@@ -67,6 +67,7 @@ function pointerdown_handler(e) {
     start = { x: e.clientX - pointX, y: e.clientY - pointY };
     panning = true;
     evCache.push(e);
+    log("pointerdown_handler");
 };
 
 function pointerup_handler(e) {
@@ -79,6 +80,7 @@ function pointerup_handler(e) {
     if (evCache.length < 2) {
         prevDiff = -1;
     }
+    log("pointerup_handler");
 }
 
 function mouseup_handler(e) {
@@ -113,6 +115,8 @@ function mousemove_handler(e) {
 function pointermove_handler(ev) {
     e.preventDefault();
 
+    log("PM 1")
+
     // Find this event in the cache and update its record with this event
     for (var i = 0; i < evCache.length; i++) {
         if (ev.pointerId == evCache[i].pointerId) {
@@ -141,6 +145,7 @@ function pointermove_handler(ev) {
 
         // Cache the distance for the next move event
         prevDiff = curDiff;
+        log("PM 2")
     }
 
     else {
@@ -151,6 +156,7 @@ function pointermove_handler(ev) {
         pointY = e.clientY - start.y;
 
         setTransform();
+        log("PM 3")
     }
 
 
