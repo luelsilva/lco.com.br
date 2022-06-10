@@ -86,28 +86,6 @@ function mouseup_handler(e) {
     panning = false;
 };
 
-function mousemove_handler(e) {
-    e.preventDefault();
-    if (!panning) {
-        return;
-    }
-    pointX = e.clientX - start.x;
-    pointY = e.clientY - start.y;
-
-    setTransform();
-};
-
-function pointermove_handler(e) {
-    e.preventDefault();
-    if (!panning) {
-        return;
-    }
-    pointX = e.clientX - start.x;
-    pointY = e.clientY - start.y;
-
-    setTransform();
-};
-
 function mousewheel_handler(e) {
     e.preventDefault();
     var xs = (e.clientX - pointX) / scale,
@@ -119,4 +97,62 @@ function mousewheel_handler(e) {
     pointY = e.clientY - ys * scale;
 
     setTransform();
-};  
+};
+
+function mousemove_handler(e) {
+    e.preventDefault();
+    if (!panning) {
+        return;
+    }
+    pointX = e.clientX - start.x;
+    pointY = e.clientY - start.y;
+
+    setTransform();
+};
+
+function pointermove_handler(ev) {
+    e.preventDefault();
+
+    // Find this event in the cache and update its record with this event
+    for (var i = 0; i < evCache.length; i++) {
+        if (ev.pointerId == evCache[i].pointerId) {
+            evCache[i] = ev;
+            break;
+        }
+    }
+
+    // If two pointers are down, check for pinch gestures
+    if (evCache.length == 2) {
+        // Calculate the distance between the two pointers
+        var curDiff = Math.abs(evCache[0].clientX - evCache[1].clientX);
+
+        if (prevDiff > 0) {
+            if (curDiff > prevDiff) {
+                // The distance between the two pointers has increased
+                log("Pinch moving OUT -> Zoom in", ev);
+                ev.target.style.background = "pink";
+            }
+            if (curDiff < prevDiff) {
+                // The distance between the two pointers has decreased
+                log("Pinch moving IN -> Zoom out", ev);
+                ev.target.style.background = "lightblue";
+            }
+        }
+
+        // Cache the distance for the next move event
+        prevDiff = curDiff;
+    }
+
+    else {
+        if (!panning) {
+            return;
+        }
+        pointX = e.clientX - start.x;
+        pointY = e.clientY - start.y;
+
+        setTransform();
+    }
+
+
+
+}
