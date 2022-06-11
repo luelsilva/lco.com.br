@@ -10,3 +10,9 @@
       transform-origin: 0px 0px;
       transform: scale(1) translate(0px, 0px);
   }
+
+  div#target > img {
+    border: 2px solid yellow;
+    width: 100%;
+    height: auto;
+  }
