@@ -14,7 +14,7 @@ ul {
 }
 
 .treeview li {
-  background: url(http://jquery.bassistance.de/treeview/images/treeview-default-line.gif) 0 0 no-repeat;
+  background: url(treeview-default-line.gif) 0 0 no-repeat;
   padding: 2px 0 2px 16px;
 }
 
