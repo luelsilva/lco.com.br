@@ -1,0 +1,48 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  padding: 5rem;
+}
+
+ul {
+  list-style-type: none;    
+}
+
+.lco-tv {
+  cursor: pointer;
+}
+
+.lco-tv-item::before {
+  content: "\2610";
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.lco-tv-item.ativado {
+  text-decoration: line-through;
+  color:#888;
+}
+
+.lco-tv-item.ativado::before {
+  content: "\2611";
+}
+
+/* pastas */
+.lco-tv-pasta::before {
+  content: "\25B6";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.lco-tv-pasta.ativado::before {
+  transform: rotate(90deg);
+}
+
+.toggler-target {
+  display: none;
+}
+
+.toggler-target.ativado {
+  display: block;
+}
