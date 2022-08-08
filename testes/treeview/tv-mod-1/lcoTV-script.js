@@ -1,13 +1,13 @@
-const lco_tv_items = document.querySelectorAll(".lco-tv-item");
-const lco_tv_pastas = document.querySelectorAll(".lco-tv-pasta");
+const items = document.querySelectorAll(".item");
+const pastas = document.querySelectorAll(".pasta");
 
-lco_tv_items.forEach((x) => {
+items.forEach((x) => {
   x.addEventListener("click", () => {
     x.classList.toggle("ativado");
   });
 });
 
-lco_tv_pastas.forEach((x) => {
+pastas.forEach((x) => {
   x.addEventListener("click", () => {
     x.classList.toggle("ativado");
     x.nextElementSibling.classList.toggle("ativado");

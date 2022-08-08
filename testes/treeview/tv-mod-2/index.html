@@ -11,16 +11,16 @@
 
 <body>
   <ul id="myUL">
-    <li><span class="caret">Bebidas</span>
-      <ul class="nested">
+    <li><span class="pasta">Bebidas</span>
+      <ul class="envelope">
         <li>Água</li>
         <li>Café</li>
-        <li><span class="caret">Chá</span>
-          <ul class="nested">
+        <li><span class="pasta">Chá</span>
+          <ul class="envelope">
             <li>Chá Preto</li>
             <li>Chá Branco</li>
-            <li><span class="caret">Chá Verde</span>
-              <ul class="nested">
+            <li><span class="pasta">Chá Verde</span>
+              <ul class="envelope">
                 <li>Sencha</li>
                 <li>Gyokuro</li>
                 <li>Matcha</li>
@@ -33,13 +33,13 @@
     </li>
   </ul>
   <script>
-    var toggler = document.getElementsByClassName("caret");
+    var toggler = document.getElementsByClassName("pasta");
     var i;
 
     for (i = 0; i < toggler.length; i++) {
       toggler[i].addEventListener("click", function () {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
-        this.classList.toggle("caret-down");
+        this.parentElement.querySelector(".envelope").classList.toggle("active");
+        this.classList.toggle("active");
       });
     }
   </script>

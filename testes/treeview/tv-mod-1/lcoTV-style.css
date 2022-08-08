@@ -12,37 +12,49 @@ ul {
   cursor: pointer;
 }
 
-.lco-tv-item::before {
+#div1 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: blueviolet;
+  width: 200px;
+  height: 200px;
+}
+
+#div1 {
+  overflow: auto;
+}
+
+.item::before {
   content: "\2610";
   display: inline-block;
   margin-right: 0.5rem;
 }
 
-.lco-tv-item.ativado {
+.item.ativado {
   text-decoration: line-through;
   color:#888;
 }
 
-.lco-tv-item.ativado::before {
+.item.ativado::before {
   content: "\2611";
 }
 
 /* pastas */
-.lco-tv-pasta::before {
+.pasta::before {
   content: "\25B6";
   display: inline-block;
   margin-right: 0.5rem;
   transition: transform 0.3s ease-in-out;
 }
 
-.lco-tv-pasta.ativado::before {
+.pasta.ativado::before {
   transform: rotate(90deg);
 }
 
-.toggler-target {
+.envelope {
   display: none;
 }
 
-.toggler-target.ativado {
+.envelope.ativado {
   display: block;
 }
