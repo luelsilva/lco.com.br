@@ -10,13 +10,12 @@
 
 .u-section-1 .u-image-1 {
   min-height: 678px;
-  background-image: url("images/eeee-min.jpg");
-  background-position: 93.11% 50%;
   --animation-custom_in-translate_x: -300px;
   --animation-custom_in-translate_y: 0px;
   --animation-custom_in-opacity: 0;
   --animation-custom_in-rotate: 0deg;
   --animation-custom_in-scale: 1;
+  background-image: url("images/22.jpg");
 }
 
 .u-section-1 .u-container-layout-1 {
@@ -167,7 +166,8 @@
   }
 
   .u-section-1 .u-image-1 {
-    min-height: 613px;
+    background-position: 93.11% 50%;
+    min-height: 500px;
   }
 
   .u-section-1 .u-layout-cell-2 {
@@ -198,8 +198,8 @@
   }
 
   .u-section-1 .u-image-1 {
-    min-height: 691px;
     order: 1;
+    min-height: 676px;
   }
 
   .u-section-1 .u-layout-cell-2 {
@@ -255,7 +255,7 @@
   }
 
   .u-section-1 .u-image-1 {
-    min-height: 512px;
+    min-height: 507px;
   }
 
   .u-section-1 .u-container-layout-1 {
@@ -278,7 +278,7 @@
   }
 
   .u-section-1 .u-image-1 {
-    min-height: 343px;
+    min-height: 319px;
   }
 
   .u-section-1 .u-container-layout-2 {
