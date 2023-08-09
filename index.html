@@ -9,5 +9,18 @@
     <p><a href="https://drive.google.com/file/d/109oLrURgAnzv5fyGTjrGhOJAHE9lHqo1/view?usp=sharing">Transformadores</a></p>
     <br>
     <p><a href="https://drive.google.com/file/d/10ZK_H-QasuN6X1-YVjuHGhwHVKRw1P4a/view?usp=sharing">Motores</a></p>
+    <br>
+    <br>
+    <script language="javascript">
+        var ip = '<!--#echo var="REMOTE_ADDR"-->'
+        function ipval() {
+        document.myform.ipaddr.value=ip;
+        }
+        window.onload=ipval
+        </script>
+        
+        <form method="post" action="" name="myform">
+          <input type="text" name="ipaddr" readonly>
+        </form>
 </body>
 </html>
