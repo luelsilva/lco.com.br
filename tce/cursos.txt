@@ -1,0 +1,5 @@
+ET,Eletrotécnica,1,2,3
+EM,Eletromecânica,1,2,3
+EE,Eletroeletrônica,1,2,3
+ME,Mecânica,1,2,3
+FM,Fabricação Mecânica,1,2,3

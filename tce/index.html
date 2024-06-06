@@ -108,6 +108,26 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('cursos.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const linhas = data.split('\n');
+                    const cursoSelect = document.getElementById('curso');
+                    linhas.forEach(linha => {
+                        const colunas = linha.split(',');
+                        if (colunas.length >= 2) {
+                            const option = document.createElement('option');
+                            option.value = colunas[0].trim();
+                            option.textContent = colunas[1].trim();
+                            cursoSelect.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar os cursos:', error));
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
