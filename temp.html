@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca no Arquivo de Texto</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="selecao">Escolha uma chave:</label>
+        <select id="selecao">
+            <option value="chave1">Chave 1</option>
+            <option value="chave2">Chave 2</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+        <button type="button" onclick="buscarDados()">Buscar</button>
+    </form>
+
+    <script>
+        async function buscarDados() {
+            const selecao = document.getElementById('selecao');
+            const chaveSelecionada = selecao.value;
+
+            try {
+                const resposta = await fetch('dados.txt');
+                const texto = await resposta.text();
+
+                const linhas = texto.split('\n');
+                let resultado = null;
+
+                for (const linha of linhas) {
+                    const colunas = linha.split(',');
+
+                    if (colunas[0] === chaveSelecionada) {
+                        resultado = colunas;
+                        break;
+                    }
+                }
+
+                if (resultado) {
+                    console.log('Linha encontrada:', resultado);
+                    // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                } else {
+                    console.log('Chave não encontrada.');
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+            }
+        }
+    </script>
+</body>
+</html>

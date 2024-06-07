@@ -56,7 +56,8 @@
                         <option value="" disabled selected></option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
+                <div><span></span></div>
+                <button type="button" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
             </form>
         </div>
     </div>
@@ -85,7 +86,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function imprimir() {
+
             var nomeAluno = document.getElementById('nomeAluno').value;
+            console.log('aki');
             var matriculaAluno = document.getElementById('matriculaAluno').value;
             var cargaHoraria = document.getElementById('cargaHoraria').value;
             var curso = document.getElementById('curso').value;
@@ -93,20 +96,22 @@
             if (!nomeAluno || !matriculaAluno || !cargaHoraria || !curso) {
                 return;
             }
-
-            document.getElementById('print_nome_aluno').innerHTML = document.getElementById('nomeAluno').value.toUpperCase();
-            document.getElementById('print_matricula_aluno').innerHTML = document.getElementById('matriculaAluno').value;
-            document.getElementById('print_nome_curso').innerHTML = document.getElementById('curso').value;
-            document.getElementById('print_carga_horaria').innerHTML = document.getElementById('cargaHoraria').value;
-            document.getElementById('print_data_atual').innerHTML = "Joinville, " + dataAtual();
-
-
+            /*
+                        document.getElementById('print_nome_aluno').innerHTML = document.getElementById('nomeAluno').value.toUpperCase();
+                        document.getElementById('print_matricula_aluno').innerHTML = document.getElementById('matriculaAluno').value;
+                        document.getElementById('print_nome_curso').innerHTML = document.getElementById('curso').value;
+                        document.getElementById('print_carga_horaria').innerHTML = document.getElementById('cargaHoraria').value;
+                        document.getElementById('print_data_atual').innerHTML = "Joinville, " + dataAtual();
+          
+            
 
             document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + document.getElementById('nome_professor').value;
             document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + document.getElementById('matricula_professor').value;
             document.getElementById('print_email_professor').innerHTML = "E-mail: " + document.getElementById('email_professor').value;
+  */
 
-
+            buscarDados();
+            return;
             window.print();
         }
 
@@ -125,6 +130,37 @@
             }
 
             return dia + '/' + mes + '/' + ano;
+        }
+
+        async function buscarDados() {
+            const selecao = document.getElementById('curso');
+            const chaveSelecionada = selecao.value;
+
+            try {
+                const resposta = await fetch('cursos.txt');
+                const texto = await resposta.text();
+
+                const linhas = texto.split('\n');
+                let resultado = null;
+
+                for (const linha of linhas) {
+                    const colunas = linha.split(',');
+
+                    if (colunas[0] === chaveSelecionada) {
+                        resultado = colunas;
+                        break;
+                    }
+                }
+
+                if (resultado) {
+                    console.log('Linha encontrada:', resultado);
+                    // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                } else {
+                    console.log('Chave não encontrada.');
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+            }
         }
     </script>
 </body>
