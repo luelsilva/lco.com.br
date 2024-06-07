@@ -1,0 +1,37 @@
+[
+    {
+        "SIGLA": "ET",
+        "CURSO": "CURSO TÉCNICO EM ELETROTÉCNICA",
+        "MATRICULA": "678682",
+        "PROFESSOR": "Luiz Carlos Oliveira da Silva",
+        "EMAIL": "678682@profe.sed.sc.gov.br"
+    },
+    {
+        "SIGLA": "EE",
+        "CURSO": "CURSO TÉCNICO EM ELETROELETRÔNICA",
+        "MATRICULA": "652976",
+        "PROFESSOR": "Roberli Leopoldino Cantidio",
+        "EMAIL": "652976@profe.sed.sc.gov.br"
+    },
+    {
+        "SIGLA": "EM",
+        "CURSO": "CURSO TÉCNICO EM ELETROMECÂNICA",
+        "MATRICULA": "652976",
+        "PROFESSOR": "Roberli Leopoldino Cantidio",
+        "EMAIL": "652976@profe.sed.sc.gov.br"
+    },
+    {
+        "SIGLA": "ME",
+        "CURSO": "CURSO TÉCNICO EM MECÂNICA",
+        "MATRICULA": "678682",
+        "PROFESSOR": "Luiz Carlos Oliveira da Silva",
+        "EMAIL": "678682@profe.sed.sc.gov.br"
+    },
+    {
+        "SIGLA": "SEG",
+        "CURSO": "CURSO TÉCNICO EM SEGURANÇA DO TRABALHO",
+        "MATRICULA": "988792",
+        "PROFESSOR": "Valmir Inácio",
+        "EMAIL": "valmir.inacio@cedup.com.br"
+    }
+]
