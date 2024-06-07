@@ -1,5 +1,5 @@
-ET, CURSO TÉCNICO EM ELETROTÉCNICA, 678682, Luiz Carlos Oliveira da Silva, 678682@profe.sed.sc.gov.br
-EE, CURSO TÉCNICO EM ELETROELETRÔNICA, 652976, Roberli Leopoldino Cantidio, 652976@profe.sed.sc.gov.br
-EM, CURSO TÉCNICO EM ELETROMECÂNICA, 652976, Roberli Leopoldino Cantidio, 652976@profe.sed.sc.gov.br
-ME, CURSO TÉCNICO EM MECÂNICA, 678682, Luiz Carlos Oliveira da Silva, 678682@profe.sed.sc.gov.br
-SEG, CURSO TÉCNICO EM SEGURANÇA DO TRABALHO, 988792, Valmir Inácio, valmir.inacio@cedup.com.br
+ET,CURSO TÉCNICO EM ELETROTÉCNICA,678682,Luiz Carlos Oliveira da Silva,678682@profe.sed.sc.gov.br
+EE,CURSO TÉCNICO EM ELETROELETRÔNICA,652976,Roberli Leopoldino Cantidio,652976@profe.sed.sc.gov.br
+EM,CURSO TÉCNICO EM ELETROMECÂNICA,652976,Roberli Leopoldino Cantidio,652976@profe.sed.sc.gov.br
+ME,CURSO TÉCNICO EM MECÂNICA,678682,Luiz Carlos Oliveira da Silva,678682@profe.sed.sc.gov.br
+SEG,CURSO TÉCNICO EM SEGURANÇA DO TRABALHO,988792,Valmir Inácio,valmir.inacio@cedup.com.br
