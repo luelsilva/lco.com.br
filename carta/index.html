@@ -233,6 +233,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            console.log('passou ali');
             fetch('cursos.txt')
                 .then(response => response.text())
                 .then(data => {
