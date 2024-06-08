@@ -17,7 +17,7 @@
 
     .print {
         display: none;
-        padding: 15px;
+        padding: 10px;
         width: 900px;
         margin: 0 auto;
     }
@@ -37,7 +37,7 @@
     <div class="dados">
         <div class="container mt-5">
             <h1 class="mb-4">Carta de Apresentação</h1>
-            <form>
+            <form id="formCarta">
                 <div class="form-group">
                     <label for="nomeAluno">Nome do Aluno</label>
                     <input type="text" class="form-control" id="nomeAluno" required>
@@ -56,8 +56,9 @@
                         <option value="" disabled selected></option>
                     </select>
                 </div>
-                <div><span></span></div>
-                <button type="button" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
+                <div><span id="mensagem"></span></div>
+                </br>
+                <button type="submit" class="btn btn-primary">Imprimir</button>
             </form>
         </div>
     </div>
@@ -238,24 +239,40 @@
                         }
                     });
                 })
-                .catch(error => console.error('Erro ao carregar os cursos:', error));
+                .catch(error => {
+                    console.error('Erro ao carregar os cursos:', error);
+                    document.getElementById('mensagem').innerHTML = "Erro ao carregar os cursos";
+                });
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        function imprimir() {
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('formCarta');
+
+        // Adiciona um event listener para o evento de submissão do formulário
+        form.addEventListener('submit', function (event) {
+            // Impede o envio do formulário
+            event.preventDefault();
+
+            // Chama a função desejada
+            imprimir();
+        });
+
+        async function imprimir() {
 
             var nomeAluno = document.getElementById('nomeAluno').value.toUpperCase();
             var matriculaAluno = document.getElementById('matriculaAluno').value;
             var cargaHoraria = document.getElementById('cargaHoraria').value;
             var curso = document.getElementById('curso').value;
 
+            /*
             if (!nomeAluno || !matriculaAluno || !cargaHoraria || !curso) {
                 return;
             }
-
+            */
 
             document.getElementById('print_nome_aluno').innerHTML = nomeAluno;
             document.getElementById('print_matricula_aluno').innerHTML = document.getElementById('matriculaAluno').value;
@@ -265,21 +282,18 @@
             var selectedText = selectElement.options[selectedIndex].text;
 
             document.getElementById('print_nome_curso').innerHTML = selectedText;
-
             document.getElementById('print_carga_horaria').innerHTML = document.getElementById('cargaHoraria').value;
             document.getElementById('print_data_atual').innerHTML = "Joinville, " + dataAtual();
 
-            /*
- 
+            var result = await buscarDados();
 
-document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + document.getElementById('nome_professor').value;
-document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + document.getElementById('matricula_professor').value;
-document.getElementById('print_email_professor').innerHTML = "E-mail: " + document.getElementById('email_professor').value;
-*/
+            if (result) {
+                document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + result[3];
+                document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + result[2];
+                document.getElementById('print_email_professor').innerHTML = "E-mail: " + result[4];
 
-            buscarDados();
-
-            window.print();
+                window.print();
+            }
         }
 
         function dataAtual() {
@@ -320,16 +334,19 @@ document.getElementById('print_email_professor').innerHTML = "E-mail: " + docume
                 }
 
                 if (resultado) {
-                    console.log('Linha encontrada:', resultado);
                     // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                    return resultado;
+
                 } else {
                     console.log('Chave não encontrada.');
+                    document.getElementById('mensagem').innerHTML = "Curso não encontrado";
                 }
             } catch (erro) {
                 console.error('Erro ao buscar dados:', erro);
+                document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
             }
         }
-    </script>
+    </script>s
 </body>
 
 </html>

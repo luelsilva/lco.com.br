@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento Centralizado com Imagens</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .cabecalho img {
+            width: 71px;
+            height: 61px;
+        }
+
+        .cabecalho-text {
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cabecalho">
+        <img src="https://www.lco.com.br/carta/images/brasao_sc.png" alt="brasao_sc">
+        <div class="cabecalho-text">
+            ESTADO DE SANTA CATARINA</br>
+            SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
+            COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
+            CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” CEDUP JOINVILLE
+        </div>
+        <img src="https://www.lco.com.br/carta/images/logo_cedup.jpeg" alt="logo_cedup">
+    </div>
+    <p class="normal00" style="text-align:center; page-break-after:avoid; line-height:normal"><span
+            style="font-family:Arial; font-weight:bold">CARTA DE APRESENTAÇÃO ESTÁGIO CURRICULAR OBRIGATÓRIO</span>
+    </p>
+    <p class="normal00" style="text-indent:35.45pt; text-align:justify; line-height:150%; font-size:16pt">
+        <span style="font-family:Arial">A Coordenação de Estágio do CEDUP apresenta o(a) estudante, </span>
+        <span id="print_nome_aluno"
+        style="font-family:Arial; font-weight:bold">${nome_aluno}</span><span style="font-family:Arial">,
+        matrícula nº </span><span id="print_matricula_aluno" style="font-family:Arial; font-weight:bold">
+        ${matricula_aluno}</span><span style="font-family:Arial">, matriculado(a)</span><span
+        style="font-family:Arial; font-weight:bold"> </span><span style="font-family:Arial">no </span><span
+        id="print_nome_curso" style="font-family:Arial; font-weight:bold">${nome_curso}</span><span
+        style="font-family:Arial">, candidato(a) a
+        uma vaga para </span><span style="font-family:Arial; font-weight:bold">ESTÁGIO CURRICULAR</span><span
+        style="font-family:Arial"> </span><span style="font-family:Arial; font-weight:bold">OBRIGATÓRIO
+        SUPERVISIONADO,
+    </span><span style="font-family:Arial">com carga horária total a cumprir de </span><span
+        id="print_carga_horaria" style="font-family:Arial; font-weight:bold">${carga_horaria}</span><span
+        style="font-family:Arial">
+        horas,
+        estágio esse fundamentado nas </span><span style="font-family:Arial; font-weight:bold">Leis nº 11.788 de
+        25/09/2008 e nº 9.394 de 20/12/1996 da LDB, no Projeto Político Pedagógico e na portaria 124 de
+        21/01/2020 da
+        SED que regulamenta o estágio para os alunos da rede pública estadual.</span></p>
+</body>
+
+</html>
