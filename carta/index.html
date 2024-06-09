@@ -233,8 +233,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            console.log('passou ali');
-            fetch(__dirname + 'cursos.txt')
+            fetch('./cursos.txt')
                 .then(response => response.text())
                 .then(data => {
                     const linhas = data.split('\n');
@@ -328,7 +327,7 @@
             const chaveSelecionada = selecao.value;
 
             try {
-                const resposta = await fetch(__dirname + 'cursos.txt');
+                const resposta = await fetch('./cursos.txt');
                 const texto = await resposta.text();
 
                 const linhas = texto.split('\n');
