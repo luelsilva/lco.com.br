@@ -234,7 +234,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var urlCompleta = window.location.href;
-            console.log(urlCompleta);
+            var url = new URL(urlCompleta)
+
+            console.log(1,url.hostname);
+            console.log(1,url.pathname);
+            console.log(1,url.host);
+            console.log(1,url.href);
 
             fetch('./cursos.txt')
                 .then(response => response.text())
@@ -330,7 +335,13 @@
             const chaveSelecionada = selecao.value;
 
             var urlCompleta = window.location.href;
-            console.log(urlCompleta);
+            var url = new URL(urlCompleta)
+
+            console.log(2,url.hostname);
+            console.log(2,url.pathname);
+            console.log(2,url.host);
+            console.log(2,url.href);
+
 
             try {
                 const resposta = await fetch('./cursos.txt');
