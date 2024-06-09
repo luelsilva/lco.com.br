@@ -233,6 +233,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            var urlCompleta = window.location.href;
+            console.log(urlCompleta);
+
             fetch('./cursos.txt')
                 .then(response => response.text())
                 .then(data => {
@@ -325,6 +328,10 @@
         async function buscarDados() {
             const selecao = document.getElementById('curso');
             const chaveSelecionada = selecao.value;
+
+            var urlCompleta = window.location.href;
+            console.log(urlCompleta);
+
 
             try {
                 const resposta = await fetch('./cursos.txt');
