@@ -233,9 +233,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var urlCompleta = window.location.href;
-            console.log(urlCompleta);
-
             fetch('./cursos.txt')
                 .then(response => response.text())
                 .then(data => {
