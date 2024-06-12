@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeçalhos e Rodapés</title>
+    <!-- Autor: Luiz Carlos Oliveira da Silva -->
+    <!-- E-mail: luizkrx@gmail.com -->
+    <!-- Versão: 2.0 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style type="text/css">
+    /* Estilos gerais */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dados {
+        display: none;
+        padding: 20px;
+        width: 650px;
+        margin: 0 auto;
+    }
+
+
+    .print {
+        display: block;
+        padding: 10px;
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    .normal00 {
+        text-indent: 35.45pt;
+        text-align: justify;
+        line-height: 130%;
+        font-size: 16pt;
+    }
+
+    .variaveis {
+        font-weight: bold;
+    }
+
+    /* Estilos do cabeçalho */
+    #cabecalho {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        /* Ajuste conforme necessário */
+        border-bottom: 1px solid #ccc;
+    }
+
+    #cabecalho-text {
+        margin: 0 10px;
+        font-weight: bold;
+    }
+
+    /* Estilos do conteúdo */
+    #conteudo {
+        margin-top: 120px;
+        /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo cabeçalho */
+        margin-bottom: 70px;
+        /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo rodapé */
+        padding: 20px;
+    }
+
+    /* Estilos do rodapé */
+    #rodape {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        /* Ajuste conforme necessário */
+        background-color: #fff;
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid #ccc;
+    }
+
+    /* Estilos de impressão */
+    @media print {
+        .print {
+            display: block;
+        }
+
+        .dados {
+            display: none;
+        }
+    }
+
+    @media print {
+        #cabecalho {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #rodape {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #conteudo {
+            margin-top: 120px;
+            margin-bottom: 70px;
+        }
+    }
+</style>
+
+<body>
+    <div class="dados">
+        <div class="container mt-5">
+            <h1 class="mb-4">Carta de Apresentação</h1>
+            <form id="formCarta">
+                <div class="form-group">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label for="nomeAluno">Nome Completo do Aluno</label>
+                        <a href="https://docs.google.com/spreadsheets/d/1YnxvWdLLBy-JUysrNW7o9Z_45st_k4Ug/edit?usp=drive_link&ouid=112183676535910190232&rtpof=true&sd=true"
+                            target=”_blank” class="ml-2">Acesso a Planilha</a>
+                    </div>
+                    <input type="text" class="form-control" id="nomeAluno" required>
+                </div>
+                <div class="form-group">
+                    <label for="matriculaAluno">Matrícula do Aluno</label>
+                    <input type="number" class="form-control" id="matriculaAluno" required>
+                </div>
+                <div class="form-group">
+                    <label for="cargaHoraria">Carga Horária</label>
+                    <input type="number" class="form-control" id="cargaHoraria" required>
+                </div>
+                <div class="form-group">
+                    <label for="curso">Selecione o nome do curso</label>
+                    <select class="form-control" id="curso" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+                <div><span id="mensagem"></span></div>
+                </br>
+                <button type="submit" class="btn btn-primary">Imprimir</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="print">
+        <div id="cabecalho">
+            <img src="./images/brazao_sc_217x233.png" alt="brasao_sc" width="60" height="64">
+            <div id="cabecalho-text">
+                ESTADO DE SANTA CATARINA</br>
+                SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
+                COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
+                CEDUP - “DARIO GERALDO SALLES” 
+            </div>
+            <img src="./images/logo_cedup_242x242.png" alt="logo_cedup" width="64" height="64">
+        </div>
+
+        <div id="conteudo">
+            <p class="normal00" style="text-align:center; page-break-after:avoid; line-height:normal"><span
+                    style="font-weight:bold">CARTA DE APRESENTAÇÃO ESTÁGIO CURRICULAR OBRIGATÓRIO</span></p>
+            <p class="normal00"><span>A Coordenação de Estágio do CEDUP apresenta o(a) estudante, </span><span
+                    id="print_nome_aluno" style="font-weight:bold">${nome_aluno}</span><span>, matrícula nº </span><span
+                    id="print_matricula_aluno" style="font-weight:bold">${matricula_aluno}</span><span>,
+                    matriculado(a)</span><span style="font-weight:bold"></span><span> no </span><span
+                    id="print_nome_curso" style="font-weight:bold">${nome_curso}</span><span>, candidato(a) a uma vaga
+                    para </span><span style="font-weight:bold">ESTÁGIO CURRICULAR OBRIGATÓRIO
+                    SUPERVISIONADO,</span><span> com carga horária total a cumprir de </span><span
+                    id="print_carga_horaria" style="font-weight:bold">${carga_horaria}</span><span> horas, estágio esse
+                    fundamentado nas </span><span style="font-weight:bold">Leis nº 11.788 de 25/09/2008 e nº 9.394 de
+                    20/12/1996 da LDB, no Projeto Político Pedagógico e na portaria 124 de 21/01/2020 da SED que
+                    regulamenta o estágio para os alunos da rede pública estadual.</span></p>
+            <p class="normal00"><span>A jornada do estudante/estagiário(a) será de no máximo 6 (seis) horas diárias até
+                    o limite de 30 (trinta) horas semanais. Os alunos que já concluíram o 3º módulo poderão fazer 8
+                    (oito) horas diárias, até o limite de 40 horas semanais.</span></p>
+            <p class="normal00"><span>O estágio passa a ter validade somente após a aprovação do </span><span
+                    style="font-weight:bold">Termo de Compromisso e Plano de Estágio</span><span> encaminhado em três
+                    vias, devidamente preenchidos e assinados pelo aluno e pela concedente, com carimbo do CNPJ. Esse
+                    documento descreve os direitos e deveres das partes envolvidas. </span><span
+                    style="font-weight:bold">Em hipótese alguma o estágio deverá ser iniciado sem a assinatura desse
+                    documento.</span></p>
+            <p class="normal00"><span>No Plano de Estágio deverá conter as atividades que serão desenvolvidas, o
+                    horário, a quantidade de horas diárias e total do aluno.</span></p>
+            <p class="normal00" style="line-height:150%"><span style="font-size:16pt; font-weight:bold">É obrigatório
+                    Seguro de Acidente Pessoais</span><span style="font-size:16pt">. Caso a empresa não contrate o
+                    seguro, a Secretaria de Estado da Educação possui uma apólice para os alunos vinculados às
+                    instituições estaduais de ensino que tenham cursos com estágio obrigatório </span><span
+                    style="font-size:16pt; font-weight:bold">(entrar em contato por email </span><a
+                    href="mailto:estagiocedupjlle@sed.sc.gov.br" style="text-decoration:none"><span
+                        style="font-size:16pt; font-weight:bold; text-decoration:underline; color:#1155cc">estagiocedupjlle@sed.sc.gov.br</span></a><span
+                    style="font-size:16pt; font-weight:bold"> para maiores informações).</span></p>
+            <p class="normal00"><span>Quaisquer alterações nas cláusulas do Termo de Compromisso devem ser imediatamente
+                    comunicadas através de um aditivo ao TCE. </span></p>
+            <p class="normal00"><span>De acordo com a lei do estágio, a concedente facilitará a supervisão </span><span
+                    style="font-style:italic">in loco</span><span> do estágio, realizada pelos representantes da unidade
+                    escolar, disponibilizando a documentação referente ao estágio e avaliações. A Unidade Escolar se
+                    compromete no sigilo das informações obtidas inerentes à supervisão. </span></p>
+            <p class="normal00"><span>O </span><span style="font-weight:bold">Termo de Compromisso e Plano de Estágio
+                </span><span>deverá ser solicitado por e-mail pelo endereço</span><span style="-aw-import:spaces">&#xa0;
+                </span><span
+                    style="text-decoration:underline; color:#1155cc">estagiocedupjlle@sed.sc.gov.br</span><span>.</span>
+            </p>
+            <p class="normal00" style="line-height:normal"><span id="print_nome_professor"
+                    style="font-weight:bold">Dados do orientador de estágio: ${nome_professor}</span></p>
+            <p class="normal00" style="line-height:normal"><span id="print_matricula_professor"
+                    style="font-family:Calibri">Matrícula: ${matricula_professor}</span><span
+                    style="font-family:Calibri; -aw-import:spaces">&#xa0;</span><span
+                    style="font-family:Calibri">–</span><span
+                    style="font-family:Calibri; -aw-import:spaces">&#xa0;</span><span id="print_email_professor"
+                    style="font-family:Calibri">E-mail: ${email_professor}</span></p>
+            <!-- <p class="normal00" style="line-height:normal"><span style="font-family:Calibri; -aw-import:ignore">&#xa0;</span></p> -->
+            <p class="normal00" style="line-height:normal"><span>Atenciosamente,</span></p>
+            <p class="normal00" style="text-align:right; line-height:115%"><span id="print_data_atual">Joinville,
+                    ${data_atual}.</span></p>
+        </div>
+
+        <div id="rodape">
+            <p class="normal00" style="text-align:center"><span>Rua Monsenhor Gercino, 2071
+                    – Bairro Itaum – CEP 89210-155 – Joinville – SC Telefone - 34812136</span></p>
+            <p class="normal00" style="text-align:center">
+                <span style="text-decoration:underline; color:#1155cc">www.cedup.com.br</span>
+                <span> - email - </span><span
+                    style="text-decoration:underline; color:#1155cc">estagiocedupjlle@sed.sc.gov.br</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // var urlCompleta = window.location.href;
+            // var url = new URL(urlCompleta)
+
+            // console.log(1,url.hostname);
+            // console.log(1,url.pathname);
+            // console.log(1,url.host);
+            // console.log(1,url.href);
+
+            fetch('./cursos.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const linhas = data.split('\n');
+                    const cursoSelect = document.getElementById('curso');
+                    linhas.forEach(linha => {
+                        const colunas = linha.split(',');
+                        if (colunas.length >= 2) {
+                            const option = document.createElement('option');
+                            option.value = colunas[0].trim();
+                            option.textContent = colunas[1].trim();
+                            cursoSelect.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar os cursos:', error);
+                    document.getElementById('mensagem').innerHTML = "Erro ao carregar os cursos";
+                });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('formCarta');
+
+        // Adiciona um event listener para o evento de submissão do formulário
+        form.addEventListener('submit', function (event) {
+            // Impede o envio do formulário
+            event.preventDefault();
+
+            // Chama a função desejada
+            imprimir();
+        });
+
+        async function imprimir() {
+
+            var nomeAluno = document.getElementById('nomeAluno').value.toUpperCase();
+            var matriculaAluno = document.getElementById('matriculaAluno').value;
+            var cargaHoraria = document.getElementById('cargaHoraria').value;
+            var curso = document.getElementById('curso').value;
+
+            /*
+            if (!nomeAluno || !matriculaAluno || !cargaHoraria || !curso) {
+                return;
+            }
+            */
+
+            document.getElementById('print_nome_aluno').innerHTML = nomeAluno;
+            document.getElementById('print_matricula_aluno').innerHTML = document.getElementById('matriculaAluno').value;
+
+            var selectElement = document.getElementById("curso");
+            var selectedIndex = selectElement.selectedIndex;
+            var selectedText = selectElement.options[selectedIndex].text;
+
+            document.getElementById('print_nome_curso').innerHTML = selectedText;
+            document.getElementById('print_carga_horaria').innerHTML = document.getElementById('cargaHoraria').value;
+            document.getElementById('print_data_atual').innerHTML = "Joinville, " + dataAtual();
+
+            var result = await buscarDados();
+
+            if (result) {
+                document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + result[3];
+                document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + result[2];
+                document.getElementById('print_email_professor').innerHTML = "E-mail: " + result[4];
+
+                window.print();
+            }
+        }
+
+        function dataAtual() {
+            let data = new Date();
+            let dia = data.getDate();
+            let mes = data.getMonth() + 1; // Os meses em JavaScript são indexados a partir de zero, então adicionamos 1 para obter o mês correto
+            let ano = data.getFullYear();
+
+            // Adicionando zero à esquerda se o dia ou o mês forem menores que 10
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+
+            return dia + '/' + mes + '/' + ano;
+        }
+
+        async function buscarDados() {
+            const selecao = document.getElementById('curso');
+            const chaveSelecionada = selecao.value;
+
+            // var urlCompleta = window.location.href;
+            // var url = new URL(urlCompleta)
+
+            // console.log(2,url.hostname);
+            // console.log(2,url.pathname);
+            // console.log(2,url.host);
+            // console.log(2,url.href);
+
+
+            try {
+                const resposta = await fetch('./cursos.txt');
+                const texto = await resposta.text();
+
+                const linhas = texto.split('\n');
+                let resultado = null;
+
+                for (const linha of linhas) {
+                    const colunas = linha.split(',');
+
+                    if (colunas[0] === chaveSelecionada) {
+                        resultado = colunas;
+                        break;
+                    }
+                }
+
+                if (resultado) {
+                    // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                    return resultado;
+
+                } else {
+                    console.log('Chave não encontrada.');
+                    document.getElementById('mensagem').innerHTML = "Curso não encontrado";
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+                document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
+            }
+        }
+    </script>s
+</body>
+
+</html>
