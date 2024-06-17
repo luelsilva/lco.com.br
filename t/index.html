@@ -25,6 +25,9 @@
     </div>
 
     <script>
+        // Variável que servirá como banco de dados
+        var bancoDeDados = {};
+
         function processarFormulario() {
             // Obtendo os valores dos campos do formulário
             var nome = document.getElementById('nome').value;
@@ -36,17 +39,22 @@
                 // Preenchendo o campo 'codigo' com o timestamp atual
                 codigo = Date.now();
                 document.getElementById('codigo').value = codigo;
+
+                // Adicionando nova entrada ao banco de dados
+                bancoDeDados[codigo] = {
+                    nome: nome,
+                    mensagem: mensagem
+                };
+            } else {
+                // Atualizando entrada existente no banco de dados
+                bancoDeDados[codigo] = {
+                    nome: nome,
+                    mensagem: mensagem
+                };
             }
 
-            // Carregando os valores em variáveis (apenas para demonstração)
-            var valores = {
-                nome: nome,
-                mensagem: mensagem,
-                codigo: codigo
-            };
-
-            // Exibindo os valores no console (ou você pode fazer outra ação, como enviar para um servidor)
-            console.log(valores);
+            // Exibindo o banco de dados atualizado no console
+            console.log(bancoDeDados);
         }
     </script>
 
