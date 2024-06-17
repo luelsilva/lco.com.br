@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-5">
         <h1>Formulário de Entrada</h1>
-        <form>
+        <form id="meuFormulario">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome">
@@ -19,9 +19,36 @@
                 <label for="mensagem">Mensagem:</label>
                 <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
             </div>
-            <button type="button" class="btn btn-primary">Enviar</button>
+            <input type="hidden" id="codigo" name="codigo">
+            <button type="button" class="btn btn-primary" onclick="processarFormulario()">Enviar</button>
         </form>
     </div>
+
+    <script>
+        function processarFormulario() {
+            // Obtendo os valores dos campos do formulário
+            var nome = document.getElementById('nome').value;
+            var mensagem = document.getElementById('mensagem').value;
+            var codigo = document.getElementById('codigo').value;
+
+            // Verificando se o campo 'codigo' está vazio
+            if (!codigo) {
+                // Preenchendo o campo 'codigo' com o timestamp atual
+                codigo = Date.now();
+                document.getElementById('codigo').value = codigo;
+            }
+
+            // Carregando os valores em variáveis (apenas para demonstração)
+            var valores = {
+                nome: nome,
+                mensagem: mensagem,
+                codigo: codigo
+            };
+
+            // Exibindo os valores no console (ou você pode fazer outra ação, como enviar para um servidor)
+            console.log(valores);
+        }
+    </script>
 
     <!-- Importando o JavaScript do Bootstrap e dependências -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
