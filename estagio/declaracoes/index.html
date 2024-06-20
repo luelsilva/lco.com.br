@@ -154,7 +154,7 @@
                         <option value="" disabled selected></option>
                     </select>
                 </div>
-                <div><span id="mensagem"></span></div>
+                <div><span id="mensErroTipoDeclaracao"></span></div>
                 </br>
                 <button type="submit" class="btn btn-primary">Imprimir</button>
             </form>
@@ -163,14 +163,16 @@
 
     <div class="print">
         <div id="cabecalho">
-            <img src="https://www.lco.com.br/estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="71" height="61">
+            <img src="https://www.lco.com.br/estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="71"
+                height="61">
             <div id="cabecalho-text">
                 ESTADO DE SANTA CATARINA</br>
                 SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
                 COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
                 CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” CEDUP JOINVILLE
             </div>
-            <img src="https://www.lco.com.br/estagio/assets/img/logo_cedup_242x242.png" alt="logo_cedup" width="61" height="62">
+            <img src="https://www.lco.com.br/estagio/assets/img/logo_cedup_242x242.png" alt="logo_cedup" width="61"
+                height="62">
         </div>
 
         <div id="conteudo">
@@ -264,7 +266,26 @@
                     document.getElementById('mensErroNomeCurso').innerHTML = "Erro ao carregar os cursos";
                 });
 
-        
+            fetch('https://www.lco.com.br/estagio/assets/tipoDeclaracoes.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const linhas = data.split('\n');
+                    const cursoSelect = document.getElementById('tipoDeclaracao');
+                    linhas.forEach(linha => {
+                        const colunas = linha.split(',');
+                        if (colunas.length >= 2) {
+                            const option = document.createElement('option');
+                            option.value = colunas[0].trim();
+                            option.textContent = colunas[1].trim();
+                            cursoSelect.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar os cursos:', error);
+                    document.getElementById('mensErroTipoDeclaracao').innerHTML = "Erro ao carregar os tipos de declarações";
+                });
+
 
         });
     </script>
