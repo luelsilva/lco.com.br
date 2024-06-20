@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabeçalhos e Rodapés</title>
+    <title>Setor Estágio - Cedup</title>
+    <link rel="icon" href="https://www.lco.com.br/estagio/favicon.png" type="image/png">
     <!-- Autor: Luiz Carlos Oliveira da Silva -->
     <!-- E-mail: luizkrx@gmail.com -->
     <!-- Versão: 2.0 -->
@@ -19,14 +20,13 @@
     }
 
     .dados {
-        display: none;
         padding: 20px;
         width: 650px;
         margin: 0 auto;
     }
 
     .print {
-        display: block;
+        display: none;
         padding: 10px;
         width: 900px;
         margin: 0 auto;
@@ -84,7 +84,7 @@
         background-color: #fff;
         padding: 10px;
         text-align: center;
-        border-top: 1px solid #ccc;
+        /* border-top: 1px solid #ccc; */
     }
 
     /* Estilos de impressão */
@@ -123,7 +123,7 @@
 <body>
     <div class="dados">
         <div class="container mt-5">
-            <h1 class="mb-4">Carta de Apresentação</h1>
+            <h1 class="mb-4">Declaração</h1>
             <form id="formCarta">
                 <div class="form-group">
                     <div class="d-flex justify-content-between align-items-center">
@@ -138,12 +138,12 @@
                     <input type="number" class="form-control" id="matriculaAluno" required>
                 </div>
                 <div class="form-group">
-                    <label for="cargaHoraria">Carga Horária</label>
-                    <input type="number" class="form-control" id="cargaHoraria" required>
+                    <label for="cpfAluno">CPF</label>
+                    <input type="number" class="form-control" id="cpfAluno" required>
                 </div>
                 <div class="form-group">
-                    <label for="curso">Selecione o nome do curso</label>
-                    <select class="form-control" id="curso" required>
+                    <label for="nomeCurso">Selecione o nome do curso</label>
+                    <select class="form-control" id="nomeCurso" required>
                         <option value="" disabled selected></option>
                     </select>
                 </div>
@@ -156,14 +156,14 @@
 
     <div class="print">
         <div id="cabecalho">
-            <img src="./images/brazao_sc_217x233.png" alt="brasao_sc" width="60" height="64">
+            <img src="https://www.lco.com.br/estagio/assets/images/brasao_sc.png" alt="brasao_sc" width="71" height="61">
             <div id="cabecalho-text">
                 ESTADO DE SANTA CATARINA</br>
                 SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
                 COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
-                CEDUP - “DARIO GERALDO SALLES” 
+                CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” CEDUP JOINVILLE
             </div>
-            <img src="./images/logo_cedup_242x242.png" alt="logo_cedup" width="64" height="64">
+            <img src="https://www.lco.com.br/estagio/assets/images/logo_cedup.jpeg" alt="logo_cedup" width="61" height="62">
         </div>
 
         <div id="conteudo">
