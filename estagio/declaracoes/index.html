@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setor Estágio - Cedup</title>
-    <link rel="icon" href="https://www.lco.com.br/estagio/favicon.png" type="image/png">
+    <link rel="icon" href="https://www.lco.com.br/estagio/assets/img/favicon.png" type="image/png">
     <!-- Autor: Luiz Carlos Oliveira da Silva -->
     <!-- E-mail: luizkrx@gmail.com -->
     <!-- Versão: 2.0 -->
@@ -138,12 +138,19 @@
                     <input type="number" class="form-control" id="matriculaAluno" required>
                 </div>
                 <div class="form-group">
-                    <label for="cpfAluno">CPF</label>
+                    <label for="cpfAluno">CPF do Aluno</label>
                     <input type="number" class="form-control" id="cpfAluno" required>
                 </div>
                 <div class="form-group">
                     <label for="nomeCurso">Selecione o nome do curso</label>
                     <select class="form-control" id="nomeCurso" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+                <div><span id="mensErroNomeCurso"></span></div>
+                <div class="form-group">
+                    <label for="tipoDeclaracao">Selecione o tipo da declaração</label>
+                    <select class="form-control" id="tipoDeclaracao" required>
                         <option value="" disabled selected></option>
                     </select>
                 </div>
@@ -156,14 +163,14 @@
 
     <div class="print">
         <div id="cabecalho">
-            <img src="https://www.lco.com.br/estagio/assets/images/brasao_sc.png" alt="brasao_sc" width="71" height="61">
+            <img src="https://www.lco.com.br/estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="71" height="61">
             <div id="cabecalho-text">
                 ESTADO DE SANTA CATARINA</br>
                 SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
                 COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
                 CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” CEDUP JOINVILLE
             </div>
-            <img src="https://www.lco.com.br/estagio/assets/images/logo_cedup.jpeg" alt="logo_cedup" width="61" height="62">
+            <img src="https://www.lco.com.br/estagio/assets/img/logo_cedup_242x242.png" alt="logo_cedup" width="61" height="62">
         </div>
 
         <div id="conteudo">
@@ -237,19 +244,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // var urlCompleta = window.location.href;
-            // var url = new URL(urlCompleta)
-
-            // console.log(1,url.hostname);
-            // console.log(1,url.pathname);
-            // console.log(1,url.host);
-            // console.log(1,url.href);
-
-            fetch('./cursos.txt')
+            fetch('https://www.lco.com.br/estagio/assets/nomeCursos.txt')
                 .then(response => response.text())
                 .then(data => {
                     const linhas = data.split('\n');
-                    const cursoSelect = document.getElementById('curso');
+                    const cursoSelect = document.getElementById('nomeCurso');
                     linhas.forEach(linha => {
                         const colunas = linha.split(',');
                         if (colunas.length >= 2) {
@@ -262,8 +261,11 @@
                 })
                 .catch(error => {
                     console.error('Erro ao carregar os cursos:', error);
-                    document.getElementById('mensagem').innerHTML = "Erro ao carregar os cursos";
+                    document.getElementById('mensErroNomeCurso').innerHTML = "Erro ao carregar os cursos";
                 });
+
+        
+
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -369,11 +371,11 @@
 
                 } else {
                     console.log('Chave não encontrada.');
-                    document.getElementById('mensagem').innerHTML = "Curso não encontrado";
+                    document.getElementById('mensErroNomeCurso').innerHTML = "Curso não encontrado";
                 }
             } catch (erro) {
                 console.error('Erro ao buscar dados:', erro);
-                document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
+                document.getElementById('mensErroNomeCurso').innerHTML = "Erro ao buscar dados";
             }
         }
     </script>s
