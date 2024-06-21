@@ -356,15 +356,6 @@
             const selecao = document.getElementById('curso');
             const chaveSelecionada = selecao.value;
 
-            // var urlCompleta = window.location.href;
-            // var url = new URL(urlCompleta)
-
-            // console.log(2,url.hostname);
-            // console.log(2,url.pathname);
-            // console.log(2,url.host);
-            // console.log(2,url.href);
-
-
             try {
                 const resposta = await fetch('./cursos.txt');
                 const texto = await resposta.text();
