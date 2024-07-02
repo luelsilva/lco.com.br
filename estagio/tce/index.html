@@ -24,28 +24,30 @@
 <body>
     <div class="container mt-5">
         <h3 class="text-center">TCE - Termo de Compromisso de Estágio</h3>
-        <form>
+        <form id="myForm">
             <div class="text-primary">
                 <h4>Dados do Estagiário(a):</h4>
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite o nome completo" required>
+                    <label for="nomeEstagiario">Nome</label>
+                    <input type="text" class="form-control" id="nomeEstagiario" placeholder="Digite o nome completo"
+                        required>
                 </div>
                 <div class="form-group">
-                    <label for="curso">Curso</label>
-                    <select class="form-control" id="curso" required>
+                    <label for="nomeCurso">Curso</label>
+                    <select class="form-control" id="nomeCurso" required>
                         <option value="" disabled selected>Selecione um curso</option>
                     </select>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="matricula">Matrícula</label>
-                        <input type="number" class="form-control" id="matricula" placeholder="Digite a matrícula"
-                            required>
+                        <label for="matriculaEstagiario">Matrícula</label>
+                        <input type="number" class="form-control" id="matriculaEstagiario"
+                            placeholder="Digite a matrícula" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="cpf">CPF</label>
-                        <input type="number" class="form-control" id="cpf" placeholder="Digite o CPF" required>
+                        <label for="cpfEstagiario">CPF</label>
+                        <input type="number" class="form-control" id="cpfEstagiario" placeholder="Digite o CPF"
+                            required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="dataNascimento">Data de Nascimento</label>
@@ -54,28 +56,30 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="telefone">Telefone</label>
-                        <input type="number" class="form-control" id="telefone" placeholder="Digite o telefone"
-                            required>
+                        <label for="telefoneEstagiario">Telefone</label>
+                        <input type="number" class="form-control" id="telefoneEstagiario"
+                            placeholder="Digite o telefone" required>
                     </div>
                     <div class="form-group col-md-8">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite o e-mail" required>
+                        <label for="emailEstagiario">E-mail</label>
+                        <input type="email" class="form-control" id="emailEstagiario" placeholder="Digite o e-mail"
+                            required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="endereco">Endereço</label>
-                    <input type="text" class="form-control" id="endereco"
+                    <label for="enderecoEstagiario">Endereço</label>
+                    <input type="text" class="form-control" id="enderecoEstagiario"
                         placeholder="Digite o endereço completo (Rua, Número, Bairro)" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" required>
+                        <label for="cidadeEstagiario">Cidade:</label>
+                        <input type="text" class="form-control" id="cidadeEstagiario" placeholder="Digite a cidade"
+                            required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="estado">Estado:</label>
-                        <select id="estado" class="form-control" required>
+                        <label for="estadoEstagiario">Estado:</label>
+                        <select id="estadoEstagiario" class="form-control" required>
                             <option value="" disabled selected>Selecione...</option>
                             <option value="Acre">Acre</option>
                             <option value="Alagoas">Alagoas</option>
@@ -107,8 +111,8 @@
                         </select>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cep">CEP:</label>
-                        <input type="text" class="form-control" id="cep" placeholder="Digite o CEP" required>
+                        <label for="cepEstagiario">CEP:</label>
+                        <input type="text" class="form-control" id="cepEstagiario" placeholder="Digite o CEP" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -122,31 +126,33 @@
                     </div>
                 </div>
             </div>
+            </br></br>
             <div class="text-success">
                 <h4>Dados da Empresa:</h4>
                 <div class="form-group">
-                    <label for="nome">Razão Social</label>
-                    <input type="text" class="form-control" id="razao" required>
+                    <label for="nomeEmpresa">Razão Social</label>
+                    <input type="text" class="form-control" id="nomeEmpresa" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="matricula">CNPJ ou CPF</label>
+                        <label for="cnpj">CNPJ ou CPF</label>
                         <input type="number" class="form-control" id="cnpj" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="endereco">Endereço</label>
-                    <input type="text" class="form-control" id="e_endereco"
+                    <label for="enderecoEmpresa">Endereço</label>
+                    <input type="text" class="form-control" id="enderecoEmpresa"
                         placeholder="Digite o endereço completo (Rua, Número, Bairro)" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="cidade">Cidade:</label>
-                        <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" required>
+                        <label for="cidadeEmpresa">Cidade:</label>
+                        <input type="text" class="form-control" id="cidadeEmpresa" placeholder="Digite a cidade"
+                            required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="estado">Estado:</label>
-                        <select id="estado" class="form-control" required>
+                        <label for="estadoEmpresa">Estado:</label>
+                        <select id="estadoEmpresa" class="form-control" required>
                             <option value="" disabled selected>Selecione...</option>
                             <option value="Acre">Acre</option>
                             <option value="Alagoas">Alagoas</option>
@@ -178,23 +184,23 @@
                         </select>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cep">CEP:</label>
-                        <input type="text" class="form-control" id="cep" placeholder="Digite o CEP" required>
+                        <label for="cepEmpresa">CEP:</label>
+                        <input type="text" class="form-control" id="cepEmpresa" placeholder="Digite o CEP" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="telefone">Telefone</label>
-                        <input type="number" class="form-control" id="telefone" required>
+                        <label for="telefoneEmpresa">Telefone</label>
+                        <input type="number" class="form-control" id="telefoneEmpresa" required>
                     </div>
                     <div class="form-group col-md-8">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <label for="emailEmpresa">E-mail</label>
+                        <input type="email" class="form-control" id="emailEmpresa" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="atividade">Ramo de Atividade</label>
-                    <input type="text" class="form-control" id="atividade" required>
+                    <label for="ramoAtividade">Ramo de Atividade</label>
+                    <input type="text" class="form-control" id="ramoAtividade" required>
                 </div>
                 <div class="form-group">
                     <label for="representante">Representante Legal</label>
@@ -219,16 +225,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="cnpj_seguradora">CNPJ da Seguradora</label>
-                    <input type="text" class="form-control" id="cnpj_seguradora" required>
+                    <label for="cnpjSeguradora">CNPJ da Seguradora</label>
+                    <input type="text" class="form-control" id="cnpjSeguradora" required>
                 </div>
             </div>
+            </br></br>
             <div class="text-warning">
                 <h4>Plano de Atividades de Estágio:</h4>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label for="deficiencia">Tipo de Estágio: <label>
-                                <select class="form-control" id="deficiencia" required>
+                        <label for="tipoEstagio">Tipo de Estágio: <label>
+                                <select class="form-control" id="tipoEstagio" required>
                                     <option value="" disabled selected>Selecione uma opção</option>
                                     <option value="obrigatorio">Obrigatório</option>
                                     <option value="naoobrigatorio">Não Obrigatório</option>
@@ -236,7 +243,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="atividades">Atividades:</label>
+                    <label for="atividades">Atividades de Estágio:</label>
                     <textarea class="form-control" id="atividades" name="atividades" rows="15" required></textarea>
                 </div>
             </div>
@@ -263,6 +270,36 @@
                     });
                 })
                 .catch(error => console.error('Erro ao carregar os cursos:', error));
+        });
+    </script>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            let formData = new FormData(event.target);
+            let formObject = {};
+
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            let json = JSON.stringify(formObject);
+            console.log(json); // Aqui você pode fazer o que quiser com o JSON, como enviá-lo via AJAX
+
+            // Exemplo de como enviar via AJAX (fetch API):
+            // fetch('/your-endpoint', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: json
+            // }).then(response => {
+            //     return response.json();
+            // }).then(data => {
+            //     console.log(data);
+            // }).catch(error => {
+            //     console.error('Error:', error);
+            // });
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
