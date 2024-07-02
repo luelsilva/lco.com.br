@@ -254,7 +254,7 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch('../estagio/assets/nomeCursos.txt')
+            fetch('../assets/nomeCursos.txt')
                 .then(response => response.text())
                 .then(data => {
                     const linhas = data.split('\n');
