@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCE-Template</title>
+    <style type="text/css">
+        /* Estilos do cabeçalho */
+        #cabecalho {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            text-align: center;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            padding-left: 20px;
+            /* Ajuste conforme necessário */
+            /* border-bottom: 1px solid #ccc; */
+        }
+
+        #cabecalho-text {
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 16pt;
+        }
+
+        /* Estilos do conteúdo */
+        #conteudo {
+            margin-top: 120px;
+            /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo cabeçalho */
+            margin-bottom: 70px;
+            /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo rodapé */
+            padding: 20px;
+        }
+
+        .paragrafo00 {
+            text-indent: 35.45pt;
+            text-align: justify;
+            line-height: 130%;
+            font-size: 12pt;
+        }
+
+        .normal00 {
+            text-align: justify;
+            line-height: 130%;
+            font-size: 12pt;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .signature-block {
+            text-align: center;
+            line-height: 130%;
+            font-size: 12pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="print">
+        <div id="cabecalho">
+            <img src="../img/brazao_sc_217x233.png" alt="brasao_sc" width="71" height="61">
+            <div id="cabecalho-text">
+                ESTADO DE SANTA CATARINA</br>
+                Secretaria de Estado da Educação</br>
+            </div>
+        </div>
+        <div id="conteudo">
+            <h3>TERMO DE COMPROMISSO DE ESTÁGIO - TCE</h3>
+            <p class="normal00">
+                Este Termo de Compromisso tem por objetivo a realização de estágio de estudantes, do Ensino Médio e suas
+                modalidades, Educação Profissional Técnica de Nível Médio, da educação especial e dos anos finais do
+                ensino fundamental, na modalidade profissional da educação de jovens e adultos das escolas da rede
+                pública estadual de ensino, nos termos da Lei nº 11.788/2008 e Portaria SED N124 de 21/01/2020.
+            </p>
+            <h3>ESTAGIÁRIO (A):</h3>
+            <div class="normal00">
+                Nome: ${nomeEstagiario}</br>
+                Curso: ${nomeCurso}</br>
+                Matrícula: ${matriculaEstagiario}</br>
+                CPF: ${cpfEstagiario}</br>
+                Telefone: ${telefoneEstagiario}</br>
+                E-mail: ${emailEstagiario}</br>
+                Data de Nascimento: ${dataNascimento}</br>
+                Endereço: ${enderecoEstagiario}</br>
+                Pessoa com Deficiência: ${deficiencia}</br>
+            </div>
+            <h3>ESCOLA:</h3>
+            <div class="normal00">
+                Escola: CEDUP - Centro de Educação Profissional Dário Geraldo Salles</br>
+                Mantida pela Secretaria de Estado da Educação CNPJ 82951328/0001-58</br>
+                Endereço: Rua Monsenhor Gercino, 2071 - Bairro: Itaum / CEP: 89210-160</br>
+                Fone: (47) 3481-2136</br>
+                E-mail: estagiocedupjlle@sed.sc.gov.br</br>
+                Diretor: João Carlos de Andrade</br>
+                Fone: (47)-34812332</br>
+                E-mail: diretor20508@sed.sc.gov.br</br>
+                Nome do Professor Orientador de Estágio: ${nomeProfessor}</br>
+                Matrícula do Professor Orientador de Estágio: ${matriculaProfessor}</br>
+                E-mail do Orientador de Estágio: ${emailProfessor}</br>
+            </div>
+            <h3>CAMPO DE ESTÁGIO/CONCEDENTE:</h3>
+            <div class="normal00">Razão Social: ${nomeEmpresa}</br>
+                CNPJ ou CPF e inscrição no órgão Profissional: ${cnpj}</br>
+                Endereço: ${enderecoEmpresa}</br>
+                Fone: ${telefoneEmpresa}</br>
+                E-mail: ${emailEmpresa}</br>
+                Ramo de Atividade: ${ramoAtividade}</br>
+                Representante Legal: ${representante}</br>
+                Nome do Supervisor de Estágio: ${supervidor}</br>
+                Cargo/Função do Supervisor do Estágio: ${cargo}</br>
+                Apólice Nº: ${apolice} Seguradora: ${seguradora} CNPJ: ${cnpjSeguradora}</br></br>
+            </div>
+            <div class="normal00">
+                <b>Cláusula Primeira</b> - O estágio, enquanto ato educativo escolar deve integrar a proposta pedagógica
+                da
+                escola e os instrumentos de planejamento curricular do curso, devendo ser planejado, executado e
+                avaliado de acordo com os objetivos propostos, bem como promover a interação do estudante com o mundo do
+                trabalho, proporcionando-lhe a participação em situações reais de vida e de trabalho, sendo o campo de
+                estágio/concedente uma instância educativa parceira da escola para efetivar esta interação.</br></br>
+            </div>
+            <div class="normal00">
+                <b>Cláusula Segunda</b> - este TCE terá vigência durante o período de ${dataInicio} a ${dataFim},
+                podendo ser rescindido a qualquer tempo, unilateralmente, mediante comunicação do Termo de Realização de
+                Estágio no link https://forms.gle/DabiCbktajvp6nL68, disponível no site da Secretaria de Estado da
+                Educação.</br></br>
+            </div>
+            <div class="normal00">
+                <b>Cláusula Terceira</b> - as atividades a serem exercidas pelo estagiário(a) compreendem as tarefas
+                oriundas
+                do plano de estágio, elaborado em consonância com os objetivos do curso e perfil profissional a ser
+                formado.</br></br>
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Único - o Plano de Estágio é parte integrante deste Termo de Compromisso e deve ser acordado
+                entre as partes envolvidas, podendo ser redirecionado ou alterado, somente com aprovação entre as
+                partes, considerando os objetivos do estágio e por meio de termo aditivo.</br></br>
+            </div>
+            <div class="normal00">
+                <b>Cláusula Quarta</b> - a carga horária de estágio não poderá ultrapassar de 4 (quatro) horas diárias,
+                totalizando 20 (vinte) horas semanais, para estudantes de Ensino Médio e suas modalidades, Educação
+                Profissional Técnica de Nível Médio, da educação especial e dos anos finais do ensino fundamental, na
+                modalidade profissional da educação de jovens e adultos, conforme portaria Estadual N 124 de 21/01/2020.
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Primeiro - a carga horária para o ensino profissional subsequente poderá ser de até 6 (seis)
+                horas diárias, 30 horas semanais, uma vez observada a sobrecarga de atividades do estudante;
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Segundo - é garantida a compatibilidade com as atividades escolares.
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Terceiro - O estágio relativo a cursos que alternam teoria e prática, nos períodos em que não
+                estão programadas aulas presenciais, poderá ter jornada de até 40 (quarenta) horas semanais, desde que
+                isso esteja previsto no projeto pedagógico do curso e da instituição de ensino.</br></br>
+            </div>
+            <div class="normal00">
+                <b>Cláusula Quinta</b> - a duração do estágio, no mesmo campo de estágio/concedente, não poderá exceder
+                2 (dois) anos, exceto quando se tratar de pessoa com deficiência.
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Primeiro - é assegurado ao estagiário(a), sempre que o estágio tenha duração igual ou superior
+                a 1 (um) ano, período de recesso remunerado de 30 (trinta) dias, a ser gozado preferencialmente durante
+                suas férias escolares, de acordo com o disposto na Lei nº 11.788/2008.
+            </div>
+            <div class="paragrafo00">
+                Parágrafo Segundo - caso o período de estágio tenha duração inferior a 1 (um) ano, os dias de recesso
+                previstos neste parágrafo serão concedidos de maneira proporcional.
+            </div>
+            </br>
+            <div class="normal00">
+                <b>Cláusula Sexta</b> - são atribuições do campo de estágio/concedente:</br></br>
+                I - proporcionar ao estagiário(a) condições de aprendizagem significativa, aperfeiçoamento
+                técnico-cultural, científico e de relacionamento humano; Celebrar Termo de Compromisso de Estágio, com a
+                Instituição de Ensino e com o Educando, zelando pelo seu cumprimento;</br>
+                II - contratar em favor do estagiário (a) seguro contra acidentes pessoais;</br>
+                III - ofertar instalações que tenham condições de proporcionar ao estagiário (a) atividades de
+                aprendizagem relacionadas ao seu curso de formação;</br>
+                IV - indicar funcionário de seu quadro de pessoal, com formação ou experiência profissional na área de
+                conhecimento desenvolvida no curso do estagiário (a), para orientar e supervisionar, sendo este
+                supervisor responsável por no máximo 10 (dez) estagiários simultaneamente;</br>
+                V - por ocasião do desligamento do estagiário (a), entregar termo de realização do estágio com indicação
+                resumida das atividades desenvolvidas, dos períodos e da avaliação de desempenho;</br>
+                VI - manter a disposição da fiscalização documentos que comprovem a relação de estágio;</br>
+                VII - enviar à escola, com periodicidade mínima de 6 (seis) meses, relatório de atividades, com vista
+                obrigatória ao estagiário(a);</br>
+                VIII - zelar pela aprendizagem do estagiário (a), em conformidade com o currículo de seu curso de
+                formação;</br>
+                IX - Conceder bolsa auxílio e auxílio transporte como forma de contraprestação na hipótese de estágio
+                não obrigatório;</br>
+                X - fornecer à escola todas as informações necessárias à avaliação e acompanhamento do estágio quando
+                solicitada;</br>
+                XI - sinalizar à escola os casos de descumprimento ao estabelecido neste termo.</br></br>
+                <b>Cláusula Sétima</b> - são atribuições da Escola:</br></br>
+                I - analisar, o Plano de Estágio, sendo a condição indispensável para autorização e encaminhamento do
+                estudante à oportunidade de estágio;</br>
+                II - indicar professor orientador, da área a ser desenvolvida no estágio, como responsável pelo
+                acompanhamento e avaliação das atividades do estagiário(a);</br>
+                III - exigir do estagiário(a) a apresentação periódica, em prazo não superior a 6 (seis) meses, de
+                relatório das atividades desenvolvidas;</br>
+                IV - zelar pelo cumprimento do termo de compromisso, reorientando o estagiário(a) para outro local em
+                caso de descumprimento de suas normas;</br>
+                V - elaborar normas complementares e instrumentos de avaliação dos estágios e de seus estudantes;</br>
+                VI - comunicar ao campo de estágio/concedente, no início do período letivo, as datas de realização das
+                avaliações.</br></br>
+                <b>Cláusula Oitava</b> - são atribuições do Estagiário(a):</br></br>
+                I - cumprir o estabelecido no Plano de Estágio;</br>
+                II - cumprir integralmente as horas previstas para o seu estágio, conforme especificado em cláusula
+                própria;</br>
+                III - manter regularmente preenchido o relatório de atividades exercidas, a ser devidamente conferido
+                pelo supervisor indicado pelo campo de estágio/concedente, e, após visto de ambos, em período não
+                superior à seis meses, providenciar a entrega do relatório ao professor orientador indicado pela
+                escola;</br>
+                IV - apresentar a cada seis meses, declaração atualizada da escola atestando a sua matrícula e regular
+                frequência;</br>
+                V - acatar as normas internas do campo de estágio/concedente, bem como orientações e recomendações
+                efetuadas por seu supervisor de estágio;</br>
+                VI - assinar, ao término do estágio, o Termo de Desligamento do Estágio, a ser fornecido pelo campo de
+                estágio/concedente.</br></br>
+                <b>Cláusula Nona</b> - este estágio poderá ser rescindido nos seguintes casos:</br></br>
+                I - de não cumprimento das cláusulas deste TCE;</br>
+                II - com a conclusão, trancamento, desligamento e abandono do curso;</br>
+                III - a pedido de qualquer uma das partes, a qualquer tempo;</br>
+                IV - após decorrida a terça parte do tempo previsto para a duração do estágio, se comprovada a
+                insuficiência na avaliação de desempenho na concedente ou na escola;</br>
+                V - pelo não comparecimento, sem motivo justificado, por mais de cinco dias, consecutivos ou não, no
+                período de um mês, ou por trinta dias durante o período de estágio;</br></br>
+                <b>Cláusula Décima</b> - O estágio não cria vínculo empregatício de qualquer natureza, observados os
+                seguintes requisitos:</br></br>
+                I - celebração de Termo de Compromisso entre o estudante, a parte campo de estágio/concedente de estágio
+                e a escola;</br>
+                II - compatibilidade entre as atividades desenvolvidas no estágio e aquelas previstas no Termo de
+                Compromisso;</br>
+                III - matrícula e frequência regular do estagiário (a).</br></br>
+                E por estarem de inteiro acordo com a forma deste instrumento, as partes assinam o presente termo de
+                compromisso.</br></br>
+                Local e Data: ${dataAtual}
+            </div>
+            </br></br>
+            <div class="normal00">
+                <div class="signature-row">
+                    <div class="signature-block">
+                        <p>_______________________________</p>
+                        <p>Campo de estágio/concedente</p>
+                    </div>
+                    <div class="signature-block">
+                        <p>_______________________________</p>
+                        <p> Diretor da escola</p>
+                    </div>
+                </div>
+                <div class="signature-row">
+                    <div class="signature-block">
+                        <p>_______________________________</p>
+                        <p>Estagiário</p>
+                    </div>
+                    <div class="signature-block">
+                        <p>_______________________________</p>
+                        <p>Responsável legal</p>
+                        <p>(Caso estagiário seja menor de idade)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
