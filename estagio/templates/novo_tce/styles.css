@@ -1,0 +1,81 @@
+@media print {
+    body {
+        margin: 0;
+    }
+
+    /* Estilos do cabeçalho */
+    .header {
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* text-align: center; */
+        position: fixed;
+        top: 0;
+        /* left: 0;
+        right: 0; */
+        width: 100%;
+        background-color: white;
+        /* ou outra cor, se preferir */
+        height: 50px;
+        /* ajuste conforme necessário */
+        /* padding-left: 20px;   Ajuste conforme necessário */
+        border-bottom: 1px solid black;
+        /* opcional, para separar do conteúdo */
+    }
+
+    .header-text {
+        margin: 0 10px;
+        font-weight: bold;
+        font-size: 16pt;
+    }
+
+    /* Estilos do conteúdo */
+    .content {
+        margin-top: 100px;
+        /* ajuste conforme necessário para evitar sobreposição do conteúdo com o cabeçalho */
+        margin-bottom: 200px;
+        /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo rodapé */
+    }
+
+    /* Para quebrar páginas automaticamente e garantir que o cabeçalho apareça no topo de cada página */
+    .content>* {
+        page-break-inside: avoid;
+    }
+
+    .content::before {
+        content: '';
+        display: block;
+        height: 60px;
+        /* ajuste conforme necessário */
+        page-break-before: always;
+    }
+
+    .content::before:first-child {
+        display: none;
+    }
+
+    .paragrafo00 {
+        text-indent: 35.45pt;
+        text-align: justify;
+        line-height: 130%;
+        font-size: 12pt;
+    }
+
+    .normal00 {
+        text-align: justify;
+        line-height: 130%;
+        font-size: 12pt;
+    }
+
+    .signature-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .signature-block {
+        text-align: center;
+        line-height: 130%;
+        font-size: 12pt;
+    }
+}

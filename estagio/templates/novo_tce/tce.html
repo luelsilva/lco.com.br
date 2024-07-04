@@ -4,77 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCE-Template</title>
-    <style type="text/css">
-        /* Estilos do cabeçalho */
-        #cabecalho {
-            display: flex;
-            align-items: center;
-            /* justify-content: center; */
-            text-align: center;
-            background-color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            padding-left: 20px;
-            /* Ajuste conforme necessário */
-            /* border-bottom: 1px solid #ccc; */
-        }
-
-        #cabecalho-text {
-            margin: 0 10px;
-            font-weight: bold;
-            font-size: 16pt;
-        }
-
-        /* Estilos do conteúdo */
-        #conteudo {
-            margin-top: 120px;
-            /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo cabeçalho */
-            margin-bottom: 70px;
-            /* Ajuste conforme necessário para garantir que o conteúdo não seja obscurecido pelo rodapé */
-            padding: 20px;
-        }
-
-        .paragrafo00 {
-            text-indent: 35.45pt;
-            text-align: justify;
-            line-height: 130%;
-            font-size: 12pt;
-        }
-
-        .normal00 {
-            text-align: justify;
-            line-height: 130%;
-            font-size: 12pt;
-        }
-
-        .signature-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .signature-block {
-            text-align: center;
-            line-height: 130%;
-            font-size: 12pt;
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="print">
-        <div id="cabecalho">
-            <img src="../img/brazao_sc_217x233.png" alt="brasao_sc" width="71" height="61">
-            <div id="cabecalho-text">
+        <!-- <div class="header">
+            <img src="../estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="71" height="61">
+            <div id="header-text">
                 ESTADO DE SANTA CATARINA</br>
                 Secretaria de Estado da Educação</br>
             </div>
-        </div>
-        <div id="conteudo">
+        </div> -->
+        <div class="content">
             <h3>TERMO DE COMPROMISSO DE ESTÁGIO - TCE</h3>
             <p class="normal00">
                 Este Termo de Compromisso tem por objetivo a realização de estágio de estudantes, do Ensino Médio e suas
@@ -82,7 +25,7 @@
                 ensino fundamental, na modalidade profissional da educação de jovens e adultos das escolas da rede
                 pública estadual de ensino, nos termos da Lei nº 11.788/2008 e Portaria SED N124 de 21/01/2020.
             </p>
-            <h3>ESTAGIÁRIO (A):</h3>
+            <h4>ESTAGIÁRIO (A):</h4>
             <div class="normal00">
                 Nome: ${nomeEstagiario}</br>
                 Curso: ${nomeCurso}</br>
@@ -94,7 +37,7 @@
                 Endereço: ${enderecoEstagiario}</br>
                 Pessoa com Deficiência: ${deficiencia}</br>
             </div>
-            <h3>ESCOLA:</h3>
+            <h4>ESCOLA:</h4>
             <div class="normal00">
                 Escola: CEDUP - Centro de Educação Profissional Dário Geraldo Salles</br>
                 Mantida pela Secretaria de Estado da Educação CNPJ 82951328/0001-58</br>
@@ -108,7 +51,7 @@
                 Matrícula do Professor Orientador de Estágio: ${matriculaProfessor}</br>
                 E-mail do Orientador de Estágio: ${emailProfessor}</br>
             </div>
-            <h3>CAMPO DE ESTÁGIO/CONCEDENTE:</h3>
+            <h4>CAMPO DE ESTÁGIO/CONCEDENTE:</h4>
             <div class="normal00">Razão Social: ${nomeEmpresa}</br>
                 CNPJ ou CPF e inscrição no órgão Profissional: ${cnpj}</br>
                 Endereço: ${enderecoEmpresa}</br>
