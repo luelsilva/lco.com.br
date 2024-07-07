@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCE e Plano de Estágio</title>
+    <link rel="icon" href="https://www.lco.com.br/estagio/assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dados">
+        <div class="container mt-5">
+            <h3 class="text-center">TCE - Termo de Compromisso de Estágio</h3>
+            <form id="myForm">
+                <div class="text-primary">
+                    <h4>Dados do Estagiário(a):</h4>
+                    <div class="form-group">
+                        <label for="nomeEstagiario">Nome</label>
+                        <input type="text" class="form-control" name="nomeEstagiario" id="nomeEstagiario"
+                            placeholder="Digite o nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeCurso">Curso</label>
+                        <select class="form-control" name="nomeCurso" id="nomeCurso">
+                            <option value="" disabled selected>Selecione um curso</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="matriculaEstagiario">Matrícula</label>
+                            <input type="number" class="form-control" name="matriculaEstagiario"
+                                id="matriculaEstagiario" placeholder="Digite a matrícula">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cpfEstagiario">CPF</label>
+                            <input type="number" class="form-control" name="cpfEstagiario" id="cpfEstagiario"
+                                placeholder="Digite o CPF">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="dataNascimento">Data de Nascimento</label>
+                            <input type="date" class="form-control" name="dataNascimento" id="dataNascimento">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="telefoneEstagiario">Telefone</label>
+                            <input type="number" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario"
+                                placeholder="Digite o telefone">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="emailEstagiario">E-mail</label>
+                            <input type="email" class="form-control" name="emailEstagiario" id="emailEstagiario"
+                                placeholder="Digite o e-mail">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enderecoEstagiario">Endereço</label>
+                        <input type="text" class="form-control" name="enderecoEstagiario" id="enderecoEstagiario"
+                            placeholder="Digite o endereço completo (Rua, Número, Bairro)">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="cidadeEstagiario">Cidade:</label>
+                            <input type="text" class="form-control" name="cidadeEstagiario" id="cidadeEstagiario"
+                                placeholder="Digite a cidade">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="estadoEstagiario">Estado:</label>
+                            <select name="estadoEstagiario" id="estadoEstagiario" class="form-control">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="Acre">Acre</option>
+                                <option value="Alagoas">Alagoas</option>
+                                <option value="Amapá">Amapá</option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Bahia">Bahia</option>
+                                <option value="Ceará">Ceará</option>
+                                <option value="Distrito Federal">Distrito Federal</option>
+                                <option value="Espírito Santo">Espírito Santo</option>
+                                <option value="Goiás">Goiás</option>
+                                <option value="Maranhão">Maranhão</option>
+                                <option value="Mato Grosso">Mato Grosso</option>
+                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                <option value="Minas Gerais">Minas Gerais</option>
+                                <option value="Pará">Pará</option>
+                                <option value="Paraíba">Paraíba</option>
+                                <option value="Paraná">Paraná</option>
+                                <option value="Pernambuco">Pernambuco</option>
+                                <option value="Piauí">Piauí</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                <option value="Rondônia">Rondônia</option>
+                                <option value="Roraima">Roraima</option>
+                                <option value="Santa Catarina">Santa Catarina</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sergipe">Sergipe</option>
+                                <option value="Tocantins">Tocantins</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cepEstagiario">CEP:</label>
+                            <input type="text" class="form-control" name="cepEstagiario" id="cepEstagiario"
+                                placeholder="Digite o CEP">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="deficiencia">Pessoa com Deficiência</label>
+                            <select class="form-control" name="deficiencia" id="deficiencia">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                </br></br>
+                <div class="text-success">
+                    <h4>Dados da Empresa:</h4>
+                    <div class="form-group">
+                        <label for="nomeEmpresa">Razão Social</label>
+                        <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="cnpj">CNPJ ou CPF</label>
+                            <input type="number" class="form-control" name="cnpj" id="cnpj">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="enderecoEmpresa">Endereço</label>
+                        <input type="text" class="form-control" name="enderecoEmpresa" id="enderecoEmpresa"
+                            placeholder="Digite o endereço completo (Rua, Número, Bairro)">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="cidadeEmpresa">Cidade:</label>
+                            <input type="text" class="form-control" name="cidadeEmpresa" id="cidadeEmpresa"
+                                placeholder="Digite a cidade">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="estadoEmpresa">Estado:</label>
+                            <select name="estadoEmpresa" id="estadoEmpresa" class="form-control">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="Acre">Acre</option>
+                                <option value="Alagoas">Alagoas</option>
+                                <option value="Amapá">Amapá</option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Bahia">Bahia</option>
+                                <option value="Ceará">Ceará</option>
+                                <option value="Distrito Federal">Distrito Federal</option>
+                                <option value="Espírito Santo">Espírito Santo</option>
+                                <option value="Goiás">Goiás</option>
+                                <option value="Maranhão">Maranhão</option>
+                                <option value="Mato Grosso">Mato Grosso</option>
+                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                <option value="Minas Gerais">Minas Gerais</option>
+                                <option value="Pará">Pará</option>
+                                <option value="Paraíba">Paraíba</option>
+                                <option value="Paraná">Paraná</option>
+                                <option value="Pernambuco">Pernambuco</option>
+                                <option value="Piauí">Piauí</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                <option value="Rondônia">Rondônia</option>
+                                <option value="Roraima">Roraima</option>
+                                <option value="Santa Catarina">Santa Catarina</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sergipe">Sergipe</option>
+                                <option value="Tocantins">Tocantins</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cepEmpresa">CEP:</label>
+                            <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa"
+                                placeholder="Digite o CEP">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="telefoneEmpresa">Telefone</label>
+                            <input type="number" class="form-control" name="telefoneEmpresa" id="telefoneEmpresa">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="emailEmpresa">E-mail</label>
+                            <input type="email" class="form-control" name="emailEmpresa" id="emailEmpresa">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ramoAtividade">Ramo de Atividade</label>
+                        <input type="text" class="form-control" name="ramoAtividade" id="ramoAtividade">
+                    </div>
+                    <div class="form-group">
+                        <label for="representante">Representante Legal</label>
+                        <input type="text" class="form-control" name="representante" id="representante">
+                    </div>
+                    <div class="form-group">
+                        <label for="supervidor">Nome do Supervisor de Estágio</label>
+                        <input type="text" class="form-control" name="supervidor" id="supervidor">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo do Supervisor de Estágio</label>
+                        <input type="text" class="form-control" name="cargo" id="cargo">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="apolice">Número da Apólice</label>
+                            <input type="text" class="form-control" name="apolice" id="apolice">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="seguradora">Seguradora</label>
+                            <input type="text" class="form-control" name="seguradora" id="seguradora">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cnpjSeguradora">CNPJ da Seguradora</label>
+                        <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora">
+                    </div>
+                </div>
+                </br></br>
+                <div class="text-warning">
+                    <h4>Plano de Atividades de Estágio:</h4>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="tipoEstagio">Tipo de Estágio: <label>
+                                    <select class="form-control" name="tipoEstagio" id="tipoEstagio">
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="obrigatorio">Obrigatório</option>
+                                        <option value="naoobrigatorio">Não Obrigatório</option>
+                                    </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="atividades">Atividades de Estágio:</label>
+                        <textarea class="form-control" id="atividades" name="atividades" rows="15"></textarea>
+                    </div>
+                </div>
+                </br>
+                <button type="submit" class="btn btn-primary">Imprimir</button>
+            </form>
+            </br></br>
+        </div>
+    </div>
+    <div class="print">
+        <div id="page1" class="page">
+            <header class="header">
+                <img src="../../assets/img/brazao_sc_217x233.png" alt="Brazão SC">
+                <div class="text">
+                    <b>ESTADO DE SANTA CATARINA</b></br>
+                    <b>Secretaria de Estado da Educação</b>
+                </div>
+            </header>
+            <main>
+                <div class="content">
+                    <div style="text-align: center;"><b>TERMO DE COMPROMISSO DE ESTÁGIO - TCE</b></div>
+                    </br>
+                    <p class="normal00">
+                        Este Termo de Compromisso tem por objetivo a realização de estágio de estudantes, do Ensino
+                        Médio e
+                        suas
+                        modalidades, Educação Profissional Técnica de Nível Médio, da educação especial e dos anos
+                        finais do
+                        ensino fundamental, na modalidade profissional da educação de jovens e adultos das escolas da
+                        rede
+                        pública estadual de ensino, nos termos da Lei nº 11.788/2008 e Portaria SED N124 de 21/01/2020.
+                    </p>
+                    <div><b>ESTAGIÁRIO (A):</b></div>
+                    <p class="normal00">
+                        Nome: ${nomeEstagiario}</br>
+                        Curso: ${nomeCurso}</br>
+                        Matrícula: ${matriculaEstagiario}</br>
+                        CPF: ${cpfEstagiario}</br>
+                        Telefone: ${telefoneEstagiario}</br>
+                        E-mail: ${emailEstagiario}</br>
+                        Data de Nascimento: ${dataNascimento}</br>
+                        Endereço: ${enderecoCompletoEstagiario}</br>
+                        Pessoa com Deficiência: ${deficiencia}</br>
+                    </p>
+                    <div><b>ESCOLA:</b></div>
+                    <p class="normal00">
+                        Escola: CEDUP - Centro de Educação Profissional Dário Geraldo Salles</br>
+                        Mantida pela Secretaria de Estado da Educação CNPJ 82951328/0001-58</br>
+                        Endereço: Rua Monsenhor Gercino, 2071 - Bairro: Itaum / CEP: 89210-160</br>
+                        Fone: (47) 3481-2136</br>
+                        E-mail: estagiocedupjlle@sed.sc.gov.br</br>
+                        Diretor: João Carlos de Andrade</br>
+                        Fone: (47) 3481-2332</br>
+                        E-mail: diretor20508@sed.sc.gov.br</br>
+                        Nome do Professor Orientador de Estágio: ${nomeProfessor}</br>
+                        Matrícula do Professor Orientador de Estágio: ${matriculaProfessor}</br>
+                        E-mail do Orientador de Estágio: ${emailProfessor}</br>
+                    </p>
+                    <div><b>CAMPO DE ESTÁGIO/CONCEDENTE:</b></div>
+                    <p class="normal00">Razão Social: ${nomeEmpresa}</br>
+                        CNPJ ou CPF e inscrição no órgão Profissional: ${cnpj}</br>
+                        Endereço: ${enderecoEmpresa}</br>
+                        Fone: ${telefoneEmpresa}</br>
+                        E-mail: ${emailEmpresa}</br>
+                        Ramo de Atividade: ${ramoAtividade}</br>
+                        Representante Legal: ${representante}</br>
+                        Nome do Supervisor de Estágio: ${supervidor}</br>
+                        Cargo/Função do Supervisor do Estágio: ${cargo}</br>
+                        Apólice Nº: ${apolice} Seguradora: ${seguradora} CNPJ: ${cnpjSeguradora}</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Primeira</b> - O estágio, enquanto ato educativo escolar deve integrar a proposta
+                        pedagógica
+                        da
+                        escola e os instrumentos de planejamento curricular do curso, devendo ser planejado, executado e
+                        avaliado de acordo com os objetivos propostos, bem como promover a interação do estudante com o
+                        mundo do
+                        trabalho, proporcionando-lhe a participação em situações reais de vida e de trabalho, sendo o
+                        campo
+                        de
+                        estágio/concedente uma instância educativa parceira da escola para efetivar esta
+                        interação.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Segunda</b> - este TCE terá vigência durante o período de ${dataInicio} a
+                        ${dataFim},
+                        podendo ser rescindido a qualquer tempo, unilateralmente, mediante comunicação do Termo de
+                        Realização de
+                        Estágio no link https://forms.gle/DabiCbktajvp6nL68, disponível no site da Secretaria de Estado
+                        da
+                        Educação.
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Terceira</b> - as atividades a serem exercidas pelo estagiário(a) compreendem as
+                        tarefas
+                        oriundas
+                        do plano de estágio, elaborado em consonância com os objetivos do curso e perfil profissional a
+                        ser
+                        formado.
+                    </p>
+                </div>
+            </main>
+        </div>
+
+        <div id="page2" class="page">
+            <header class="header">
+                <img src="../../assets/img/brazao_sc_217x233.png" alt="Brazão SC">
+                <div class="text">
+                    <b>ESTADO DE SANTA CATARINA</b></br>
+                    <b>Secretaria de Estado da Educação</b>
+                </div>
+            </header>
+            <main>
+                <div class="content">
+                    </br>
+                    <p class="paragrafo00">
+                        Parágrafo Único - o Plano de Estágio é parte integrante deste Termo de Compromisso e deve ser
+                        acordado
+                        entre as partes envolvidas, podendo ser redirecionado ou alterado, somente com aprovação entre
+                        as
+                        partes, considerando os objetivos do estágio e por meio de termo aditivo.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Quarta</b> - a carga horária de estágio não poderá ultrapassar de 4 (quatro) horas
+                        diárias,
+                        totalizando 20 (vinte) horas semanais, para estudantes de Ensino Médio e suas modalidades,
+                        Educação
+                        Profissional Técnica de Nível Médio, da educação especial e dos anos finais do ensino
+                        fundamental,
+                        na
+                        modalidade profissional da educação de jovens e adultos, conforme portaria Estadual N 124 de
+                        21/01/2020.
+                    </p>
+                    <p class="paragrafo00">
+                        Parágrafo Primeiro - a carga horária para o ensino profissional subsequente poderá ser de até 6
+                        (seis)
+                        horas diárias, 30 horas semanais, uma vez observada a sobrecarga de atividades do estudante;
+                    </p>
+                    <p class="paragrafo00">
+                        Parágrafo Segundo - é garantida a compatibilidade com as atividades escolares.
+                    </p>
+                    <p class="paragrafo00">
+                        Parágrafo Terceiro - O estágio relativo a cursos que alternam teoria e prática, nos períodos em
+                        que
+                        não
+                        estão programadas aulas presenciais, poderá ter jornada de até 40 (quarenta) horas semanais,
+                        desde
+                        que
+                        isso esteja previsto no projeto pedagógico do curso e da instituição de ensino.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Quinta</b> - a duração do estágio, no mesmo campo de estágio/concedente, não poderá
+                        exceder
+                        2 (dois) anos, exceto quando se tratar de pessoa com deficiência.
+                    </p>
+                    <p class="paragrafo00">
+                        Parágrafo Primeiro - é assegurado ao estagiário(a), sempre que o estágio tenha duração igual ou
+                        superior
+                        a 1 (um) ano, período de recesso remunerado de 30 (trinta) dias, a ser gozado preferencialmente
+                        durante
+                        suas férias escolares, de acordo com o disposto na Lei nº 11.788/2008.
+                    </p>
+                    <p class="paragrafo00">
+                        Parágrafo Segundo - caso o período de estágio tenha duração inferior a 1 (um) ano, os dias de
+                        recesso
+                        previstos neste parágrafo serão concedidos de maneira proporcional.
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Sexta</b> - são atribuições do campo de estágio/concedente:</br>
+                        I - proporcionar ao estagiário(a) condições de aprendizagem significativa, aperfeiçoamento
+                        técnico-cultural, científico e de relacionamento humano; Celebrar Termo de Compromisso de
+                        Estágio,
+                        com a
+                        Instituição de Ensino e com o Educando, zelando pelo seu cumprimento;</br>
+                        II - contratar em favor do estagiário (a) seguro contra acidentes pessoais;</br>
+                        III - ofertar instalações que tenham condições de proporcionar ao estagiário (a) atividades de
+                        aprendizagem relacionadas ao seu curso de formação;</br>
+                        IV - indicar funcionário de seu quadro de pessoal, com formação ou experiência profissional na
+                        área
+                        de
+                        conhecimento desenvolvida no curso do estagiário (a), para orientar e supervisionar, sendo este
+                        supervisor responsável por no máximo 10 (dez) estagiários simultaneamente;</br>
+                        V - por ocasião do desligamento do estagiário (a), entregar termo de realização do estágio com
+                        indicação
+                        resumida das atividades desenvolvidas, dos períodos e da avaliação de desempenho;</br>
+                        VI - manter a disposição da fiscalização documentos que comprovem a relação de estágio;</br>
+                        VII - enviar à escola, com periodicidade mínima de 6 (seis) meses, relatório de atividades, com
+                        vista
+                        obrigatória ao estagiário(a);</br>
+                        VIII - zelar pela aprendizagem do estagiário (a), em conformidade com o currículo de seu curso
+                        de
+                        formação;</br>
+                        IX - Conceder bolsa auxílio e auxílio transporte como forma de contraprestação na hipótese de
+                        estágio
+                        não obrigatório;</br>
+                        X - fornecer à escola todas as informações necessárias à avaliação e acompanhamento do estágio
+                        quando
+                        solicitada;</br>
+                        XI - sinalizar à escola os casos de descumprimento ao estabelecido neste termo.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Sétima</b> - são atribuições da Escola:</br>
+                        I - analisar, o Plano de Estágio, sendo a condição indispensável para autorização e
+                        encaminhamento
+                        do
+                        estudante à oportunidade de estágio;</br>
+                        II - indicar professor orientador, da área a ser desenvolvida no estágio, como responsável pelo
+                        acompanhamento e avaliação das atividades do estagiário(a);</br>
+                        III - exigir do estagiário(a) a apresentação periódica, em prazo não superior a 6 (seis) meses,
+                        de
+                        relatório das atividades desenvolvidas;
+                    </p>
+                </div>
+            </main>
+        </div>
+
+        <div id="page3" class="page">
+            <header class="header">
+                <img src="../../assets/img/brazao_sc_217x233.png" alt="Brazão SC">
+                <div class="text">
+                    <b>ESTADO DE SANTA CATARINA</b></br>
+                    <b>Secretaria de Estado da Educação</b>
+                </div>
+            </header>
+            <main>
+                <div class="content">
+                    <p class="normal00">
+                        </br>
+                        IV - zelar pelo cumprimento do termo de compromisso, reorientando o estagiário(a) para outro
+                        local
+                        em
+                        caso de descumprimento de suas normas;</br>
+                        V - elaborar normas complementares e instrumentos de avaliação dos estágios e de seus
+                        estudantes;</br>
+                        VI - comunicar ao campo de estágio/concedente, no início do período letivo, as datas de
+                        realização
+                        das
+                        avaliações.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Oitava</b> - são atribuições do Estagiário(a):</br>
+                        I - cumprir o estabelecido no Plano de Estágio;</br>
+                        II - cumprir integralmente as horas previstas para o seu estágio, conforme especificado em
+                        cláusula
+                        própria;</br>
+                        III - manter regularmente preenchido o relatório de atividades exercidas, a ser devidamente
+                        conferido
+                        pelo supervisor indicado pelo campo de estágio/concedente, e, após visto de ambos, em período
+                        não
+                        superior à seis meses, providenciar a entrega do relatório ao professor orientador indicado pela
+                        escola;</br>
+                        IV - apresentar a cada seis meses, declaração atualizada da escola atestando a sua matrícula e
+                        regular
+                        frequência;</br>
+                        V - acatar as normas internas do campo de estágio/concedente, bem como orientações e
+                        recomendações
+                        efetuadas por seu supervisor de estágio;</br>
+                        VI - assinar, ao término do estágio, o Termo de Desligamento do Estágio, a ser fornecido pelo
+                        campo
+                        de
+                        estágio/concedente.</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Nona</b> - este estágio poderá ser rescindido nos seguintes casos:</br>
+                        I - de não cumprimento das cláusulas deste TCE;</br>
+                        II - com a conclusão, trancamento, desligamento e abandono do curso;</br>
+                        III - a pedido de qualquer uma das partes, a qualquer tempo;</br>
+                        IV - após decorrida a terça parte do tempo previsto para a duração do estágio, se comprovada a
+                        insuficiência na avaliação de desempenho na concedente ou na escola;</br>
+                        V - pelo não comparecimento, sem motivo justificado, por mais de cinco dias, consecutivos ou
+                        não, no
+                        período de um mês, ou por trinta dias durante o período de estágio;</br>
+                    </p>
+                    <p class="normal00">
+                        <b>Cláusula Décima</b> - O estágio não cria vínculo empregatício de qualquer natureza,
+                        observados os
+                        seguintes requisitos:</br>
+                        I - celebração de Termo de Compromisso entre o estudante, a parte campo de estágio/concedente de
+                        estágio
+                        e a escola;</br>
+                        II - compatibilidade entre as atividades desenvolvidas no estágio e aquelas previstas no Termo
+                        de
+                        Compromisso;</br>
+                        III - matrícula e frequência regular do estagiário (a).</br>
+                        E por estarem de inteiro acordo com a forma deste instrumento, as partes assinam o presente
+                        termo de
+                        compromisso.
+                    </p>
+                    <p class="normal00">
+                        Local e Data: Joinville, ${dataAtual}
+                    </p>
+
+                    <div class="normal00">
+                        <div class="signature-row">
+                            <div class="signature-block">
+                                <p>_______________________________</p>
+                                <p>Campo de estágio/concedente</p>
+                            </div>
+                            <div class="signature-block">
+                                <p>_______________________________</p>
+                                <p> Diretor da escola</p>
+                            </div>
+                        </div>
+                        <div class="signature-row">
+                            <div class="signature-block">
+                                <p>_______________________________</p>
+                                <p>Estagiário</p>
+                            </div>
+                            <div class="signature-block">
+                                <p>_______________________________</p>
+                                <p>Responsável legal</p>
+                                <p style="font-size: 8pt;">(Caso estagiário seja menor de idade)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="page4" class="page">
+            <header class="header">
+                <img src="../../assets/img/brazao_sc_217x233.png" alt="Brazão SC">
+                <div class="text">
+                    <b>ESTADO DE SANTA CATARINA</b></br>
+                    <b>Secretaria de Estado da Educação</b>
+                </div>
+            </header>
+            <main>
+                </br>
+                <div class="content">
+                    <!-- <div class="plano-estagio" style="width: 50%; margin: 0 auto;"> -->
+                    <div>
+                        <table class="table table-bordered normal00">
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;"><b>PLANO DE ESTÁGIO</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Tipo de Estágio: ${tipoEstagio}</td>
+                                </tr>
+                                <tr>
+                                    <td>Data de Início: ${dataInicio}</td>
+                                </tr>
+                                <tr>
+                                    <td>Data de Fim: ${dataFim}</td>
+                                </tr>
+                                <tr>
+                                    <td>Horário de Estágio: ${horaInicio} as ${horaFim}</td>
+                                </tr>
+                                <tr>
+                                    <td>Carga horária semanal/total: ${cargaSemanal}/${cargaTotal}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nº Apólice de Seguro contra acidentes pessoais: ${apolice}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bolsa auxílio (Conforme a Lei 11788), o Estágio Não Obrigatório, é compulsório a
+                                        bolsa auxílio
+                                        e o vale transporte. O Estágio Obrigatório é optativo, neste caso não havendo o
+                                        benefício, informar ”Estágio
+                                        não remunerado”.</td>
+                                </tr>
+                                <tr>
+                                    <td>${informarBeneficio}</br></br></br></br></br></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        Atividades de Estágio:
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv')
+                .then(response => response.text())
+                .then(data => {
+
+                    const linhas = data.split('\n');
+                    // Ignora a primeira linha
+                    const linhasSemPrimeira = linhas.slice(1);
+
+                    const cursoSelect = document.getElementById('nomeCurso');
+                    linhasSemPrimeira.forEach(linha => {
+                        const colunas = linha.split(',');
+                        if (colunas.length >= 2) {
+                            const option = document.createElement('option');
+                            option.value = colunas[0].trim();
+                            option.textContent = colunas[1].trim();
+                            cursoSelect.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar os cursos:', error));
+        });
+    </script>
+    <script>
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('myForm');
+
+        // Adiciona um event listener para o evento de submissão do formulário
+        form.addEventListener('submit', function (event) {
+            // Impede o envio do formulário
+            event.preventDefault();
+
+            let formData = new FormData(event.target);
+            let formObject = {};
+
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            let json = JSON.stringify(formObject);
+            console.log(json);
+
+
+            return
+
+
+            // Chama a função desejada
+            imprimir();
+        });
+
+        async function imprimir() {
+
+
+            var result = await buscarDados();
+
+            if (result) {
+                document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + result[3];
+                document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + result[2];
+                document.getElementById('print_email_professor').innerHTML = "E-mail: " + result[4];
+
+                window.print();
+            }
+        }
+
+        function dataAtual() {
+            let data = new Date();
+            let dia = data.getDate();
+            let mes = data.getMonth() + 1; // Os meses em JavaScript são indexados a partir de zero, então adicionamos 1 para obter o mês correto
+            let ano = data.getFullYear();
+
+            // Adicionando zero à esquerda se o dia ou o mês forem menores que 10
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+
+            return dia + '/' + mes + '/' + ano;
+        }
+
+        async function buscarDados() {
+            const selecao = document.getElementById('curso');
+            const chaveSelecionada = selecao.value;
+
+            // var urlCompleta = window.location.href;
+            // var url = new URL(urlCompleta)
+
+            // console.log(2,url.hostname);
+            // console.log(2,url.pathname);
+            // console.log(2,url.host);
+            // console.log(2,url.href);
+
+
+            try {
+                const resposta = await fetch('./cursos.txt');
+                const texto = await resposta.text();
+
+                const linhas = texto.split('\n');
+                let resultado = null;
+
+                for (const linha of linhas) {
+                    const colunas = linha.split(',');
+
+                    if (colunas[0] === chaveSelecionada) {
+                        resultado = colunas;
+                        break;
+                    }
+                }
+
+                if (resultado) {
+                    // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                    return resultado;
+
+                } else {
+                    console.log('Chave não encontrada.');
+                    document.getElementById('mensagem').innerHTML = "Curso não encontrado";
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+                document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
+            }
+        }
+    </script>
+</body>
+
+</html>
