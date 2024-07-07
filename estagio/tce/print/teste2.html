@@ -612,7 +612,7 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {         
-            fetch('lco.com.br/estagio/assets/nomeCursos.csv')
+            fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv')
                 .then(response => response.text())
                 .then(data => {
                     const linhas = data.split('\n');
