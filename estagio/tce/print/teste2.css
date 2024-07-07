@@ -4,12 +4,27 @@ body {
     padding: 0;
 }
 
+
+.dados {
+    display: block;
+    /* padding: 20px;
+    width: 650px;
+    margin: 0 auto; */
+}
+
+.print {
+    display: none;
+    /* padding: 10px;
+    width: 900px;
+    margin: 0 auto; */
+}
+
 .page {
     page-break-after: always;
     /* Garante que cada página seja impressa separadamente */
-    width: 21cm;
+    /* width: 21cm; */
     /* Tamanho A4, ajustável conforme necessário */
-    height: 29.7cm;
+    /* height: 29.7cm; */
     margin: 2cm auto;
     /* Margens para centralizar na página */
     position: relative;
@@ -34,6 +49,8 @@ header {
     padding-right: 50px;
     display: flex;
     align-items: center;
+    line-height: 130%;
+    font-size: 14pt;
 }
 
 header img {
@@ -46,22 +63,20 @@ footer {
 }
 
 main {
-    padding-top: 60px;
+    padding-top: 80px;
     padding-left: 60px;
     padding-right: 50px;
 }
 
-.normal00 {
+.normal00,
+.paragrafo00 {
     text-align: justify;
-    line-height: 120%;
-    font-size: 11pt;
+    line-height: 140%;
+    font-size: 14pt;
 }
 
 .paragrafo00 {
     text-indent: 35.45pt;
-    text-align: justify;
-    line-height: 120%;
-    font-size: 11pt;
 }
 
 .signature-row {
@@ -86,5 +101,13 @@ main {
         margin: 0;
         box-shadow: none;
         page-break-after: always;
+    }
+
+    .print {
+        display: block;
+    }
+
+    .dados {
+        display: none;
     }
 }
