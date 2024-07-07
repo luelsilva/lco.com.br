@@ -611,13 +611,17 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {         
+        document.addEventListener("DOMContentLoaded", function () {
             fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv')
                 .then(response => response.text())
                 .then(data => {
+
                     const linhas = data.split('\n');
+                    // Ignora a primeira linha
+                    const linhasSemPrimeira = linhas.slice(1);
+
                     const cursoSelect = document.getElementById('nomeCurso');
-                    linhas.forEach(linha => {
+                    linhasSemPrimeira.forEach(linha => {
                         const colunas = linha.split(',');
                         if (colunas.length >= 2) {
                             const option = document.createElement('option');
@@ -629,6 +633,93 @@
                 })
                 .catch(error => console.error('Erro ao carregar os cursos:', error));
         });
+    </script>
+    <script>
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('myForm');
+
+        // Adiciona um event listener para o evento de submissão do formulário
+        form.addEventListener('submit', function (event) {
+            // Impede o envio do formulário
+            event.preventDefault();
+
+            // Chama a função desejada
+            imprimir();
+        });
+
+        async function imprimir() {
+
+
+            var result = await buscarDados();
+
+            if (result) {
+                document.getElementById('print_nome_professor').innerHTML = "Dados do orientador de estágio: " + result[3];
+                document.getElementById('print_matricula_professor').innerHTML = "Matrícula: " + result[2];
+                document.getElementById('print_email_professor').innerHTML = "E-mail: " + result[4];
+
+                window.print();
+            }
+        }
+
+        function dataAtual() {
+            let data = new Date();
+            let dia = data.getDate();
+            let mes = data.getMonth() + 1; // Os meses em JavaScript são indexados a partir de zero, então adicionamos 1 para obter o mês correto
+            let ano = data.getFullYear();
+
+            // Adicionando zero à esquerda se o dia ou o mês forem menores que 10
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+
+            return dia + '/' + mes + '/' + ano;
+        }
+
+        async function buscarDados() {
+            const selecao = document.getElementById('curso');
+            const chaveSelecionada = selecao.value;
+
+            // var urlCompleta = window.location.href;
+            // var url = new URL(urlCompleta)
+
+            // console.log(2,url.hostname);
+            // console.log(2,url.pathname);
+            // console.log(2,url.host);
+            // console.log(2,url.href);
+
+
+            try {
+                const resposta = await fetch('./cursos.txt');
+                const texto = await resposta.text();
+
+                const linhas = texto.split('\n');
+                let resultado = null;
+
+                for (const linha of linhas) {
+                    const colunas = linha.split(',');
+
+                    if (colunas[0] === chaveSelecionada) {
+                        resultado = colunas;
+                        break;
+                    }
+                }
+
+                if (resultado) {
+                    // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
+                    return resultado;
+
+                } else {
+                    console.log('Chave não encontrada.');
+                    document.getElementById('mensagem').innerHTML = "Curso não encontrado";
+                }
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+                document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
+            }
+        }
     </script>
 </body>
 
