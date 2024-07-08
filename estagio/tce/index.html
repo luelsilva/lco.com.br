@@ -14,9 +14,9 @@
 <body>
     <div class="dados">
         <div class="container mt-5">
-            <h3 class="text-center">TCE - Termo de Compromisso de Estágio</h3>
+            <h3 class="text-center">TCE - Termo de Compromisso de Estágio e Plano de Estágio</h3>
             <form id="myForm">
-                <div class="text-primary">
+                <div style="color: rgb(0, 0, 255);">
                     <h4>Dados do Estagiário(a):</h4>
                     <div class="form-group">
                         <label for="nomeEstagiario">Nome</label>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 </br></br>
-                <div class="text-success">
+                <div style="color: rgb(16, 175, 16);">
                     <h4>Dados da Empresa:</h4>
                     <div class="form-group">
                         <label for="nomeEmpresa">Razão Social</label>
@@ -223,7 +223,7 @@
                     </div>
                 </div>
                 </br></br>
-                <div class="text-warning">
+                <div style="color: rgb(236, 67, 132);">
                     <h4>Plano de Estágio:</h4>
                     <div class="form-row">
                         <div class="form-group col-md-3">
@@ -235,17 +235,46 @@
                                     </select>
                         </div>
                     </div>
-
-                    
-
-                    aqui devoc colocar o plano de estagio
-
-
-
-
                     <div class="form-group">
-                        <label for="atividades">Atividades de Estágio:</label>
-                        <textarea class="form-control" id="atividades" name="atividades" rows="15"></textarea>
+                        <label for="horarioEstagio">Horário de Estágio: (caso necessário, informe o horário de
+                            almoço)</label>
+                        <textarea class="form-control" id="horarioEstagio" name="horarioEstagio" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="cargaHorariaSemanal">Carga Horária Semanal</label>
+                            <input type="number" class="form-control" name="cargaHorariaSemanal"
+                                id="cargaHorariaSemanal">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cargaHorariaTotal">Carga Horária Total</label>
+                            <input type="number" class="form-control" name="cargaHorariaTotal" id="cargaHorariaTotal">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="dataInicio">Data de Início</label>
+                            <input type="date" class="form-control" name="dataInicio" id="dataInicio">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="dataFim">Data de Fim</label>
+                            <input type="date" class="form-control" name="dataFim" id="dataFim">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="bolsaAuxilio">
+                                Bolsa auxílio (Conforme a Lei 11788), o Estágio Não Obrigatório, é compulsório a bolsa
+                                auxílio e o vale transporte. O Estágio Obrigatório é optativo, neste caso não havendo o
+                                benefício, informar ”Estágio não remunerado”.</label>
+                            <input type="text" class="form-control" name="bolsaAuxilio" id="bolsaAuxilio">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="atividades">Atividades de Estágio:</label>
+                            <textarea class="form-control" id="atividades" name="atividades" rows="15"></textarea>
+                        </div>
                     </div>
                 </div>
                 </br>
