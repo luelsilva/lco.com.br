@@ -796,12 +796,12 @@
                     .replace('${tipoEstagio}', formObject["tipoEstagio"])
                     .replace('${dataInicio2}', await formataData(formObject["dataInicio"]))
                     .replace('${dataFim2}', await formataData(formObject["dataFim"]))
-                    .replace('${horarioEstagio}', formObject["horarioEstagio"])
+                    .replace('${horarioEstagio}', formObject["horarioEstagio"].replace(/\n/g, "<br>"))
                     .replace('${cargaHorariaSemanal}', formObject["cargaHorariaSemanal"])
                     .replace('${cargaHorariaTotal}', formObject["cargaHorariaTotal"])
                     .replace('${apolice2}', formObject["apolice"])
-                    .replace('${bolsaAuxilio}', formObject["bolsaAuxilio"])
-                    .replace('${atividades}', formObject["atividades"])
+                    .replace('${bolsaAuxilio}', formObject["bolsaAuxilio"].replace(/\n/g, "<br>"))
+                    .replace('${atividades}', formObject["atividades"].replace(/\n/g, "<br>"))
 
                 window.print();
             }
