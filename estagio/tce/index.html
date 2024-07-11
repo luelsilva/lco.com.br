@@ -18,16 +18,18 @@
             <form id="myForm">
                 <div style="color: rgb(0, 0, 255);">
                     <h4>Dados do Estagiário(a):</h4>
-                    <div class="form-group">
-                        <label for="nomeEstagiario">Nome</label>
-                        <input type="text" class="form-control" name="nomeEstagiario" id="nomeEstagiario"
-                            placeholder="Digite o nome completo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="siglaCurso">Curso</label>
-                        <select class="form-control" name="siglaCurso" id="siglaCurso" required>
-                            <option value="" disabled selected>Selecione um curso</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nomeEstagiario">Nome</label>
+                            <input type="text" class="form-control" name="nomeEstagiario" id="nomeEstagiario"
+                                placeholder="Digite o nome completo" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="siglaCurso">Curso</label>
+                            <select class="form-control" name="siglaCurso" id="siglaCurso" required>
+                                <option value="" disabled selected>Selecione um curso</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -134,12 +136,12 @@
                 </br></br>
                 <div style="color: rgb(16, 175, 16);">
                     <h4>Dados da Empresa:</h4>
-                    <div class="form-group">
-                        <label for="nomeEmpresa">Razão Social</label>
-                        <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa" required>
-                    </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
+                            <label for="nomeEmpresa">Razão Social</label>
+                            <input type="text" class="form-control" name="nomeEmpresa" id="nomeEmpresa" required>
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="cnpj">CNPJ ou CPF</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" required />
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
@@ -206,43 +208,47 @@
                                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                             <!-- <input type="number" class="form-control" name="telefoneEmpresa" id="telefoneEmpresa"> -->
                         </div>
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-4">
                             <label for="emailEmpresa">E-mail</label>
                             <input type="email" class="form-control" name="emailEmpresa" id="emailEmpresa" required>
                         </div>
+                        <div class="form-group col-md-4">
+                            <label for="ramoAtividade">Ramo de Atividade</label>
+                            <input type="text" class="form-control" name="ramoAtividade" id="ramoAtividade" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="ramoAtividade">Ramo de Atividade</label>
-                        <input type="text" class="form-control" name="ramoAtividade" id="ramoAtividade" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="representante">Representante Legal</label>
-                        <input type="text" class="form-control" name="representante" id="representante" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="supervidor">Nome do Supervisor de Estágio</label>
-                        <input type="text" class="form-control" name="supervidor" id="supervidor" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cargo">Cargo do Supervisor de Estágio</label>
-                        <input type="text" class="form-control" name="cargo" id="cargo" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="representante">Representante Legal</label>
+                            <input type="text" class="form-control" name="representante" id="representante" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="supervidor">Nome do Supervisor de Estágio</label>
+                            <input type="text" class="form-control" name="supervidor" id="supervidor" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cargo">Cargo do Supervisor de Estágio</label>
+                            <input type="text" class="form-control" name="cargo" id="cargo" required>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="apolice">Número da Apólice</label>
                             <input type="text" class="form-control" name="apolice" id="apolice" required>
                         </div>
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-4">
                             <label for="seguradora">Seguradora</label>
                             <input type="text" class="form-control" name="seguradora" id="seguradora" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cnpjSeguradora">CNPJ da Seguradora</label>
-                        <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora" required />
+                        <div class="form-group col-md-4">
+                            <label for="cnpjSeguradora">CNPJ da Seguradora</label>
+                            <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora"
+                                required />
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
-                        <!-- <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora"> -->
+                            <!-- <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora"> -->
+                        </div>
                     </div>
+
                 </div>
                 </br></br>
                 <div style="color: orangered">
