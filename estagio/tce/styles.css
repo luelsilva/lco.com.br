@@ -90,6 +90,13 @@ main {
     text-indent: 35.45pt;
 }
 
+.last-footer{
+    text-align: justify;
+    line-height: 100%;
+    font-size: 10pt;
+    font-style: italic;
+}
+
 .signature-row {
     display: flex;
     justify-content: space-between;
