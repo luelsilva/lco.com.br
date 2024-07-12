@@ -21,8 +21,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nomeEstagiario">Nome</label>
-                            <input type="text" class="form-control" name="nomeEstagiario" id="nomeEstagiario"
-                                placeholder="Digite o nome completo" required>
+                            <input type="text" class="form-control" name="nomeEstagiario" id="nomeEstagiario" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="siglaCurso">Curso</label>
@@ -36,15 +35,14 @@
                             <label for="matriculaEstagiario">Matrícula</label>
 
                             <input type="text" class="form-control" name="matriculaEstagiario" id="matriculaEstagiario"
-                                placeholder="Digite a matrícula" required
+                                required
                                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                             <!-- <input type="number" class="form-control" name="matriculaEstagiario"
                                 id="matriculaEstagiario" placeholder="Digite a matrícula"> -->
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cpfEstagiario">CPF</label>
-                            <input type="text" class="form-control" name="cpfEstagiario" id="cpfEstagiario"
-                                placeholder="Digite o CPF" required />
+                            <input type="text" class="form-control" name="cpfEstagiario" id="cpfEstagiario" required />
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="cpfEstagiario" id="cpfEstagiario"
                                 placeholder="Digite o CPF"> -->
@@ -58,7 +56,7 @@
                         <div class="form-group col-md-4">
                             <label for="telefoneEstagiario">Telefone</label>
                             <input type="text" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario"
-                                placeholder="Digite o Telefone" required
+                                required
                                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                             <!-- <input type="number" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario"
                                 placeholder="Digite o telefone"> -->
@@ -66,19 +64,38 @@
                         <div class="form-group col-md-8">
                             <label for="emailEstagiario">E-mail</label>
                             <input type="email" class="form-control" name="emailEstagiario" id="emailEstagiario"
-                                placeholder="Digite o e-mail" required>
+                                required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="enderecoEstagiario">Endereço (Rua, Av., ...)</label>
-                        <input type="text" class="form-control" name="enderecoEstagiario" id="enderecoEstagiario"
-                            placeholder="Digite o endereço completo (Rua, Número, Bairro)" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="cepEstagiario">CEP:</label>
+                            <input type="text" class="form-control" name="cepEstagiario" id="cepEstagiario"
+                                onblur="pesquisacep_estagiario(this.value);" required />
+                            <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
+                            <!-- <input type="text" class="form-control" name="cepEstagiario" id="cepEstagiario"
+                                placeholder="Digite o CEP"> -->
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="enderecoEstagiario">Endereço (Rua, Av., ...)</label>
+                            <input type="text" class="form-control" name="enderecoEstagiario" id="enderecoEstagiario"
+                                required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="numEnderEstagiario">Número</label>
+                            <input type="text" class="form-control" name="numEnderEstagiario" id="numEnderEstagiario"
+                                required>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
+                            <label for="bairroEstagiario">Bairro:</label>
+                            <input type="text" class="form-control" name="bairroEstagiario" id="bairroEstagiario">
+                        </div>
+                        <div class="form-group col-md-4">
                             <label for="cidadeEstagiario">Cidade:</label>
                             <input type="text" class="form-control" name="cidadeEstagiario" id="cidadeEstagiario"
-                                placeholder="Digite a cidade" required>
+                                required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="estadoEstagiario">Estado:</label>
@@ -113,14 +130,6 @@
                                 <option value="TO">Tocantins</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="cepEstagiario">CEP:</label>
-                            <input type="text" class="form-control" name="cepEstagiario" id="cepEstagiario"
-                                placeholder="Digite o CEP" required
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-                            <!-- <input type="text" class="form-control" name="cepEstagiario" id="cepEstagiario"
-                                placeholder="Digite o CEP"> -->
-                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
@@ -148,13 +157,32 @@
                             <!-- <input type="number" class="form-control" name="cnpj" id="cnpj"> -->
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="enderecoEmpresa">Endereço (Rua, Av., ...)</label>
-                        <input type="text" class="form-control" name="enderecoEmpresa" id="enderecoEmpresa"
-                            placeholder="Digite o endereço completo (Rua, Número, Bairro)" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="cepEmpresa">CEP:</label>
+                            <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa"
+                                onblur="pesquisacep_empresa(this.value);" required placeholder="Digite o CEP"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                            <!-- <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa"
+                            placeholder="Digite o CEP"> -->
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="enderecoEmpresa">Endereço (Rua, Av., ...)</label>
+                            <input type="text" class="form-control" name="enderecoEmpresa" id="enderecoEmpresa"
+                                placeholder="Digite o endereço completo (Rua, Número, Bairro)" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="numEnderEmpresa">Número</label>
+                            <input type="text" class="form-control" name="numEnderEmpresa" id="numEnderEmpresa"
+                                required>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
+                            <label for="bairroEmpresa">Bairro:</label>
+                            <input type="text" class="form-control" name="bairroEmpresa" id="bairroEmpresa">
+                        </div>
+                        <div class="form-group col-md-4">
                             <label for="cidadeEmpresa">Cidade:</label>
                             <input type="text" class="form-control" name="cidadeEmpresa" id="cidadeEmpresa"
                                 placeholder="Digite a cidade" required>
@@ -191,14 +219,6 @@
                                 <option value="SE">Sergipe</option>
                                 <option value="TO">Tocantins</option>
                             </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="cepEmpresa">CEP:</label>
-                            <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa" required
-                                placeholder="Digite o CEP"
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-                            <!-- <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa"
-                                placeholder="Digite o CEP"> -->
                         </div>
                     </div>
                     <div class="form-row">
@@ -743,12 +763,14 @@
             });
 
             const enderecoCompletoEstagiario = formObject["enderecoEstagiario"] || "" + ", " +
+                formObject["numEnderEstagiario"] || "" + " - " + formObject["bairroEstagiario"] || "" + " " +
                 formObject["cidadeEstagiario"] || "" + ", " + formObject["estadoEstagiario"] || "" + ", " +
                 formObject["cepEstagiario"] || ""
 
             formObject["enderecoCompletoEstagiario"] = enderecoCompletoEstagiario;
 
             const enderecoCompletoEmpresa = formObject["enderecoEmpresa"] || "" + ", " +
+            formObject["numEnderEmpresa"] || "" + " - " + formObject["bairroEmpresa"] || "" + " " +
                 formObject["cidadeEmpresa"] || "" + ", " + formObject["estadoEmpresa"] || "" + ", " +
                 formObject["cepEmpresa"] || ""
 
@@ -915,6 +937,137 @@
 
         }
 
+        function limpa_formulário_cep_estagiario() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('enderecoEstagiario').value = ("");
+            document.getElementById('numEnderEstagiario').value = ("");
+            document.getElementById('bairroEstagiario').value = ("");
+            document.getElementById('cidadeEstagiario').value = ("");
+            document.getElementById('estadoEstagiario').value = ("");
+        }
+
+        function meu_callback_estagiario(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('enderecoEstagiario').value = (conteudo.logradouro);
+                document.getElementById('bairroEstagiario').value = (conteudo.bairro);
+                document.getElementById('cidadeEstagiario').value = (conteudo.localidade);
+                document.getElementById('estadoEstagiario').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep_estagiario();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function limpa_formulário_cep_empresa() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('enderecoEmpresa').value = ("");
+            document.getElementById('numEnderEmpresa').value = ("");
+            document.getElementById('bairroEmpresa').value = ("");
+            document.getElementById('cidadeEmpresa').value = ("");
+            document.getElementById('estadoEmpresa').value = ("");
+        }
+
+        function meu_callback_empresa(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('enderecoEmpresa').value = (conteudo.logradouro);
+                document.getElementById('bairroEmpresa').value = (conteudo.bairro);
+                document.getElementById('cidadeEmpresa').value = (conteudo.localidade);
+                document.getElementById('estadoEmpresa').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep_empresa();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep_estagiario(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('enderecoEstagiario').value = "...";
+                    document.getElementById('bairroEstagiario').value = "...";
+                    document.getElementById('cidadeEstagiario').value = "...";
+                    document.getElementById('estadoEstagiario').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback_estagiario';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep_estagiario();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep_estagiario();
+            }
+        };
+
+        function pesquisacep_empresa(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('enderecoEmpresa').value = "...";
+                    document.getElementById('bairroEmpresa').value = "...";
+                    document.getElementById('cidadeEmpresa').value = "...";
+                    document.getElementById('estadoEmpresa').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback_empresa';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep_empresa();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep_empresa();
+            }
+        };
 
     </script>
 </body>
