@@ -31,13 +31,15 @@ form.addEventListener('submit', function (event) {
   // pega dados do form
   let formData = new FormData(event.target);
 
-  console.log(formData);
-
   let formObject = {};
 
   formData.forEach((value, key) => {
     formObject[key] = value;
   });
+
+  // para mostrar todos os inputs do form
+  let valores = JSON.stringify(formObject);
+  console.log(valores);
 
   const estagEnder = formObject["enderecoEstagiario"] || ""
   const estagNum = formObject["numEnderEstagiario"] || ""
@@ -313,14 +315,27 @@ function pesquisaCep(valor, quem) { // 1 para estagiario 2 para empresa
   }
 };
 
+// upload de arquivo texto
+document.getElementById('fileInput').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          const text = e.target.result;
+          populateForm(text);
+      };
+      reader.readAsText(file);
+  }
+});
+
 // preencher os inputs do form com um texto organizado em colunas
 function populateForm(text) {
   const lines = text.split('\n');
   lines.forEach(line => {
-      const [key, value] = line.split(',');
-      const input = document.getElementById(key.trim());
-      if (input) {
-          input.value = value.trim();
-      }
+    const [key, value] = line.split('%');
+    const input = document.getElementById(key.trim());
+    if (input) {
+      input.value = value.trim();
+    }
   });
 }

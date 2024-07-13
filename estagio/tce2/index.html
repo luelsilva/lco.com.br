@@ -33,15 +33,14 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="matriculaEstagiario">Matrícula</label>
-                            <input type="text" class="form-control" name="matriculaEstagiario" id="matriculaEstagiario"
-                                required
+                            <input type="text" class="form-control" name="matriculaEstagiario" id="matriculaEstagiario" required
                                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                             <!-- <input type="number" class="form-control" name="matriculaEstagiario"
                                 id="matriculaEstagiario" placeholder="Digite a matrícula"> -->
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cpfEstagiario">CPF</label>
-                            <input type="text" class="form-control" name="cpfEstagiario" id="cpfEstagiario" required />
+                            <input type="text" class="form-control" name="cpfEstagiario" id="cpfEstagiario" required>
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="cpfEstagiario" id="cpfEstagiario"
                                 placeholder="Digite o CPF"> -->
@@ -54,16 +53,14 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="telefoneEstagiario">Telefone</label>
-                            <input type="text" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario"
-                                required />
+                            <input type="text" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario" required>
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="telefoneEstagiario" id="telefoneEstagiario"
                                 placeholder="Digite o telefone"> -->
                         </div>
                         <div class="form-group col-md-8">
                             <label for="emailEstagiario">E-mail</label>
-                            <input type="email" class="form-control" name="emailEstagiario" id="emailEstagiario"
-                                required>
+                            <input type="email" class="form-control" name="emailEstagiario" id="emailEstagiario" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -77,25 +74,21 @@
                         </div>
                         <div class="form-group col-md-8">
                             <label for="enderecoEstagiario">Endereço (Rua, Av., ...)</label>
-                            <input type="text" class="form-control" name="enderecoEstagiario" id="enderecoEstagiario"
-                                required>
+                            <input type="text" class="form-control" name="enderecoEstagiario" id="enderecoEstagiario" required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="numEnderEstagiario">Número</label>
-                            <input type="text" class="form-control" name="numEnderEstagiario" id="numEnderEstagiario"
-                                required>
+                            <input type="text" class="form-control" name="numEnderEstagiario" id="numEnderEstagiario" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="bairroEstagiario">Bairro:</label>
-                            <input type="text" class="form-control" name="bairroEstagiario" id="bairroEstagiario"
-                                required>
+                            <input type="text" class="form-control" name="bairroEstagiario" id="bairroEstagiario" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cidadeEstagiario">Cidade:</label>
-                            <input type="text" class="form-control" name="cidadeEstagiario" id="cidadeEstagiario"
-                                required>
+                            <input type="text" class="form-control" name="cidadeEstagiario" id="cidadeEstagiario" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="estadoEstagiario">Estado:</label>
@@ -152,7 +145,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cnpj">CNPJ ou CPF</label>
-                            <input type="text" class="form-control" name="cnpj" id="cnpj" required />
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" required>
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="cnpj" id="cnpj"> -->
                         </div>
@@ -162,19 +155,17 @@
                             <label for="cepEmpresa">CEP:</label>
                             <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa" required
                                 onblur="pesquisaCep(this.value, 2);"
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                             <!-- <input type="text" class="form-control" name="cepEmpresa" id="cepEmpresa"
                             placeholder="Digite o CEP"> -->
                         </div>
                         <div class="form-group col-md-8">
                             <label for="enderecoEmpresa">Endereço (Rua, Av., ...)</label>
-                            <input type="text" class="form-control" name="enderecoEmpresa" id="enderecoEmpresa"
-                                required>
+                            <input type="text" class="form-control" name="enderecoEmpresa" id="enderecoEmpresa" required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="numEnderEmpresa">Número</label>
-                            <input type="text" class="form-control" name="numEnderEmpresa" id="numEnderEmpresa"
-                                required>
+                            <input type="text" class="form-control" name="numEnderEmpresa" id="numEnderEmpresa" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -223,8 +214,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="telefoneEmpresa">Telefone</label>
-                            <input type="text" class="form-control" name="telefoneEmpresa" id="telefoneEmpresa"
-                                required />
+                            <input type="text" class="form-control" name="telefoneEmpresa" id="telefoneEmpresa" required/>
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="telefoneEmpresa" id="telefoneEmpresa"> -->
                         </div>
@@ -262,8 +252,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cnpjSeguradora">CNPJ da Seguradora</label>
-                            <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora"
-                                required />
+                            <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora" required/>
                             <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="text" class="form-control" name="cnpjSeguradora" id="cnpjSeguradora"> -->
                         </div>
@@ -286,20 +275,17 @@
                     <div class="form-group">
                         <label for="horarioEstagio">Horário de Estágio: (caso necessário, informe o horário de
                             almoço)</label>
-                        <textarea class="form-control" id="horarioEstagio" name="horarioEstagio" rows="3"
-                            required></textarea>
+                        <textarea class="form-control" id="horarioEstagio" name="horarioEstagio" rows="3" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="cargaHorariaSemanal">Carga Horária Semanal</label>
-                            <input type="number" class="form-control" name="cargaHorariaSemanal" required
-                                id="cargaHorariaSemanal">
+                            <input type="text" class="form-control" name="cargaHorariaSemanal" id="cargaHorariaSemanal" required/>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="cargaHorariaTotal">Carga Horária Total</label>
-                            <input type="text" class="form-control" name="cargaHorariaTotal" id="cargaHorariaTotal"
-                                required
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                            <input type="text" class="form-control" name="cargaHorariaTotal" id="cargaHorariaTotal" required/>
+                                <!-- oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /> -->
                             <!-- <input type="number" class="form-control" name="cargaHorariaTotal" id="cargaHorariaTotal"> -->
                         </div>
                     </div>
@@ -326,14 +312,15 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="atividades">Atividades de Estágio:</label>
-                            <textarea class="form-control" id="atividades" name="atividades" rows="15"
-                                required></textarea>
+                            <textarea class="form-control" id="atividades" name="atividades" rows="15" required></textarea>
                         </div>
                     </div>
                 </div>
                 </br>
                 <button type="submit" class="btn btn-primary">Imprimir</button>
             </form>
+            </br></br>
+            <input type="file" id="fileInput">
             </br></br>
         </div>
     </div>
@@ -619,7 +606,7 @@
                     <p class="normal00">
                         Local e Data: Joinville, ${dataAtual}
                     </p>
-
+                    </br></br>
                     <div class="normal00">
                         <div class="signature-row">
                             <div class="signature-block">
@@ -663,41 +650,37 @@
                         <table class="table table-bordered normal00">
                             <tbody>
                                 <tr>
-                                    <td style="text-align: center;"><b>PLANO DE ESTÁGIO</b></td>
+                                    <td style="text-align: center;" colspan="3"><b>PLANO DE ESTÁGIO</b></td>
                                 </tr>
                                 <tr>
-                                    <td>Nome do Estagiário: ${nomeEstagiario2}</td>
-                                </tr>
-                                <tr>
-                                    <td>CPF do Estagiário: ${cpfEstagiario2}</td>
+                                    <td colspan="2">Nome: ${nomeEstagiario2}</td>
+                                    <td>CPF: ${cpfEstagiario2}</td>
                                 </tr>
                                 <tr>
                                     <td>Tipo de Estágio: ${tipoEstagio}</td>
-                                </tr>
-                                <tr>
                                     <td>Data de Início: ${dataInicio2}</td>
+                                    <td>Data de Término: ${dataFim2}</td>
                                 </tr>
                                 <tr>
-                                    <td>Data de Fim: ${dataFim2}</td>
+                                    <td colspan="3">Horário de Estágio: ${horarioEstagio}</td>
                                 </tr>
                                 <tr>
-                                    <td>Horário de Estágio: ${horarioEstagio}</td>
+                                    <td colspan="3">Carga horária semanal/total:
+                                        ${cargaHorariaSemanal}h/${cargaHorariaTotal}h</td>
                                 </tr>
                                 <tr>
-                                    <td>Carga horária semanal/total: ${cargaHorariaSemanal}/${cargaHorariaTotal}</td>
+                                    <td colspan="3">Nº Apólice de Seguro contra acidentes pessoais: ${apolice2}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nº Apólice de Seguro contra acidentes pessoais: ${apolice2}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bolsa auxílio (Conforme a Lei 11788), o Estágio Não Obrigatório, é compulsório a
+                                    <td colspan="3">Bolsa auxílio (Conforme a Lei 11788), o Estágio Não Obrigatório, é
+                                        compulsório a
                                         bolsa auxílio
                                         e o vale transporte. O Estágio Obrigatório é optativo, neste caso não havendo o
                                         benefício, informar ”Estágio
                                         não remunerado”.</td>
                                 </tr>
                                 <tr>
-                                    <td>${bolsaAuxilio}</br></td>
+                                    <td colspan="3">${bolsaAuxilio}</br></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -705,7 +688,7 @@
                         <p class="normal00">
                             ${atividades}
                         </p>
-                        </br></br></br></br>
+                        </br>
                         <p class="last-footer">
                             * As atividades de estágio devem estar correlacionadas com o curso do estudante, conforme
                             legislação 11.788/2008:
