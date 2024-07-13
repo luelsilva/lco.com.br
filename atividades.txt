@@ -6,7 +6,8 @@ Entender arquitetura de componentes de campo (blocos I/O remotos, blocos manifol
 Avaliar como são montados, Grau de proteção, comparar com outros tipos de arquitetura que ele aprendeu na escola;
 Conhecer arquitetura padrão GM de automação GCCA;
 Entender como os sinais de entradas e saídas são conectados e processados no PLC;
-Conhecer como a lógica de programação funciona;\nConhecer as instruções básicas de programação ladder (XCI, XIO, OTE);
+Conhecer como a lógica de programação funciona;
+Conhecer as instruções básicas de programação ladder (XCI, XIO, OTE);
 Conhecer elementos mecânicos;
 Conhecer a estrutura mecânica dos transportadores;
 Conhecer a estrutura mecânica de pallets;
