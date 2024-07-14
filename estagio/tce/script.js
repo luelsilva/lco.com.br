@@ -316,15 +316,15 @@ function pesquisaCep(valor, quem) { // 1 para estagiario 2 para empresa
 };
 
 // upload de arquivo texto
-document.getElementById('fileInput').addEventListener('change', function(event) {
+document.getElementById('fileInput').addEventListener('change', function (event) {
   const file = event.target.files[0];
   if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-          const text = e.target.result;
-          populateForm(text);
-      };
-      reader.readAsText(file);
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const text = e.target.result;
+      populateForm(text);
+    };
+    reader.readAsText(file);
   }
 });
 
