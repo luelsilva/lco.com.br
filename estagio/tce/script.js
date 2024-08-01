@@ -75,7 +75,7 @@ form.addEventListener('submit', function (event) {
 
   // let valores = JSON.stringify(formObject);
 
-   console.log(valores);
+  console.log(valores);
 
   imprimir(formObject);
 
@@ -344,19 +344,19 @@ function populateFormTxt(text) {
 */
 
 // upload de um arquivo json
-document.getElementById('fileInput').addEventListener('change', function(event) {
+document.getElementById('fileInput').addEventListener('change', function (event) {
   const file = event.target.files[0];
   if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-          try {
-              const data = JSON.parse(e.target.result);
-              populateFormJS(data);
-          } catch (error) {
-              alert('Erro ao processar o arquivo JSON: ' + error.message);
-          }
-      };
-      reader.readAsText(file);
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        populateFormJS(data);
+      } catch (error) {
+        alert('Erro ao processar o arquivo JSON: ' + error.message);
+      }
+    };
+    reader.readAsText(file);
   }
 });
 
@@ -364,11 +364,44 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 function populateFormJS(data) {
   const form = document.getElementById('myForm');
   for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-          const input = form.querySelector(`[name="${key}"]`);
-          if (input) {
-              input.value = data[key];
-          }
+    if (data.hasOwnProperty(key)) {
+      const input = form.querySelector(`[name="${key}"]`);
+      if (input) {
+        input.value = data[key];
       }
+    }
   }
-}
+};
+
+function saveJsonToFile() {
+  // Exemplo de objeto JSON
+  const jsonObject = {
+    nome: "João",
+    idade: 30,
+    cidade: "São Paulo"
+  };
+
+  // Converter objeto JSON para string
+  const jsonString = JSON.stringify(jsonObject, null, 2);
+
+  // Criar um Blob com o conteúdo JSON
+  const blob = new Blob([jsonString], { type: "application/json" });
+
+  // Criar uma URL para o Blob
+  const url = URL.createObjectURL(blob);
+
+  // Criar um elemento de link
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "dados.json"; // Nome sugerido para o arquivo
+
+  // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
+  document.body.appendChild(a);
+  a.click();
+
+  // Remover o link do DOM
+  document.body.removeChild(a);
+
+  // Liberar a URL
+  URL.revokeObjectURL(url);
+};

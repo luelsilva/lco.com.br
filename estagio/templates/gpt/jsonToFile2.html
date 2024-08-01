@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salvar JSON em Arquivo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <button onclick="saveJsonToFile()">Salvar JSON</button>
+
+    <script>
+        function saveJsonToFile() {
+            // Exemplo de objeto JSON
+            const jsonObject = {
+                nome: "João",
+                idade: 30,
+                cidade: "São Paulo"
+            };
+
+            // Converter objeto JSON para string
+            const jsonString = JSON.stringify(jsonObject, null, 2);
+
+            // Criar um Blob com o conteúdo JSON
+            const blob = new Blob([jsonString], { type: "application/json" });
+
+            // Usar a função saveAs do FileSaver.js para abrir a janela de diálogo "Salvar Como"
+            saveAs(blob, "dados.json");
+        }
+    </script>
+</body>
+</html>
