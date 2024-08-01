@@ -75,7 +75,7 @@ form.addEventListener('submit', function (event) {
 
   // let valores = JSON.stringify(formObject);
 
-  // console.log(valores);
+   console.log(valores);
 
   imprimir(formObject);
 
@@ -315,6 +315,7 @@ function pesquisaCep(valor, quem) { // 1 para estagiario 2 para empresa
   }
 };
 
+/*
 // upload de arquivo texto
 document.getElementById('fileInput').addEventListener('change', function (event) {
   const file = event.target.files[0];
@@ -322,14 +323,15 @@ document.getElementById('fileInput').addEventListener('change', function (event)
     const reader = new FileReader();
     reader.onload = function (e) {
       const text = e.target.result;
-      populateForm(text);
+      populateFormTxt(text);
     };
     reader.readAsText(file);
   }
 });
 
-// preencher os inputs do form com um texto organizado em colunas
-function populateForm(text) {
+// preencher os inputs do form com um texto organizado em 2 colunas
+// separado pelo caracter '%'
+function populateFormTxt(text) {
   const lines = text.split('\n');
   lines.forEach(line => {
     const [key, value] = line.split('%');
@@ -338,4 +340,35 @@ function populateForm(text) {
       input.value = value.trim();
     }
   });
+};
+*/
+
+// upload de um arquivo json
+document.getElementById('fileInput').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          try {
+              const data = JSON.parse(e.target.result);
+              populateFormJS(data);
+          } catch (error) {
+              alert('Erro ao processar o arquivo JSON: ' + error.message);
+          }
+      };
+      reader.readAsText(file);
+  }
+});
+
+// preencher os inputs do form com um objeto json
+function populateFormJS(data) {
+  const form = document.getElementById('myForm');
+  for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+          const input = form.querySelector(`[name="${key}"]`);
+          if (input) {
+              input.value = data[key];
+          }
+      }
+  }
 }
