@@ -41,7 +41,7 @@ form.addEventListener('submit', function (event) {
   //let valores = JSON.stringify(formObject);
   //console.log(valores);
 
-  saveFormObject(formObject);
+  //saveFormObject(formObject);
 
   const estagEnder = formObject["enderecoEstagiario"] || ""
   const estagNum = formObject["numEnderEstagiario"] || ""
