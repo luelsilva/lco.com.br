@@ -38,8 +38,10 @@ form.addEventListener('submit', function (event) {
   });
 
   // para mostrar todos os inputs do form
-  let valores = JSON.stringify(formObject);
-  console.log(valores);
+  //let valores = JSON.stringify(formObject);
+  //console.log(valores);
+
+  saveFormObject(formObject);
 
   const estagEnder = formObject["enderecoEstagiario"] || ""
   const estagNum = formObject["numEnderEstagiario"] || ""
@@ -75,7 +77,7 @@ form.addEventListener('submit', function (event) {
 
   // let valores = JSON.stringify(formObject);
 
-  console.log(valores);
+  //console.log(valores);
 
   imprimir(formObject);
 
@@ -394,6 +396,35 @@ function saveJsonToFile() {
   const a = document.createElement("a");
   a.href = url;
   a.download = "dados.json"; // Nome sugerido para o arquivo
+
+  // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
+  document.body.appendChild(a);
+  a.click();
+
+  // Remover o link do DOM
+  document.body.removeChild(a);
+
+  // Liberar a URL
+  URL.revokeObjectURL(url);
+};
+
+function saveFormObject(jsonObject) {
+
+  // Converter objeto JSON para string
+  const jsonString = JSON.stringify(jsonObject, null, 2);
+
+  // Criar um Blob com o conteúdo JSON
+  const blob = new Blob([jsonString], { type: "application/json" });
+
+  // Criar uma URL para o Blob
+  const url = URL.createObjectURL(blob);
+
+  // Criar um elemento de link
+  const a = document.createElement("a");
+  a.href = url;
+
+  const nameFile = 'TCE-' + formObject["nomeEstagiario"] + '.json';
+  a.download = nameFile; // Nome sugerido para o arquivo
 
   // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
   document.body.appendChild(a);
