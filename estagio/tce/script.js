@@ -423,7 +423,7 @@ function saveFormObject(jsonObject) {
   const a = document.createElement("a");
   a.href = url;
 
-  const nameFile = 'TCE-' + formObject["nomeEstagiario"] + '.json';
+  const nameFile = 'TCE-' + jsonObject["nomeEstagiario"] + '.json';
   a.download = nameFile; // Nome sugerido para o arquivo
 
   // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
