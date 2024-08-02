@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Cursos Técnicos</title>
+  <script>
+    async function getCursos() {
+      try {
+        const resposta = await fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv');
+        const texto = await resposta.text();
+        const linhas = texto.split('\n');
+
+        if (linhas) {
+          console.log(linhas); // Aqui você pode manipular as linhas conforme necessário
+          alert("Cursos carregados com sucesso!");
+        } else {
+          alert("Curso não encontrado");
+        }
+      } catch (erro) {
+        alert("Erro ao buscar dados do curso");
+      }
+    }
+  </script>
+</head>
+<body>
+  <button onclick="getCursos()">Buscar Cursos Técnicos</button>
+</body>
+</html>

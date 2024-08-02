@@ -1,4 +1,4 @@
-SIGLA,NOME_CURSO,MATRICULA_PROFESSOR,NOME_PROFESSOR,EMAIL_PROFESSOR
+cursoID,cursoNome,profMatricula,profNome,profEmail
 ET,Curso Técnico em Eletrotécnica,678682,Luiz Carlos Oliveira da Silva,678682@profe.sed.sc.gov.br
 EE,Curso Técnico em EletroEletrônica,652976,Roberli Leopoldino Cantidio,652976@profe.sed.sc.gov.br
 EM,Curso Técnico em Eletromecânica,652976,Roberli Leopoldino Cantidio,652976@profe.sed.sc.gov.br

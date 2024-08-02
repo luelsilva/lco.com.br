@@ -144,72 +144,11 @@ async function imprimir(formObject) {
   }
 }
 
-function dataAtual() {
-  let data = new Date();
-  let dia = data.getDate();
-  let mes = data.getMonth() + 1; // Os meses em JavaScript são indexados a partir de zero, então adicionamos 1 para obter o mês correto
-  let ano = data.getFullYear();
 
-  // Adicionando zero à esquerda se o dia ou o mês forem menores que 10
-  if (dia < 10) {
-    dia = '0' + dia;
-  }
-  if (mes < 10) {
-    mes = '0' + mes;
-  }
 
-  return dia + '/' + mes + '/' + ano;
-}
 
-function formataData(data) {
-  // Data com este format = "2024-07-10";
 
-  // Dividindo a data original em componentes
-  let partes = data.split('-');
-  let ano = partes[0];
-  let mes = partes[1];
-  let dia = partes[2];
 
-  // Reformatando para o novo formato
-  let dataFormatada = `${dia}/${mes}/${ano}`;
-
-  return dataFormatada;  // Saída: 10/07/2024
-}
-
-async function buscarCursos(siglaCurso) {
-
-  try {
-    const resposta = await fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv');
-    const texto = await resposta.text();
-
-    const linhas = texto.split('\n');
-    // Ignora a primeira linha
-    const linhasSemPrimeira = linhas.slice(1);
-
-    let resultado = null;
-
-    for (const linha of linhas) {
-      const colunas = linha.split(',');
-
-      if (colunas[0] === siglaCurso) {
-        resultado = colunas;
-        break;
-      }
-    }
-
-    if (resultado) {
-      // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
-      return resultado;
-
-    } else {
-      console.log('Chave não encontrada.');
-      document.getElementById('mensagem').innerHTML = "Curso não encontrado";
-    }
-  } catch (erro) {
-    console.error('Erro ao buscar dados:', erro);
-    document.getElementById('mensagem').innerHTML = "Erro ao buscar dados";
-  }
-}
 
 function meu_callback_estagiario(conteudo) {
   if (!("erro" in conteudo)) {
@@ -362,81 +301,4 @@ document.getElementById('fileInput').addEventListener('change', function (event)
   }
 });
 
-// preencher os inputs do form com um objeto json
-function populateFormJS(data) {
-  const form = document.getElementById('myForm');
-  for (const key in data) {
-    if (data.hasOwnProperty(key)) {
-      const input = form.querySelector(`[name="${key}"]`);
-      if (input) {
-        input.value = data[key];
-      }
-    }
-  }
-};
 
-function saveJsonToFile() {
-  // Exemplo de objeto JSON
-  const jsonObject = {
-    nome: "João",
-    idade: 30,
-    cidade: "São Paulo"
-  };
-
-  // Converter objeto JSON para string
-  const jsonString = JSON.stringify(jsonObject, null, 2);
-
-  // Criar um Blob com o conteúdo JSON
-  const blob = new Blob([jsonString], { type: "application/json" });
-
-  // Criar uma URL para o Blob
-  const url = URL.createObjectURL(blob);
-
-  // Criar um elemento de link
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "dados.json"; // Nome sugerido para o arquivo
-
-  // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
-  document.body.appendChild(a);
-  a.click();
-
-  // Remover o link do DOM
-  document.body.removeChild(a);
-
-  // Liberar a URL
-  URL.revokeObjectURL(url);
-};
-
-function saveFormObject(jsonObject) {
-
-  // Converter objeto JSON para string
-  const jsonString = JSON.stringify(jsonObject, null, 2);
-
-  // Criar um Blob com o conteúdo JSON
-  const blob = new Blob([jsonString], { type: "application/json" });
-
-  // Criar uma URL para o Blob
-  const url = URL.createObjectURL(blob);
-
-  // Criar um elemento de link
-  const a = document.createElement("a");
-  a.href = url;
-
-  const nameFile = 'TCE-' + jsonObject["nomeEstagiario"] + '.json';
-  a.download = nameFile; // Nome sugerido para o arquivo
-
-  // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
-  document.body.appendChild(a);
-  a.click();
-
-  // Remover o link do DOM
-  document.body.removeChild(a);
-
-  // Liberar a URL
-  URL.revokeObjectURL(url);
-};
-
-function btnSalvarComoOnClick(){
-
-};
