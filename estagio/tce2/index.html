@@ -14,7 +14,10 @@
 <body>
     <div class="dados">
         <div class="container mt-5">
-            <h3 class="text-center">TCE - Termo de Compromisso de Estágio e Plano de Estágio</h3>
+            <h3 class="text-center">TCE - Termo de Compromisso de Estágio e Plano de Estágio CEDUP</h3>
+            </br>
+            <button type="button" id="loadBtn" class="btn btn-primary">Abrir arquivo</button>
+            </br></br>
             <form id="myForm">
                 <div style="color: rgb(0, 0, 255);">
                     <h4>Dados do Estagiário(a):</h4>
@@ -333,15 +336,13 @@
                     </div>
                 </div>
                 </br>
-                <button type="submit" class="btn btn-primary">Imprimir</button>
-
+                <button type="submit" id="submitBtn" class="btn btn-primary">Imprimir</button>
+                <button type="button" id="saveBtn" class="btn btn-primary">Salvar</button>
+                <button type="button" id="loadBtn" class="btn btn-primary">Abrir</button>
             </form>
             </br></br>
 
-            <button class="btn btn-primary" onclick="btnSalvarComoOnClick()">Salvar como...</button>
-
-            <!-- usado apenas para testes -->
-            <input type="file" id="fileInput">
+            <input type="file" id="fileInput" style="display: none;">
 
             </br></br>
         </div>
