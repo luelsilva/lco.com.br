@@ -16,8 +16,11 @@
         <div class="container mt-5">
             <h3 class="text-center">TCE - Termo de Compromisso de Estágio e Plano de Estágio CEDUP</h3>
             </br>
-            <label for="loadBtn"><b>Preencha os dados abaixo ou abra um arquivo salvo</b></label>
-            <button type="button" id="loadBtn" class="btn btn-primary">Abrir arquivo</button>
+            <div>
+                <label for="loadBtn"><b>Preencha os dados abaixo ou abra um arquivo salvo</b></label>
+                <button type="button" id="loadBtn" class="btn btn-primary">Abrir arquivo</button>
+                <input type="file" id="fileInput" style="display: none;">
+            </div>
             </br></br>
             <form id="myForm">
                 <div style="color: rgb(0, 0, 255);">
@@ -341,8 +344,6 @@
                 <button type="submit" id="submitBtn" class="btn btn-primary">Imprimir</button>
             </form>
             </br></br>
-
-            <input type="file" id="fileInput" style="display: none;">
 
             </br></br>
         </div>
