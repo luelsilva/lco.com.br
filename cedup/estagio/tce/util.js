@@ -1,6 +1,5 @@
-
 // recebe um ID do form e devolve um JSON
-function getFormDataAsJson(formId) {
+export function getFormDataAsJson(formId) {
   // Seleciona o formulário pelo ID
   const form = document.getElementById(formId);
 
@@ -30,7 +29,7 @@ function getFormDataAsJson(formId) {
 
 // devolve a data atual formatada
 // Saída: 10/07/2024
-function getDataAtual() {
+export function getDataAtual() {
   let data = new Date();
   let dia = data.getDate();
   let mes = data.getMonth() + 1; // Os meses em JavaScript são indexados a partir de zero, então adicionamos 1 para obter o mês correto
@@ -49,7 +48,7 @@ function getDataAtual() {
 
 // Entrada: "2024-07-10";
 // Saída: 10/07/2024
-function formataData(data) {
+export function formataData(data) {
 
   // Dividindo a data original em componentes
   let partes = data.split('-');
@@ -64,40 +63,51 @@ function formataData(data) {
 };
 
 // salva em arquivo um objeto json
-function saveJsonToFile(jsonObject, fileName) {
+export function saveJsonToFile(jsonObject, fileName) {
 
+  const jsonString = JSON.stringify(jsonObject, null, 2); // Converter objeto JSON para string
+  const blob = new Blob([jsonString], { type: "application/json" }); // Criar um Blob com o conteúdo JSON
+  const url = URL.createObjectURL(blob);  // Criar uma URL para o Blob
 
-  // Converter objeto JSON para string
-  const jsonString = JSON.stringify(jsonObject, null, 2);
+  // isso aqui é porque o chrome não abre o diálogo
+  fileName = prompt("Entre o nome do arquivo para salvar:", fileName);
 
-  // Criar um Blob com o conteúdo JSON
-  const blob = new Blob([jsonString], { type: "application/json" });
+  if (fileName) {
+    fileName =+ 'json';
+    const a = document.createElement("a");  // Criar um elemento de link
+    a.href = url;
+    a.download = fileName;                  // Nome sugerido para o arquivo
+    document.body.appendChild(a);           // Adicionar o link ao DOM
+    a.click();                              // clicar nele para abrir a janela de diálogo "Salvar Como"
+    document.body.removeChild(a);           // Remover o link do DOM
+    URL.revokeObjectURL(url);               // Liberar a URL
+  }
+}
 
-  // Criar uma URL para o Blob
-  const url = URL.createObjectURL(blob);
+// retorna um array [cursoID, cursoNome, profMatricula, profNome, profEmail]
+export async function getCursos() {
+  try {
+    const resposta = await fetch(cursoURL);
+    const texto = await resposta.text();
+    const linhas = texto.split('\n');
 
-  // Criar um elemento de link
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName; // Nome sugerido para o arquivo
+    if (linhas) {
+      return linhas;
 
-  // Adicionar o link ao DOM e clicar nele para abrir a janela de diálogo "Salvar Como"
-  document.body.appendChild(a);
-  a.click();
-
-  // Remover o link do DOM
-  document.body.removeChild(a);
-
-  // Liberar a URL
-  URL.revokeObjectURL(url);
+    } else {
+      alert("Curso não encontrado");
+    }
+  } catch (erro) {
+    alert("Erro ao buscar dados do curso");
+  }
 };
 
 // busca um curso pelo id do curso
-// retrona um array [cursoID, cursoNome, profMatricula, profNome, profEmail]
-async function getCursoByID(cursoID) {
+// retorna um array [cursoID, cursoNome, profMatricula, profNome, profEmail]
+export async function getCursoByID(cursoID) {
 
   try {
-    const resposta = await fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv');
+    const resposta = await fetch(cursoURL);
     const texto = await resposta.text();
 
     const linhas = texto.split('\n');
@@ -128,29 +138,3 @@ async function getCursoByID(cursoID) {
     alert("Erro ao buscar dados do curso");
   }
 };
-
-// retorna um array [cursoID, cursoNome, profMatricula, profNome, profEmail]
-async function getCursos() {
-
-  try {
-    const resposta = await fetch('https://www.lco.com.br/estagio/assets/cursos_tecnicos.csv');
-
-    const texto = await resposta.text();
-
-    const linhas = texto.split('\n');
-
-    if (linhas) {
-      return linhas;
-
-    } else {
-      alert("Curso não encontrado");
-    }
-  } catch (erro) {
-    alert("Erro ao buscar dados do curso");
-  }
-};
-
-
-
-
-
