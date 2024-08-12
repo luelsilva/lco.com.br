@@ -1,6 +1,5 @@
 
-// const cursoURL = 'https://www.lco.com.br/cedup/estagio/assets/cursos_tecnicos.csv';
-const cursoURL = '../assets/cursos_tecnicos.csv';
+const cursoURL = 'https://www.lco.com.br/cedup/estagio/assets/cursos_tecnicos.csv';
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener("DOMContentLoaded", function () {
