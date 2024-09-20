@@ -280,8 +280,6 @@ async function getCursoByID(siglaCurso) {
 
   try {
 
-    console.log(siglaCurso);
-    
     const resposta = await fetch(cursoURL);
     const texto = await resposta.text();
 
@@ -328,6 +326,8 @@ async function imprimir(formObject) {
     formObject["nomeProfessor"] = result[3];
     formObject["emailProfessor"] = result[4];
 
+    console.log(formObject["nomeCurso"]);
+    
     // Seleciona a div print
     const divPrint = document.getElementById('print');
 
