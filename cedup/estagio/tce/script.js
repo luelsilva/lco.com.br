@@ -130,7 +130,7 @@ function getFormDataAsJson(formId) {
   return formDataJson;
 };
 
-// funcções de busca cep
+// funções de busca cep
 function meu_callback_estagiario(conteudo) {
   if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
@@ -146,7 +146,7 @@ function meu_callback_estagiario(conteudo) {
     alert("CEP não encontrado.");
   }
 }
-// funcções de busca cep
+// funções de busca cep
 function meu_callback_empresa(conteudo) {
   if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
@@ -162,7 +162,7 @@ function meu_callback_empresa(conteudo) {
     alert("CEP não encontrado.");
   }
 }
-// funcções de busca cep
+// funções de busca cep
 function limpa_formulário_cep(quem) {
   if (quem === 1) {
     //Limpa valores do formulário de cep.
@@ -180,7 +180,7 @@ function limpa_formulário_cep(quem) {
     document.getElementById('estadoEmpresa').value = ("");
   }
 }
-// funcções de busca cep
+// funções de busca cep
 function pesquisaCep(valor, quem) { // 1 para estagiario 2 para empresa
 
   //Nova variável "cep" somente com dígitos.
@@ -309,7 +309,7 @@ async function getCursoByID(siglaCurso) {
   }
 };
 
-
+// primeiro coloca os valores de formObject[<variavel>] em divPrint.innerHTML(${<variavel>})
 async function imprimir(formObject) {
 
   const siglaCurso = formObject["siglaCurso"];
