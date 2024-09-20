@@ -1,3 +1,0 @@
-D1,Declaração de Conclusão sem Estágio
-D2,Declaração de Curso Disciplina em Pendencia
-D3,Declaração de Estágio no Cedup
