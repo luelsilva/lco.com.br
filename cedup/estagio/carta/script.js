@@ -21,10 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     })
-    .catch(error => console.error('Erro ao carregar os cursos:', error));
-    alert('Erro ao carregar os cursos');
+    .catch(error => {
+      console.error('Erro ao carregar os cursos:', error);
+      alert('Erro ao carregar os cursos');
+    });
 });
-
 // Seleciona o formulário pelo ID
 const form = document.getElementById('formCarta');
 
