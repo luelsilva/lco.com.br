@@ -331,11 +331,12 @@ async function imprimir(formObject) {
     // Seleciona a div print
     //const divPrint = document.getElementById('print');
 
+    divPrint.innerHTML = divPrintInner.innerHTML;
     // não substitui duas vezes, porque a palavra chava já foi substituída
     // em que carregar o texto novamente
     // Substitui os placeholders com os valores do objeto JSON
     
-    divPrint.innerHTML = divPrintInner.innerHTML
+    divPrint.innerHTML = divPrint.innerHTML
       .replace('${nomeEstagiario}', formObject["nomeEstagiario"])
       .replace('${nomeCurso}', formObject["nomeCurso"])
       .replace('${matriculaEstagiario}', formObject["matriculaEstagiario"])
