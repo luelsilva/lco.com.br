@@ -386,7 +386,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   formData.forEach((value, key) => {
     formObject[key] = value;
     console.log(value);
-    
+
   });
 
   const estagEnder = formObject["enderecoEstagiario"] || ""
