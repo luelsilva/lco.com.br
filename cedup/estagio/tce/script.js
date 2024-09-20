@@ -279,6 +279,9 @@ function formataData(data) {
 async function getCursoByID(siglaCurso) {
 
   try {
+
+    console.log(siglaCurso);
+    
     const resposta = await fetch(cursoURL);
     const texto = await resposta.text();
 
@@ -315,7 +318,7 @@ async function getCursoByID(siglaCurso) {
 async function imprimir(formObject) {
 
   const siglaCurso = formObject["siglaCurso"];
-
+ 
   var result = await getCursoByID(siglaCurso);
 
   if (result) {
