@@ -5,6 +5,20 @@ body {
     padding: 0;
 }
 
+/*Esconder Setas do Input Number*/
+/* Para Chrome, Safari, Edge e Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*Esconder Setas do Input Number*/
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .dados {
     padding: 20px;
     width: 650px;
