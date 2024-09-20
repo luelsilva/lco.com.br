@@ -330,6 +330,7 @@ async function imprimir(formObject) {
 
     // Seleciona a div print
     const divPrint = document.getElementById('print');
+    const originalContent = divPrint.innerHTML;
 
     // não substitui duas vezes, porque a palavra chava já foi substituída
     // em que carregar o texto novamente
@@ -376,6 +377,9 @@ async function imprimir(formObject) {
       .replace('${atividades}', formObject["atividades"].replace(/\n/g, "<br>"))
 
     window.print();
+
+    divPrint.innerHTML = originalContent;
+    
   }
 }
 
