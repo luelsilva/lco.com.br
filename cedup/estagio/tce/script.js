@@ -2,8 +2,9 @@
 //const cursoURL = 'https://www.lco.com.br/cedup/estagio/assets/cursos_tecnicos.csv';
 const cursoURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv'
 
-const printInnerHtml = document.getElementById('print');
-console.log(printInnerHtml);
+const divPrintInner = document.getElementById('print');
+console.log(divPrintInner.innerHTML);
+
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener("DOMContentLoaded", function () {
@@ -335,7 +336,6 @@ async function imprimir(formObject) {
     // não substitui duas vezes, porque a palavra chava já foi substituída
     // em que carregar o texto novamente
     // Substitui os placeholders com os valores do objeto JSON
-    console.log(printInnerHtml);
     
     divPrint.innerHTML = divPrint.innerHTML
       .replace('${nomeEstagiario}', formObject["nomeEstagiario"])
