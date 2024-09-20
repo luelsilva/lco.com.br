@@ -3,8 +3,6 @@
 const cursoURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv'
 
 const divPrintInner = document.getElementById('print');
-console.log(divPrintInner.innerHTML);
-
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener("DOMContentLoaded", function () {
@@ -331,13 +329,13 @@ async function imprimir(formObject) {
     formObject["emailProfessor"] = result[4];
    
     // Seleciona a div print
-    const divPrint = document.getElementById('print');
+    //const divPrint = document.getElementById('print');
 
     // não substitui duas vezes, porque a palavra chava já foi substituída
     // em que carregar o texto novamente
     // Substitui os placeholders com os valores do objeto JSON
     
-    divPrint.innerHTML = divPrint.innerHTML
+    divPrint.innerHTML = divPrintInner.innerHTML
       .replace('${nomeEstagiario}', formObject["nomeEstagiario"])
       .replace('${nomeCurso}', formObject["nomeCurso"])
       .replace('${matriculaEstagiario}', formObject["matriculaEstagiario"])
