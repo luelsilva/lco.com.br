@@ -332,6 +332,8 @@ async function imprimir(formObject) {
     // não substitui duas vezes, porque a palavra chava já foi substituída
     // em que carregar o texto novamente
     // Substitui os placeholders com os valores do objeto JSON
+    console.log(divPrint.innerHTML);
+    
     divPrint.innerHTML = divPrint.innerHTML
       .replace('${nomeEstagiario}', formObject["nomeEstagiario"])
       .replace('${nomeCurso}', formObject["nomeCurso"])
