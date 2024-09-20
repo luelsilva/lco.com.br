@@ -97,7 +97,7 @@ async function buscarDados() {
   const chaveSelecionada = selecao.value;
 
   try {
-    const resposta = await fetch('./cursos.txt');
+    const resposta = await fetch(cursoURL);
     const texto = await resposta.text();
 
     const linhas = texto.split('\n');
