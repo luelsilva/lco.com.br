@@ -25,11 +25,11 @@ td:first-child {
 }
 
 /* tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* alterna as cores das linhas confome são par ou impar 
 } */
 
 /* tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f1f1f1; /* efeito mouse passando em cima da celula
 } */
 
 /* Cor de fundo para linhas de sábado e domingo */
