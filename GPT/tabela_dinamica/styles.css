@@ -5,13 +5,13 @@ body {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    /* width: 100%; */
     margin-top: 20px;
 }
 
 th, td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px 10px; /* Diminuir o padding vertical para reduzir a altura */
     text-align: center;
 }
 
@@ -42,3 +42,8 @@ td.sabado, td.domingo {
     /* color: #721c24; */
     font-weight: bold;
 }
+
+/* Ajuste de altura mínima da linha, se necessário */
+ td, th {
+    line-height: 1.0; /* Ajustar a altura da linha */
+} 

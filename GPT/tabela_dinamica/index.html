@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela Dinâmica</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Gerar Tabela Dinâmica</h1>
-    
+
     <!-- Formulário para escolher mês e ano -->
     <form id="tableForm">
         <label for="mes">Mês:</label>
@@ -26,7 +28,7 @@
             <option value="10">Novembro</option>
             <option value="11">Dezembro</option>
         </select>
-        
+
         <label for="ano">Ano:</label>
         <input type="number" id="ano" name="ano" min="1900" max="2100" value="2024">
 
@@ -37,11 +39,11 @@
     <table id="dynamicTable">
         <thead>
             <tr>
-                <th>Dia</th>
-                <th>Nome</th>
-                <th>Entrada</th>
-                <th>Saída</th>
-                <th>Rubrica</th>
+                <th style="width: 30px;">Dia</th>
+                <th style="width: 350px;">Nome</th>
+                <th style="width: 100px;">Entrada</th>
+                <th style="width: 100px;">Saída</th>
+                <th style="width: 100px;">Rubrica</th>
             </tr>
         </thead>
         <tbody>
@@ -51,4 +53,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
