@@ -1,3 +1,15 @@
+
+// Função para definir o mês e ano atuais ao carregar a página
+window.onload = function() {
+    const dataAtual = new Date();
+    const mesAtual = dataAtual.getMonth(); // Retorna o mês atual (0 a 11)
+    const anoAtual = dataAtual.getFullYear(); // Retorna o ano atual
+
+    // Define o mês e o ano atual nos campos
+    document.getElementById("mes").value = mesAtual;
+    document.getElementById("ano").value = anoAtual;
+}
+
 function gerarTabela() {
     // Obtém o mês e ano dos inputs
     const mes = document.getElementById("mes").value;
