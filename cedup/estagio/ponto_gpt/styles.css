@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    /* width: 100%; */
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px 10px; /* Diminuir o padding vertical para reduzir a altura */
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2; /* Cor do cabeçalho */
+}
+
+/* Mesma cor de fundo para a coluna "Dia" */
+td:first-child {
+    background-color: #f2f2f2; /* Mesma cor do cabeçalho */
+}
+
+/* tr:nth-child(even) {
+    background-color: #f9f9f9; /* alterna as cores das linhas confome são par ou impar 
+} */
+
+/* tr:hover {
+    background-color: #f1f1f1; /* efeito mouse passando em cima da celula
+} */
+
+/* Cor de fundo para linhas de sábado e domingo */
+tr.sabado, tr.domingo {
+    background-color: #f2f2f2; /* Mesma cor do cabeçalho */
+}
+
+/* Estilo para texto diferenciado no sábado e domingo */
+td.sabado, td.domingo {
+    /* color: #721c24; */
+    font-weight: bold;
+}
+
+/* Ajuste de altura mínima da linha, se necessário */
+ td, th {
+    line-height: 1.0; /* Ajustar a altura da linha */
+} 
