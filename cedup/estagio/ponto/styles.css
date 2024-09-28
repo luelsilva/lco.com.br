@@ -1,9 +1,63 @@
 /* Estilos gerais */
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+} */
+
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
+
+table {
+    border-collapse: collapse;
+    /* width: 100%; */
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px 10px; /* Diminuir o padding vertical para reduzir a altura */
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2; /* Cor do cabeçalho */
+}
+
+/* Mesma cor de fundo para a coluna "Dia" */
+td:first-child {
+    background-color: #f2f2f2; /* Mesma cor do cabeçalho */
+}
+
+/* tr:nth-child(even) {
+    background-color: #f9f9f9; /* alterna as cores das linhas confome são par ou impar 
+} */
+
+/* tr:hover {
+    background-color: #f1f1f1; /* efeito mouse passando em cima da celula
+} */
+
+/* Cor de fundo para linhas de sábado e domingo */
+tr.sabado, tr.domingo {
+    background-color: #f2f2f2; /* Mesma cor do cabeçalho */
+}
+
+/* Estilo para texto diferenciado no sábado e domingo */
+td.sabado, td.domingo {
+    /* color: #721c24; */
+    font-weight: bold;
+}
+
+/* Ajuste de altura mínima da linha, se necessário */
+ td, th {
+    line-height: 1.0; /* Ajustar a altura da linha */
+} 
+
+
+
 
 /*Esconder Setas do Input Number*/
 /* Para Chrome, Safari, Edge e Opera */
@@ -26,21 +80,10 @@ input[type=number] {
 }
 
 .print {
-    display: none;
+    /* display: none; */
     padding: 10px;
     width: 900px;
     margin: 0 auto;
-}
-
-.normal00 {
-    text-indent: 35.45pt;
-    text-align: justify;
-    line-height: 130%;
-    font-size: 16pt;
-}
-
-.variaveis {
-    font-weight: bold;
 }
 
 /* Estilos do cabeçalho */
@@ -73,19 +116,6 @@ input[type=number] {
     padding: 20px;
 }
 
-/* Estilos do rodapé */
-#rodape {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    /* Ajuste conforme necessário */
-    background-color: #fff;
-    padding: 10px;
-    text-align: center;
-    /* border-top: 1px solid #ccc; */
-}
 
 /* Estilos de impressão */
 @media print {
@@ -102,13 +132,6 @@ input[type=number] {
     #cabecalho {
         position: fixed;
         top: 0;
-        left: 0;
-        right: 0;
-    }
-
-    #rodape {
-        position: fixed;
-        bottom: 0;
         left: 0;
         right: 0;
     }
