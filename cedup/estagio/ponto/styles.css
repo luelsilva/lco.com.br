@@ -63,27 +63,6 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0 10px;
     font-weight: bold;
 }
-header {
-    background-color: #f0f0f0;
-    padding: 10px;
-    position: absolute;
-    width: calc(100% - 20px);
-}
-
-header {
-    top: 0;
-    padding-left: 60px;
-    padding-right: 50px;
-    display: flex;
-    align-items: center;
-    line-height: 130%;
-    font-size: 14pt;
-}
-
-header img {
-    max-height: 50px;
-    margin-right: 20px;
-}
 
 /* Estilos do conteúdo */
 #conteudo {
