@@ -1,31 +1,4 @@
 
-//const cursoURL = 'https://www.lco.com.br/cedup/estagio/assets/cursos_tecnicos.csv';
-const cursoURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv'
-
-// carrega cursos no form select 'siglaCurso'
-document.addEventListener("DOMContentLoaded", function () {
-  fetch(cursoURL)
-    .then(response => response.text())
-    .then(data => {
-      const linhas = data.split('\n');
-      // Ignora a primeira linha
-      const linhasSemPrimeira = linhas.slice(1);
-      const cursoSelect = document.getElementById('curso');
-      linhasSemPrimeira.forEach(linha => {
-        const colunas = linha.split(',');
-        if (colunas.length >= 2) {
-          const option = document.createElement('option');
-          option.value = colunas[0].trim();
-          option.textContent = colunas[1].trim();
-          cursoSelect.appendChild(option);
-        }
-      });
-    })
-    .catch(error => {
-      console.error('Erro ao carregar os cursos:', error);
-      alert('Erro ao carregar os cursos');
-    });
-});
 // Seleciona o formulário pelo ID
 const form = document.getElementById('formCarta');
 
