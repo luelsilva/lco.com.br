@@ -39,7 +39,7 @@ tr.sabado, tr.domingo {
 
 /* Estilo para texto diferenciado no sábado e domingo */
 td.sabado, td.domingo {
-    /* color: #721c24; */
+     color: #721c24; 
     font-weight: bold;
 }
 
