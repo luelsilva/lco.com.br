@@ -29,3 +29,6 @@ https://youtu.be/Khmc0msTeAI?si=1NKqCM07ienkBGbi&t=377
 # regras do ESlint
 https://youtu.be/Khmc0msTeAI?si=Ha3a5fesqIfqvA8m&t=1072
 
+# criar um tunel para o proprio local host para testar o whatapp
+npx localtunnel --port 3000
+https://youtu.be/YrFHhqg6Aog?si=dGdYA9D8w8sDjOuH&t=1043
