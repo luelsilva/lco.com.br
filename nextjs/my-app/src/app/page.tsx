@@ -2,7 +2,7 @@
 
 export default function PageHome() {
   return (
-  <main className="bg-background">
+  <main>
     Home
   </main>
   );
