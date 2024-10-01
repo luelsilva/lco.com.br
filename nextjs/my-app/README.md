@@ -41,3 +41,8 @@ https://youtu.be/qGccACbl16I?si=ARqL4KHOME1BI363&t=570
 # Estilização básica do html e body
 https://youtu.be/qGccACbl16I?si=2ybfmtg-FdlN1USm&t=776
 
+
+# Criando tema claro e tema escuro com NextJS e TailwindCSS
+https://youtu.be/qGccACbl16I?si=c0jMZ-Oacbap6peA&t=1250
+
+
