@@ -23,5 +23,9 @@ VS Code ESLint extension
 https://youtu.be/-5jDalTZSME?si=hNQhCtMM-2c-uW_W&t=1369
 
 
-# Parei aqui
+# Remmovendo arquivos desnecessários
 https://youtu.be/Khmc0msTeAI?si=1NKqCM07ienkBGbi&t=377
+
+# regras do ESlint
+https://youtu.be/Khmc0msTeAI?si=Ha3a5fesqIfqvA8m&t=1072
+
