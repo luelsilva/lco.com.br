@@ -32,3 +32,12 @@ https://youtu.be/Khmc0msTeAI?si=Ha3a5fesqIfqvA8m&t=1072
 # criar um tunel para o proprio local host para testar o whatapp
 npx localtunnel --port 3000
 https://youtu.be/YrFHhqg6Aog?si=dGdYA9D8w8sDjOuH&t=1043
+
+# configurar as variaveis do tema
+https://youtu.be/qGccACbl16I?si=gSUEMw-5c0IYObLA&t=191
+https://youtu.be/qGccACbl16I?si=ARqL4KHOME1BI363&t=570
+
+
+# Estilização básica do html e body
+https://youtu.be/qGccACbl16I?si=2ybfmtg-FdlN1USm&t=776
+
