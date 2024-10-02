@@ -11,6 +11,16 @@
     --color-primary-contrast: #ffffff;
 }
 
+/* tema claro */
+html[light]{
+    --color-text: #000000;
+    --color-error: #980000;
+    --color-paper: #ffffff;
+    --color-primary: #009688;
+    --color-background: #cacaca;
+    --color-primary-contrast: #ffffff;
+}
+
 html,
 body {
     @apply bg-background text-text w-screen h-screen
