@@ -34,11 +34,6 @@ document.getElementById('loadBtn').addEventListener('click', function () {
   document.getElementById('fileInput').click();
 });
 
-// onClick do elemento idUnico
-document.getElementById('btidUnico').addEventListener('click', function () {
-  preencherComUUIDSeVazio();
-});
-
 // Função para preencher o campo com UUID se estiver vazio
 function preencherComUUIDSeVazio() {
   const input = document.getElementById('idUnico');
