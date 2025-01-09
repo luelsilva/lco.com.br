@@ -34,6 +34,11 @@ document.getElementById('loadBtn').addEventListener('click', function () {
   document.getElementById('fileInput').click();
 });
 
+// onClick do elemento idUnico
+document.getElementById('idUnico').addEventListener('click', function () {
+  console.log('teste');
+});
+
 // onChange do elemento fileInput
 document.getElementById('fileInput').addEventListener('change', function (event) {
   const file = event.target.files[0];
