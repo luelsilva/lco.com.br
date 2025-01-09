@@ -36,8 +36,18 @@ document.getElementById('loadBtn').addEventListener('click', function () {
 
 // onClick do elemento idUnico
 document.getElementById('btidUnico').addEventListener('click', function () {
-  console.log('tesste');
+  preencherComUUIDSeVazio();
 });
+
+// Função para preencher o campo com UUID se estiver vazio
+function preencherComUUIDSeVazio() {
+  const input = document.getElementById('idUnico');
+  
+  // Verifica se o campo está vazio
+  if (input.value.trim() === "") {
+      input.value = crypto.randomUUID(); // Gera e preenche com um UUID
+  }
+};
 
 // onChange do elemento fileInput
 document.getElementById('fileInput').addEventListener('change', function (event) {
