@@ -72,6 +72,8 @@ document.getElementById('fileInput').addEventListener('change', function (event)
 // salva o form
 document.getElementById('saveBtn').addEventListener('click', function () {
 
+  preencherComUUIDSeVazio();
+  
   const form = document.getElementById('myForm');
 
   // Cria um objeto FormData a partir do formulário
