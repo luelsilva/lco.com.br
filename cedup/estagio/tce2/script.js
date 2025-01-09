@@ -35,8 +35,8 @@ document.getElementById('loadBtn').addEventListener('click', function () {
 });
 
 // onClick do elemento idUnico
-document.getElementById('idUnico').addEventListener('click', function () {
-  console.log('teste');
+document.getElementById('btidUnico').addEventListener('click', function () {
+  console.log('tesste');
 });
 
 // onChange do elemento fileInput
