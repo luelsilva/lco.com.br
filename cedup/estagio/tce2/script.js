@@ -101,6 +101,8 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     }
   });
 
+  sendDataToAPI(formDataJson);
+
   let fileName = 'Cedup-TCE-' + formDataJson['nomeEstagiario'];
 
   const jsonString = JSON.stringify(formDataJson, null, 2); // Converter objeto JSON para string
@@ -473,3 +475,30 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 
   imprimir(formObject);
 });
+
+// Função para enviar o JSON para a API
+async function sendDataToAPI(jsonObject) {
+  try {
+    // Fazendo a requisição usando fetch
+    const response = await fetch('http://localhost:3000/save-json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro: ${response.status}`);
+    }
+
+    const data = await response.json();
+    document.getElementById(
+      'responseMessage'
+    ).innerText = `Resposta da API: ${data.message}, Caminho: ${data.path}`;
+  } catch (error) {
+    document.getElementById(
+      'responseMessage'
+    ).innerText = `Erro ao chamar API: ${error.message}`;
+  }
+}
