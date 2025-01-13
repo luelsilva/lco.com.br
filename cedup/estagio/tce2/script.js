@@ -1,8 +1,7 @@
-//const cursoURL = 'https://www.lco.com.br/cedup/estagio/assets/cursos_tecnicos.csv';
 const cursoURL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv';
 
-//const divPrintInner = document.getElementById('print');
+const API_URL = 'http://localhost:3000/';
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener('DOMContentLoaded', function () {
@@ -480,7 +479,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 async function sendDataToAPI(jsonObject) {
   try {
     // Fazendo a requisição usando fetch
-    const response = await fetch('http://localhost:3000/save-json', {
+    const response = await fetch(API_URL + 'tce', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
