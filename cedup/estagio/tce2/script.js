@@ -501,3 +501,32 @@ async function sendDataToAPI(jsonObject) {
     ).innerText = `Erro ao chamar API: ${error.message}`;
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Verifica se há parâmetros na URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+
+  if (id) {
+    // Faz uma solicitação GET para a API
+    fetch(`https://sua-api.com/endpoint?id=${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro ao buscar dados da API');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Preenche os campos do formulário com os dados retornados
+        Object.keys(data).forEach((key) => {
+          const input = document.querySelector(`[name="${key}"]`);
+          if (input) {
+            input.value = data[key];
+          }
+        });
+      })
+      .catch((error) => {
+        console.error('Erro:', error);
+      });
+  }
+});
