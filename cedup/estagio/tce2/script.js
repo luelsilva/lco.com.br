@@ -28,11 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// onClick do elemento loadBtn
-document.getElementById('loadBtn').addEventListener('click', function () {
-  document.getElementById('fileInput').click();
-});
-
 // Função para preencher o campo com UUID se estiver vazio
 function preencherComUUIDSeVazio() {
   const idUnico = document.getElementById('idUnico');
@@ -46,33 +41,6 @@ function preencherComUUIDSeVazio() {
     timeUnix.value = Date.now();
   }
 }
-
-// onChange do elemento fileInput
-document
-  .getElementById('fileInput')
-  .addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        try {
-          const data = JSON.parse(e.target.result);
-          const form = document.getElementById('myForm');
-          for (const key in data) {
-            if (data.hasOwnProperty(key)) {
-              const input = form.querySelector(`[name="${key}"]`);
-              if (input) {
-                input.value = data[key];
-              }
-            }
-          }
-        } catch (error) {
-          alert('Erro ao processar o arquivo JSON: ' + error.message);
-        }
-      };
-      reader.readAsText(file);
-    }
-  });
 
 // salva o form
 document.getElementById('saveBtn').addEventListener('click', function () {
@@ -509,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (id) {
     // Faz uma solicitação GET para a API
-    fetch(`https://sua-api.com/endpoint?id=${id}`)
+    fetch(`${API_URL}tce/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados da API');
