@@ -5,6 +5,8 @@ const API_URL = 'https://colupe.com/';
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('teste');
+
   fetch(cursoURL)
     .then((response) => response.text())
     .then((data) => {
