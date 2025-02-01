@@ -5,8 +5,6 @@ const API_URL = 'https://colupe.com/';
 
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('teste');
-
   fetch(cursoURL)
     .then((response) => response.text())
     .then((data) => {
@@ -476,6 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Verifica se há parâmetros na URL
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('id');
+  console.log('testea');
 
   if (id) {
     // Faz uma solicitação GET para a API
