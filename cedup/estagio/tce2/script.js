@@ -474,7 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Verifica se há parâmetros na URL
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('id');
-  console.log('testea');
+
+  console.log(id);
 
   if (id) {
     // Faz uma solicitação GET para a API
