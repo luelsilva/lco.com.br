@@ -527,3 +527,16 @@ function saveDados() {
     URL.revokeObjectURL(url); // Liberar a URL
   }
 }
+
+function copiarLink() {
+  preencherComUUIDSeVazio();
+
+  const formDataJson = getFormDataAsJson('myForm');
+
+  sendDataToAPI(formDataJson);
+
+  const id = formDataJson['idUnico'];
+
+  const link = `https://lco.com.br/cedup/estagio/tce2/?id=${id}`;
+  navigator.clipboard.writeText(link).then(() => alert('Link copiado!'));
+}
