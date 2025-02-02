@@ -33,20 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Função para preencher o campo com UUID se estiver vazio
-function preencherComUUIDSeVazio() {
-  const idUnico = document.getElementById('idUnico');
-  const createAt = document.getElementById('createAt');
-  const timeUnix = document.getElementById('timeUnix');
-
-  // Verifica se o campo está vazio
-  if (idUnico.value.trim() === '') {
-    idUnico.value = crypto.randomUUID(); // Gera e preenche com um UUID
-    createAt.value = Date();
-    timeUnix.value = Date.now();
-  }
-}
-
 // salva o form
 document.getElementById('saveBtn').addEventListener('click', function () {
   preencherComUUIDSeVazio();
@@ -365,6 +351,12 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   // Impede o envio do formulário
   event.preventDefault();
 
+  preencherComUUIDSeVazio();
+
+  const formDataJson = getFormDataAsJson('myForm');
+
+  sendDataToAPI(formDataJson);
+
   // pega dados do form
   let formData = new FormData(event.target);
 
@@ -419,8 +411,8 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   imprimir(formObject);
 });
 
+// Verifica se há parâmetros na URL para carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-  // Verifica se há parâmetros na URL
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('id');
 
@@ -447,6 +439,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 });
+
+// preenche o campo com UUID se estiver vazio
+function preencherComUUIDSeVazio() {
+  const idUnico = document.getElementById('idUnico');
+  const createAt = document.getElementById('createAt');
+  const timeUnix = document.getElementById('timeUnix');
+
+  // Verifica se o campo está vazio
+  if (idUnico.value.trim() === '') {
+    idUnico.value = crypto.randomUUID(); // Gera e preenche com um UUID
+    createAt.value = Date();
+    timeUnix.value = Date.now();
+  }
+}
 
 // recebe um ID do form e devolve um JSON
 function getFormDataAsJson(formId) {
@@ -477,7 +483,7 @@ function getFormDataAsJson(formId) {
   return formDataJson;
 }
 
-// Função para enviar o JSON para a API
+// enviar o JSON para a API
 async function sendDataToAPI(jsonObject) {
   try {
     // Fazendo a requisição usando fetch
@@ -508,6 +514,10 @@ async function sendDataToAPI(jsonObject) {
 function criarAtalho() {
   preencherComUUIDSeVazio();
 
+  const formDataJson = getFormDataAsJson('myForm');
+
+  sendDataToAPI(formDataJson);
+
   const idUnico = document.getElementById('idUnico');
   const matrEstag = document.getElementById('matriculaEstagiario');
   const nomeEstag = document.getElementById('nomeEstagiario');
@@ -534,27 +544,9 @@ IconFile=${faviconUrl}
 
 // faz download dos dados em um arquivo json
 function saveDados() {
-  const form = document.getElementById('myForm');
+  preencherComUUIDSeVazio();
 
-  // Cria um objeto FormData a partir do formulário
-  const formData = new FormData(form);
-
-  // Inicializa um objeto vazio para armazenar os dados do formulário
-  const formDataJson = {};
-
-  // Itera sobre os pares chave/valor do FormData e adiciona ao objeto JSON
-  formData.forEach((value, key) => {
-    // Se a chave já existe, converte o valor em um array (para campos com o mesmo nome)
-    if (formDataJson[key]) {
-      if (Array.isArray(formDataJson[key])) {
-        formDataJson[key].push(value);
-      } else {
-        formDataJson[key] = [formDataJson[key], value];
-      }
-    } else {
-      formDataJson[key] = value;
-    }
-  });
+  const formDataJson = getFormDataAsJson('myForm');
 
   sendDataToAPI(formDataJson);
 
