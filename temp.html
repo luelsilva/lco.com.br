@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Atalho</title>
+  </head>
+  <body>
+    <button onclick="criarAtalho()">Criar Atalho</button>
+
+    <script>
+      function criarAtalho() {
+        const url = 'https://www.exemplo.com'; // URL do site desejado
+        const nomeArquivo = 'MeuAtalho.url';
+
+        const conteudo = `[InternetShortcut]
+URL=${url}
+IconIndex=0
+IconFile=${url}/favicon.ico
+`;
+
+        const blob = new Blob([conteudo], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = nomeArquivo;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+    </script>
+  </body>
+</html>
