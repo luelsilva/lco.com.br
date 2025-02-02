@@ -504,6 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// faz download de um atalho
 function criarAtalho() {
   preencherComUUIDSeVazio();
 
@@ -529,4 +530,51 @@ IconFile=${faviconUrl}
   a.download = nomeArquivo;
   a.click();
   URL.revokeObjectURL(a.href);
+}
+
+// faz download dos dados em um arquivo json
+function saveDados() {
+  const form = document.getElementById('myForm');
+
+  // Cria um objeto FormData a partir do formulário
+  const formData = new FormData(form);
+
+  // Inicializa um objeto vazio para armazenar os dados do formulário
+  const formDataJson = {};
+
+  // Itera sobre os pares chave/valor do FormData e adiciona ao objeto JSON
+  formData.forEach((value, key) => {
+    // Se a chave já existe, converte o valor em um array (para campos com o mesmo nome)
+    if (formDataJson[key]) {
+      if (Array.isArray(formDataJson[key])) {
+        formDataJson[key].push(value);
+      } else {
+        formDataJson[key] = [formDataJson[key], value];
+      }
+    } else {
+      formDataJson[key] = value;
+    }
+  });
+
+  sendDataToAPI(formDataJson);
+
+  let fileName = 'Cedup-TCE-' + formDataJson['nomeEstagiario'];
+
+  const jsonString = JSON.stringify(formDataJson, null, 2); // Converter objeto JSON para string
+  const blob = new Blob([jsonString], { type: 'application/json' }); // Criar um Blob com o conteúdo JSON
+  const url = URL.createObjectURL(blob); // Criar uma URL para o Blob
+
+  // isso aqui é porque o chrome não abre o diálogo
+  fileName = prompt('Entre o nome do arquivo para salvar:', fileName);
+
+  if (fileName) {
+    fileName = fileName + '.json';
+    const a = document.createElement('a'); // Criar um elemento de link
+    a.href = url;
+    a.download = fileName; // Nome sugerido para o arquivo
+    document.body.appendChild(a); // Adicionar o link ao DOM
+    a.click(); // clicar nele para abrir a janela de diálogo "Salvar Como"
+    document.body.removeChild(a); // Remover o link do DOM
+    URL.revokeObjectURL(url); // Liberar a URL
+  }
 }
