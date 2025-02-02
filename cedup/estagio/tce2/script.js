@@ -503,7 +503,7 @@ async function sendDataToAPI(jsonObject) {
     const data = await response.json();
     document.getElementById(
       'responseMessage'
-    ).innerText = `Resposta da API: ${data.message}, Caminho: ${data.path}`;
+    ).innerText = `Resposta da API: ${data.message}`;
   } catch (error) {
     document.getElementById(
       'responseMessage'
