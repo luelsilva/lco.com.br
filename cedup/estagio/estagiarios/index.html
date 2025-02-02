@@ -31,6 +31,7 @@
                     <td>${estagiario.nomeEmpresa}</td>
                     <td><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.idUnico}')">📋</button></td>
                     <td><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.idUnico}')">✏️</button></td>
+                    <td><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>
                 `;
           tbody.appendChild(tr);
         });
@@ -43,6 +44,25 @@
 
       function editar(id) {
         window.open(`https://lco.com.br/cedup/estagio/tce2/${id}`, '_blank');
+      }
+
+      function deletar(id) {
+        fetch(`https://colupe.com/tce/${id}`, {
+          method: 'DELETE',
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert('Estagiário deletado com sucesso!');
+              document.querySelectorAll('#tabela-corpo tr').forEach((row) => {
+                if (row.innerHTML.includes(id)) {
+                  row.remove();
+                }
+              });
+            } else {
+              alert('Erro ao deletar estagiário.');
+            }
+          })
+          .catch((error) => console.error('Erro ao deletar: ', error));
       }
     </script>
   </head>
