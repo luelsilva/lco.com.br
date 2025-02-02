@@ -505,12 +505,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function criarAtalho() {
+  preencherComUUIDSeVazio();
+
+  const idUnico = document.getElementById('idUnico');
+  const matrEstag = document.getElementById('matriculaEstagiario');
+  const nomeEstag = document.getElementById('nomeEstagiario');
+
   const tceUrl = TCE_URL; // URL do site desejado
   const faviconUrl = FAVICON_URL;
-  const nomeArquivo = 'MeuAtalho.url';
+  const nomeArquivo = 'Cedup ' + matrEstag + ' ' + nomeEstag;
+  const atalhoUrl = tceUrl + '?id=' + idUnico;
 
   const conteudo = `[InternetShortcut]
-URL=${tceUrl}
+URL=${atalhoUrl}
 IconIndex=0
 IconFile=${faviconUrl}
 `;
