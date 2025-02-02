@@ -485,6 +485,7 @@ function getFormDataAsJson(formId) {
 
 // enviar o JSON para a API
 async function sendDataToAPI(jsonObject) {
+  document.getElementById('responseMessage').innerText = '';
   try {
     // Fazendo a requisição usando fetch
     const response = await fetch(API_URL + 'tce', {
