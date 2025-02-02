@@ -1,11 +1,16 @@
-const cursoURL =
+const CURSOS_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv';
 
 const API_URL = 'https://colupe.com/';
 
+const TCE_URL = 'https://www.lco.com.br/cedup/estagio/tce2/';
+
+const FAVICON_URL =
+  'https://www.lco.com.br/cedup/estagio/assets/img/favicon.png';
+
 // carrega cursos no form select 'siglaCurso'
 document.addEventListener('DOMContentLoaded', function () {
-  fetch(cursoURL)
+  fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
       const linhas = data.split('\n');
@@ -269,7 +274,7 @@ function formataData(data) {
 // retorna um array [cursoID, cursoNome, profMatricula, profNome, profEmail]
 async function getCursoByID(siglaCurso) {
   try {
-    const resposta = await fetch(cursoURL);
+    const resposta = await fetch(CURSOS_URL);
     const texto = await resposta.text();
 
     const linhas = texto.split('\n');
@@ -500,13 +505,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function criarAtalho() {
-  const url = 'https://www.exemplo.com'; // URL do site desejado
+  const tceUrl = TCE_URL; // URL do site desejado
+  const faviconUrl = FAVICON_URL;
   const nomeArquivo = 'MeuAtalho.url';
 
   const conteudo = `[InternetShortcut]
-URL=${url}
+URL=${tceUrl}
 IconIndex=0
-IconFile=${url}/favicon.ico
+IconFile=${faviconUrl}
 `;
 
   const blob = new Blob([conteudo], { type: 'text/plain' });
