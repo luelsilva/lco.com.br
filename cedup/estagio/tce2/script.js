@@ -513,8 +513,9 @@ function criarAtalho() {
 
   const tceUrl = TCE_URL; // URL do site desejado
   const faviconUrl = FAVICON_URL;
-  const nomeArquivo = 'Cedup ' + matrEstag + ' ' + nomeEstag;
-  const atalhoUrl = tceUrl + '?id=' + idUnico;
+  const nomeArquivo =
+    'Cedup ' + matrEstag.value + ' ' + nomeEstag.value + '.url';
+  const atalhoUrl = tceUrl + '?id=' + idUnico.value;
 
   const conteudo = `[InternetShortcut]
 URL=${atalhoUrl}
