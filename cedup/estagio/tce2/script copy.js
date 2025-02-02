@@ -96,6 +96,35 @@ document.getElementById('saveBtn').addEventListener('click', function () {
   }
 });
 
+// recebe um ID do form e devolve um JSON
+function getFormDataAsJson(formId) {
+  // Seleciona o formulário pelo ID
+  const form = document.getElementById(formId);
+
+  // Cria um objeto FormData a partir do formulário
+  const formData = new FormData(form);
+
+  // Inicializa um objeto vazio para armazenar os dados do formulário
+  const formDataJson = {};
+
+  // Itera sobre os pares chave/valor do FormData e adiciona ao objeto JSON
+  formData.forEach((value, key) => {
+    // Se a chave já existe, converte o valor em um array (para campos com o mesmo nome)
+    if (formDataJson[key]) {
+      if (Array.isArray(formDataJson[key])) {
+        formDataJson[key].push(value);
+      } else {
+        formDataJson[key] = [formDataJson[key], value];
+      }
+    } else {
+      formDataJson[key] = value;
+    }
+  });
+
+  // Retorna o objeto JSON
+  return formDataJson;
+}
+
 // funções de busca cep
 function meu_callback_estagiario(conteudo) {
   if (!('erro' in conteudo)) {
@@ -419,6 +448,33 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   imprimir(formObject);
 });
 
+// Função para enviar o JSON para a API
+async function sendDataToAPI(jsonObject) {
+  try {
+    // Fazendo a requisição usando fetch
+    const response = await fetch(API_URL + 'tce', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro: ${response.status}`);
+    }
+
+    const data = await response.json();
+    document.getElementById(
+      'responseMessage'
+    ).innerText = `Resposta da API: ${data.message}, Caminho: ${data.path}`;
+  } catch (error) {
+    document.getElementById(
+      'responseMessage'
+    ).innerText = `Erro ao chamar API: ${error.message}`;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Verifica se há parâmetros na URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -447,62 +503,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 });
-
-// recebe um ID do form e devolve um JSON
-function getFormDataAsJson(formId) {
-  // Seleciona o formulário pelo ID
-  const form = document.getElementById(formId);
-
-  // Cria um objeto FormData a partir do formulário
-  const formData = new FormData(form);
-
-  // Inicializa um objeto vazio para armazenar os dados do formulário
-  const formDataJson = {};
-
-  // Itera sobre os pares chave/valor do FormData e adiciona ao objeto JSON
-  formData.forEach((value, key) => {
-    // Se a chave já existe, converte o valor em um array (para campos com o mesmo nome)
-    if (formDataJson[key]) {
-      if (Array.isArray(formDataJson[key])) {
-        formDataJson[key].push(value);
-      } else {
-        formDataJson[key] = [formDataJson[key], value];
-      }
-    } else {
-      formDataJson[key] = value;
-    }
-  });
-
-  // Retorna o objeto JSON
-  return formDataJson;
-}
-
-// Função para enviar o JSON para a API
-async function sendDataToAPI(jsonObject) {
-  try {
-    // Fazendo a requisição usando fetch
-    const response = await fetch(API_URL + 'tce', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonObject),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erro: ${response.status}`);
-    }
-
-    const data = await response.json();
-    document.getElementById(
-      'responseMessage'
-    ).innerText = `Resposta da API: ${data.message}, Caminho: ${data.path}`;
-  } catch (error) {
-    document.getElementById(
-      'responseMessage'
-    ).innerText = `Erro ao chamar API: ${error.message}`;
-  }
-}
 
 // faz download de um atalho
 function criarAtalho() {
