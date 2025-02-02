@@ -29,9 +29,9 @@
                     <td>${estagiario.matriculaEstagiario}</td>
                     <td>${estagiario.nomeEstagiario}</td>
                     <td>${estagiario.nomeEmpresa}</td>
-                    <td><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.idUnico}')">📋</button></td>
-                    <td><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.idUnico}')">✏️</button></td>
-                    <td><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.idUnico}')">📋</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.idUnico}')">✏️</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>
                 `;
           tbody.appendChild(tr);
         });
