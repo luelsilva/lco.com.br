@@ -303,6 +303,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
   preencherComUUIDSeVazio();
+  preencherDataHoraImpressao();
 
   // pega dados do form
   let formData = new FormData(event.target);
@@ -312,16 +313,6 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   formData.forEach((value, key) => {
     formObject[key] = value;
   });
-
-  formObject['dataImpressao'] = getDataAtual();
-
-  const agora = new Date();
-  const horaMinuto = agora.toLocaleTimeString('pt-BR', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
-  formObject['horaImpressao'] = horaMinuto;
 
   sendDataToAPI(formObject);
 
@@ -409,6 +400,22 @@ function preencherComUUIDSeVazio() {
     createAt.value = Date();
     timeUnix.value = Date.now();
   }
+}
+
+// preenche a data e hora de impressao
+function preencherDataHoraImpressao() {
+  const dataImpressao = document.getElementById('dataImpressao');
+  const horaImpressao = document.getElementById('horaImpressao');
+
+  dataImpressao.value = getDataAtual();
+
+  const agora = new Date();
+  const horaMinuto = agora.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  horaImpressao.value = horaMinuto;
 }
 
 // recebe um ID do form e devolve um JSON
