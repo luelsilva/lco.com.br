@@ -308,6 +308,8 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 
   sendDataToAPI(formDataJson);
 
+  console.log(formDataJson);
+
   // pega dados do form
   let formData = new FormData(event.target);
 
@@ -358,6 +360,8 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     empresaCep;
 
   formObject['dataAtual'] = getDataAtual();
+
+  console.log(formObject);
 
   imprimir(formObject);
 });
