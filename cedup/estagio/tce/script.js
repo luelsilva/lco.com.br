@@ -453,6 +453,7 @@ async function sendDataToAPI(jsonObject) {
 
     const data = await response.json();
     document.getElementById('responseMessage').innerText = '';
+    console.log(data.message);
   } catch (error) {
     document.getElementById(
       'responseMessage'
