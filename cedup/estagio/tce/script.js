@@ -304,12 +304,6 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 
   preencherComUUIDSeVazio();
 
-  const formDataJson = getFormDataAsJson('myForm');
-
-  sendDataToAPI(formDataJson);
-
-  console.log(formDataJson);
-
   // pega dados do form
   let formData = new FormData(event.target);
 
@@ -318,6 +312,9 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   formData.forEach((value, key) => {
     formObject[key] = value;
   });
+
+  formObject['dataAtual'] = getDataAtual();
+  sendDataToAPI(formObject);
 
   const estagEnder = formObject['enderecoEstagiario'] || '';
   const estagNum = formObject['numEnderEstagiario'] || '';
@@ -358,10 +355,6 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     empresaEstado +
     ' CEP: ' +
     empresaCep;
-
-  formObject['dataAtual'] = getDataAtual();
-
-  console.log(formObject);
 
   imprimir(formObject);
 });
