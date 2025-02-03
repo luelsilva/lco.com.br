@@ -3,7 +3,7 @@ const CURSOS_URL =
 
 const API_URL = 'https://colupe.com/';
 
-const TCE_URL = 'https://www.lco.com.br/cedup/estagio/tce2/';
+const TCE_URL = 'https://www.lco.com.br/cedup/estagio/tce/';
 
 const FAVICON_URL =
   'https://www.lco.com.br/cedup/estagio/assets/img/favicon.png';
@@ -535,6 +535,6 @@ function copiarLink() {
 
   const id = formDataJson['idUnico'];
 
-  const link = `https://lco.com.br/cedup/estagio/tce2/?id=${id}`;
+  const link = `https://lco.com.br/cedup/estagio/tce/?id=${id}`;
   navigator.clipboard.writeText(link).then(() => alert('Link copiado!'));
 }

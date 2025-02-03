@@ -38,15 +38,12 @@
       }
 
       function copiarLink(id) {
-        const link = `https://lco.com.br/cedup/estagio/tce2/?id=${id}`;
+        const link = `https://lco.com.br/cedup/estagio/tce/?id=${id}`;
         navigator.clipboard.writeText(link).then(() => alert('Link copiado!'));
       }
 
       function editar(id) {
-        window.open(
-          `https://lco.com.br/cedup/estagio/tce2/?id=${id}`,
-          '_blank'
-        );
+        window.open(`https://lco.com.br/cedup/estagio/tce/?id=${id}`, '_blank');
       }
 
       function deletar(id) {
