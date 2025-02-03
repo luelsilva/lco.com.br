@@ -269,7 +269,7 @@ async function imprimir(formObject) {
       .replace('${cnpjSeguradora}', formObject['cnpjSeguradora'])
       .replace('${dataInicio}', await formataData(formObject['dataInicio']))
       .replace('${dataFim}', await formataData(formObject['dataFim']))
-      .replace('${dataAtual}', formObject['dataAtual'])
+      .replace('${dataImpressao}', formObject['dataImpressao'])
       .replace('${nomeEstagiario2}', formObject['nomeEstagiario'])
       .replace('${cpfEstagiario2}', formObject['cpfEstagiario'])
       .replace('${tipoEstagio}', formObject['tipoEstagio'])
@@ -313,7 +313,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     formObject[key] = value;
   });
 
-  formObject['dataAtual'] = getDataAtual();
+  formObject['dataImpressao'] = getDataAtual();
   sendDataToAPI(formObject);
 
   const estagEnder = formObject['enderecoEstagiario'] || '';
