@@ -314,6 +314,15 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   });
 
   formObject['dataImpressao'] = getDataAtual();
+
+  const agora = new Date();
+  const horaMinuto = agora.toLocaleTimeString('pt-BR', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  formObject['horaImpressao'] = horaMinuto;
+
   sendDataToAPI(formObject);
 
   const estagEnder = formObject['enderecoEstagiario'] || '';
