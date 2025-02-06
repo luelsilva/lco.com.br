@@ -379,7 +379,7 @@ async function imprimir(formObject) {
     window.print();
 
     divPrint.innerHTML = originalContent;
-    
+
   }
 }
 
