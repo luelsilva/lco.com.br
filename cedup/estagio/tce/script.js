@@ -1,26 +1,58 @@
 const CURSOS_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv';
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv";
 
-const API_URL = 'https://colupe.com/';
+const API_URL = "https://colupe.com/";
 
-const TCE_URL = 'https://www.lco.com.br/cedup/estagio/tce/';
+const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/";
 
 const FAVICON_URL =
-  'https://www.lco.com.br/cedup/estagio/assets/img/favicon.png';
+  "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
+
+// onClick do elemento loadBtn
+document.getElementById("loadBtn").addEventListener("click", function () {
+  document.getElementById("fileInput").click();
+});
+
+// onChange do elemento fileInput
+document
+  .getElementById("fileInput")
+  .addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        try {
+          const data = JSON.parse(e.target.result);
+          const form = document.getElementById("myForm");
+          for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+              const input = form.querySelector(`[name="${key}"]`);
+              if (input) {
+                input.value = data[key];
+              }
+            }
+          }
+        } catch (error) {
+          alert("Erro ao processar o arquivo JSON: " + error.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+  });
 
 // carrega cursos no form select 'siglaCurso'
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
-      const linhas = data.split('\n');
+      const linhas = data.split("\n");
       // Ignora a primeira linha
       const linhasSemPrimeira = linhas.slice(1);
-      const cursoSelect = document.getElementById('siglaCurso');
+      const cursoSelect = document.getElementById("siglaCurso");
       linhasSemPrimeira.forEach((linha) => {
-        const colunas = linha.split(',');
+        const colunas = linha.split(",");
         if (colunas.length >= 2) {
-          const option = document.createElement('option');
+          const option = document.createElement("option");
           option.value = colunas[0].trim();
           option.textContent = colunas[1].trim();
           cursoSelect.appendChild(option);
@@ -28,59 +60,59 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     })
     .catch((error) => {
-      console.error('Erro ao carregar os cursos:', error);
-      alert('Erro ao carregar os cursos');
+      console.error("Erro ao carregar os cursos:", error);
+      alert("Erro ao carregar os cursos");
     });
 });
 
 // funções de busca cep
 function meu_callback_estagiario(conteudo) {
-  if (!('erro' in conteudo)) {
+  if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
-    document.getElementById('enderecoEstagiario').value = conteudo.logradouro;
-    document.getElementById('numEnderEstagiario').value = '';
-    document.getElementById('bairroEstagiario').value = conteudo.bairro;
-    document.getElementById('cidadeEstagiario').value = conteudo.localidade;
-    document.getElementById('estadoEstagiario').value = conteudo.uf;
+    document.getElementById("enderecoEstagiario").value = conteudo.logradouro;
+    document.getElementById("numEnderEstagiario").value = "";
+    document.getElementById("bairroEstagiario").value = conteudo.bairro;
+    document.getElementById("cidadeEstagiario").value = conteudo.localidade;
+    document.getElementById("estadoEstagiario").value = conteudo.uf;
   } //end if.
   else {
     //CEP não Encontrado.
     limpa_formulário_cep(1);
-    alert('CEP não encontrado.');
+    alert("CEP não encontrado.");
   }
 }
 // funções de busca cep
 function meu_callback_empresa(conteudo) {
-  if (!('erro' in conteudo)) {
+  if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
-    document.getElementById('enderecoEmpresa').value = conteudo.logradouro;
-    document.getElementById('numEnderEmpresa').value = '';
-    document.getElementById('bairroEmpresa').value = conteudo.bairro;
-    document.getElementById('cidadeEmpresa').value = conteudo.localidade;
-    document.getElementById('estadoEmpresa').value = conteudo.uf;
+    document.getElementById("enderecoEmpresa").value = conteudo.logradouro;
+    document.getElementById("numEnderEmpresa").value = "";
+    document.getElementById("bairroEmpresa").value = conteudo.bairro;
+    document.getElementById("cidadeEmpresa").value = conteudo.localidade;
+    document.getElementById("estadoEmpresa").value = conteudo.uf;
   } //end if.
   else {
     //CEP não Encontrado.
     limpa_formulário_cep(2);
-    alert('CEP não encontrado.');
+    alert("CEP não encontrado.");
   }
 }
 // funções de busca cep
 function limpa_formulário_cep(quem) {
   if (quem === 1) {
     //Limpa valores do formulário de cep.
-    document.getElementById('enderecoEstagiario').value = '';
-    document.getElementById('numEnderEstagiario').value = '';
-    document.getElementById('bairroEstagiario').value = '';
-    document.getElementById('cidadeEstagiario').value = '';
-    document.getElementById('estadoEstagiario').value = '';
+    document.getElementById("enderecoEstagiario").value = "";
+    document.getElementById("numEnderEstagiario").value = "";
+    document.getElementById("bairroEstagiario").value = "";
+    document.getElementById("cidadeEstagiario").value = "";
+    document.getElementById("estadoEstagiario").value = "";
   } else {
     //Limpa valores do formulário de cep.
-    document.getElementById('enderecoEmpresa').value = '';
-    document.getElementById('numEnderEmpresa').value = '';
-    document.getElementById('bairroEmpresa').value = '';
-    document.getElementById('cidadeEmpresa').value = '';
-    document.getElementById('estadoEmpresa').value = '';
+    document.getElementById("enderecoEmpresa").value = "";
+    document.getElementById("numEnderEmpresa").value = "";
+    document.getElementById("bairroEmpresa").value = "";
+    document.getElementById("cidadeEmpresa").value = "";
+    document.getElementById("estadoEmpresa").value = "";
   }
 }
 // funções de busca cep
@@ -88,10 +120,10 @@ function pesquisaCep(valor, quem) {
   // 1 para estagiario 2 para empresa
 
   //Nova variável "cep" somente com dígitos.
-  var cep = valor.replace(/\D/g, '');
+  var cep = valor.replace(/\D/g, "");
 
   //Verifica se campo cep possui valor informado.
-  if (cep != '') {
+  if (cep != "") {
     //Expressão regular para validar o CEP.
     var validacep = /^[0-9]{8}$/;
 
@@ -99,34 +131,34 @@ function pesquisaCep(valor, quem) {
     if (validacep.test(cep)) {
       if (quem === 1) {
         //Preenche os campos com "..." enquanto consulta webservice.
-        document.getElementById('enderecoEstagiario').value = '...';
-        document.getElementById('numEnderEstagiario').value = '...';
-        document.getElementById('bairroEstagiario').value = '...';
-        document.getElementById('cidadeEstagiario').value = '...';
-        document.getElementById('estadoEstagiario').value = '...';
+        document.getElementById("enderecoEstagiario").value = "...";
+        document.getElementById("numEnderEstagiario").value = "...";
+        document.getElementById("bairroEstagiario").value = "...";
+        document.getElementById("cidadeEstagiario").value = "...";
+        document.getElementById("estadoEstagiario").value = "...";
       } else {
         //Preenche os campos com "..." enquanto consulta webservice.
-        document.getElementById('enderecoEmpresa').value = '...';
-        document.getElementById('numEnderEmpresa').value = '...';
-        document.getElementById('bairroEmpresa').value = '...';
-        document.getElementById('cidadeEmpresa').value = '...';
-        document.getElementById('estadoEmpresa').value = '...';
+        document.getElementById("enderecoEmpresa").value = "...";
+        document.getElementById("numEnderEmpresa").value = "...";
+        document.getElementById("bairroEmpresa").value = "...";
+        document.getElementById("cidadeEmpresa").value = "...";
+        document.getElementById("estadoEmpresa").value = "...";
       }
 
       //Cria um elemento javascript.
-      var script = document.createElement('script');
+      var script = document.createElement("script");
 
       //Sincroniza com o callback.
       if (quem === 1) {
         script.src =
-          'https://viacep.com.br/ws/' +
+          "https://viacep.com.br/ws/" +
           cep +
-          '/json/?callback=meu_callback_estagiario';
+          "/json/?callback=meu_callback_estagiario";
       } else {
         script.src =
-          'https://viacep.com.br/ws/' +
+          "https://viacep.com.br/ws/" +
           cep +
-          '/json/?callback=meu_callback_empresa';
+          "/json/?callback=meu_callback_empresa";
       }
 
       //Insere script no documento e carrega o conteúdo.
@@ -135,7 +167,7 @@ function pesquisaCep(valor, quem) {
     else {
       //cep é inválido.
       limpa_formulário_cep(quem);
-      alert('Formato de CEP inválido.');
+      alert("Formato de CEP inválido.");
     }
   } //end if.
   else {
@@ -154,20 +186,20 @@ function getDataAtual() {
 
   // Adicionando zero à esquerda se o dia ou o mês forem menores que 10
   if (dia < 10) {
-    dia = '0' + dia;
+    dia = "0" + dia;
   }
   if (mes < 10) {
-    mes = '0' + mes;
+    mes = "0" + mes;
   }
 
-  return dia + '/' + mes + '/' + ano;
+  return dia + "/" + mes + "/" + ano;
 }
 
 // Entrada: "2024-07-10";
 // Saída: 10/07/2024
 function formataData(data) {
   // Dividindo a data original em componentes
-  let partes = data.split('-');
+  let partes = data.split("-");
   let ano = partes[0];
   let mes = partes[1];
   let dia = partes[2];
@@ -185,14 +217,14 @@ async function getCursoByID(siglaCurso) {
     const resposta = await fetch(CURSOS_URL);
     const texto = await resposta.text();
 
-    const linhas = texto.split('\n');
+    const linhas = texto.split("\n");
     // Ignora a primeira linha
     const linhasSemPrimeira = linhas.slice(1);
 
     let resultado = null;
 
     for (const linha of linhas) {
-      const colunas = linha.split(',');
+      const colunas = linha.split(",");
 
       if (colunas[0] === siglaCurso) {
         resultado = colunas;
@@ -204,29 +236,29 @@ async function getCursoByID(siglaCurso) {
       // Aqui você pode fazer o que quiser com o resultado, como armazená-lo em uma matriz ou exibi-lo na página
       return resultado;
     } else {
-      console.log('Chave não encontrada.');
-      alert('Curso não encontrado');
+      console.log("Chave não encontrada.");
+      alert("Curso não encontrado");
     }
   } catch (erro) {
-    console.error('Erro ao buscar dados:', erro);
-    alert('Erro ao buscar dados do curso');
+    console.error("Erro ao buscar dados:", erro);
+    alert("Erro ao buscar dados do curso");
   }
 }
 
 // primeiro coloca os valores de formObject[<variavel>] em divPrint.innerHTML(${<variavel>})
 async function imprimir(formObject) {
-  const siglaCurso = formObject['siglaCurso'];
+  const siglaCurso = formObject["siglaCurso"];
 
   var result = await getCursoByID(siglaCurso);
 
   if (result) {
-    formObject['nomeCurso'] = result[1];
-    formObject['matriculaProfessor'] = result[2];
-    formObject['nomeProfessor'] = result[3];
-    formObject['emailProfessor'] = result[4];
+    formObject["nomeCurso"] = result[1];
+    formObject["matriculaProfessor"] = result[2];
+    formObject["nomeProfessor"] = result[3];
+    formObject["emailProfessor"] = result[4];
 
     // Seleciona a div print
-    const divPrint = document.getElementById('print');
+    const divPrint = document.getElementById("print");
     const originalContent = divPrint.innerHTML;
 
     // não substitui duas vezes, porque a palavra chava já foi substituída
@@ -234,61 +266,61 @@ async function imprimir(formObject) {
     // Substitui os placeholders com os valores do objeto JSON
 
     divPrint.innerHTML = divPrint.innerHTML
-      .replace('${nomeEstagiario}', formObject['nomeEstagiario'])
-      .replace('${nomeCurso}', formObject['nomeCurso'])
-      .replace('${matriculaEstagiario}', formObject['matriculaEstagiario'])
-      .replace('${cpfEstagiario}', formObject['cpfEstagiario'])
-      .replace('${telefoneEstagiario}', formObject['telefoneEstagiario'])
-      .replace('${emailEstagiario}', formObject['emailEstagiario'])
+      .replace("${nomeEstagiario}", formObject["nomeEstagiario"])
+      .replace("${nomeCurso}", formObject["nomeCurso"])
+      .replace("${matriculaEstagiario}", formObject["matriculaEstagiario"])
+      .replace("${cpfEstagiario}", formObject["cpfEstagiario"])
+      .replace("${telefoneEstagiario}", formObject["telefoneEstagiario"])
+      .replace("${emailEstagiario}", formObject["emailEstagiario"])
       .replace(
-        '${dataNascimento}',
-        await formataData(formObject['dataNascimento'])
+        "${dataNascimento}",
+        await formataData(formObject["dataNascimento"])
       )
       .replace(
-        '${enderecoCompletoEstagiario}',
-        formObject['enderecoCompletoEstagiario']
+        "${enderecoCompletoEstagiario}",
+        formObject["enderecoCompletoEstagiario"]
       )
-      .replace('${deficiencia}', formObject['deficiencia'])
-      .replace('${nomeProfessor}', formObject['nomeProfessor'])
-      .replace('${matriculaProfessor}', formObject['matriculaProfessor'])
-      .replace('${emailProfessor}', formObject['emailProfessor'])
-      .replace('${nomeEmpresa}', formObject['nomeEmpresa'])
-      .replace('${cnpj}', formObject['cnpj'])
+      .replace("${deficiencia}", formObject["deficiencia"])
+      .replace("${nomeProfessor}", formObject["nomeProfessor"])
+      .replace("${matriculaProfessor}", formObject["matriculaProfessor"])
+      .replace("${emailProfessor}", formObject["emailProfessor"])
+      .replace("${nomeEmpresa}", formObject["nomeEmpresa"])
+      .replace("${cnpj}", formObject["cnpj"])
       .replace(
-        '${enderecoCompletoEmpresa}',
-        formObject['enderecoCompletoEmpresa']
+        "${enderecoCompletoEmpresa}",
+        formObject["enderecoCompletoEmpresa"]
       )
-      .replace('${telefoneEmpresa}', formObject['telefoneEmpresa'])
-      .replace('${emailEmpresa}', formObject['emailEmpresa'])
-      .replace('${ramoAtividade}', formObject['ramoAtividade'])
-      .replace('${representante}', formObject['representante'])
-      .replace('${supervidor}', formObject['supervidor'])
-      .replace('${cargo}', formObject['cargo'])
-      .replace('${apolice}', formObject['apolice'])
-      .replace('${seguradora}', formObject['seguradora'])
-      .replace('${cnpjSeguradora}', formObject['cnpjSeguradora'])
-      .replace('${dataInicio}', await formataData(formObject['dataInicio']))
-      .replace('${dataFim}', await formataData(formObject['dataFim']))
-      .replace('${dataImpressao}', formObject['dataImpressao'])
-      .replace('${nomeEstagiario2}', formObject['nomeEstagiario'])
-      .replace('${cpfEstagiario2}', formObject['cpfEstagiario'])
-      .replace('${tipoEstagio}', formObject['tipoEstagio'])
-      .replace('${dataInicio2}', await formataData(formObject['dataInicio']))
-      .replace('${dataFim2}', await formataData(formObject['dataFim']))
+      .replace("${telefoneEmpresa}", formObject["telefoneEmpresa"])
+      .replace("${emailEmpresa}", formObject["emailEmpresa"])
+      .replace("${ramoAtividade}", formObject["ramoAtividade"])
+      .replace("${representante}", formObject["representante"])
+      .replace("${supervidor}", formObject["supervidor"])
+      .replace("${cargo}", formObject["cargo"])
+      .replace("${apolice}", formObject["apolice"])
+      .replace("${seguradora}", formObject["seguradora"])
+      .replace("${cnpjSeguradora}", formObject["cnpjSeguradora"])
+      .replace("${dataInicio}", await formataData(formObject["dataInicio"]))
+      .replace("${dataFim}", await formataData(formObject["dataFim"]))
+      .replace("${dataImpressao}", formObject["dataImpressao"])
+      .replace("${nomeEstagiario2}", formObject["nomeEstagiario"])
+      .replace("${cpfEstagiario2}", formObject["cpfEstagiario"])
+      .replace("${tipoEstagio}", formObject["tipoEstagio"])
+      .replace("${dataInicio2}", await formataData(formObject["dataInicio"]))
+      .replace("${dataFim2}", await formataData(formObject["dataFim"]))
       .replace(
-        '${horarioEstagio}',
-        formObject['horarioEstagio'].replace(/\n/g, '<br>')
+        "${horarioEstagio}",
+        formObject["horarioEstagio"].replace(/\n/g, "<br>")
       )
-      .replace('${cargaHorariaSemanal}', formObject['cargaHorariaSemanal'])
-      .replace('${cargaHorariaTotal}', formObject['cargaHorariaTotal'])
-      .replace('${apolice2}', formObject['apolice'])
+      .replace("${cargaHorariaSemanal}", formObject["cargaHorariaSemanal"])
+      .replace("${cargaHorariaTotal}", formObject["cargaHorariaTotal"])
+      .replace("${apolice2}", formObject["apolice"])
       .replace(
-        '${bolsaAuxilio}',
-        formObject['bolsaAuxilio'].replace(/\n/g, '<br>')
+        "${bolsaAuxilio}",
+        formObject["bolsaAuxilio"].replace(/\n/g, "<br>")
       )
       .replace(
-        '${atividades}',
-        formObject['atividades'].replace(/\n/g, '<br>')
+        "${atividades}",
+        formObject["atividades"].replace(/\n/g, "<br>")
       );
 
     window.print();
@@ -298,7 +330,7 @@ async function imprimir(formObject) {
 }
 
 // Adiciona um event listener para o evento de submissão do formulário
-document.getElementById('myForm').addEventListener('submit', function (event) {
+document.getElementById("myForm").addEventListener("submit", function (event) {
   // Impede o envio do formulário
   event.preventDefault();
 
@@ -316,60 +348,60 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 
   sendDataToAPI(formObject);
 
-  const estagEnder = formObject['enderecoEstagiario'] || '';
-  const estagNum = formObject['numEnderEstagiario'] || '';
-  const estagBairro = formObject['bairroEstagiario'] || '';
-  const estagCidade = formObject['cidadeEstagiario'] || '';
-  const estagEstado = formObject['estadoEstagiario'] || '';
-  const estagCep = formObject['cepEstagiario'] || '';
+  const estagEnder = formObject["enderecoEstagiario"] || "";
+  const estagNum = formObject["numEnderEstagiario"] || "";
+  const estagBairro = formObject["bairroEstagiario"] || "";
+  const estagCidade = formObject["cidadeEstagiario"] || "";
+  const estagEstado = formObject["estadoEstagiario"] || "";
+  const estagCep = formObject["cepEstagiario"] || "";
 
-  const empresaEnder = formObject['enderecoEmpresa'] || '';
-  const empresaNum = formObject['numEnderEmpresa'] || '';
-  const empresaBairro = formObject['bairroEmpresa'] || '';
-  const empresaCidade = formObject['cidadeEmpresa'] || '';
-  const empresaEstado = formObject['estadoEmpresa'] || '';
-  const empresaCep = formObject['cepEmpresa'] || '';
+  const empresaEnder = formObject["enderecoEmpresa"] || "";
+  const empresaNum = formObject["numEnderEmpresa"] || "";
+  const empresaBairro = formObject["bairroEmpresa"] || "";
+  const empresaCidade = formObject["cidadeEmpresa"] || "";
+  const empresaEstado = formObject["estadoEmpresa"] || "";
+  const empresaCep = formObject["cepEmpresa"] || "";
 
-  formObject['enderecoCompletoEstagiario'] =
+  formObject["enderecoCompletoEstagiario"] =
     estagEnder +
-    ', ' +
+    ", " +
     estagNum +
-    ' - ' +
+    " - " +
     estagBairro +
-    ' - ' +
+    " - " +
     estagCidade +
-    '/' +
+    "/" +
     estagEstado +
-    ' CEP: ' +
+    " CEP: " +
     estagCep;
 
-  formObject['enderecoCompletoEmpresa'] =
+  formObject["enderecoCompletoEmpresa"] =
     empresaEnder +
-    ', ' +
+    ", " +
     empresaNum +
-    ' - ' +
+    " - " +
     empresaBairro +
-    ' - ' +
+    " - " +
     empresaCidade +
-    '/' +
+    "/" +
     empresaEstado +
-    ' CEP: ' +
+    " CEP: " +
     empresaCep;
 
   imprimir(formObject);
 });
 
 // Verifica se há parâmetros na URL para carregar a página
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
+  const id = urlParams.get("id");
 
   if (id) {
     // Faz uma solicitação GET para a API
     fetch(`${API_URL}tce/${id}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Erro ao buscar dados da API');
+          throw new Error("Erro ao buscar dados da API");
         }
         return response.json();
       })
@@ -383,19 +415,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       })
       .catch((error) => {
-        console.error('Erro:', error);
+        console.error("Erro:", error);
       });
   }
 });
 
 // preenche o campo com UUID se estiver vazio
 function preencherComUUIDSeVazio() {
-  const idUnico = document.getElementById('idUnico');
-  const createAt = document.getElementById('createAt');
-  const timeUnix = document.getElementById('timeUnix');
+  const idUnico = document.getElementById("idUnico");
+  const createAt = document.getElementById("createAt");
+  const timeUnix = document.getElementById("timeUnix");
 
   // Verifica se o campo está vazio
-  if (idUnico.value.trim() === '') {
+  if (idUnico.value.trim() === "") {
     idUnico.value = crypto.randomUUID(); // Gera e preenche com um UUID
     createAt.value = Date();
     timeUnix.value = Date.now();
@@ -404,15 +436,15 @@ function preencherComUUIDSeVazio() {
 
 // preenche a data e hora de impressao
 function preencherDataHoraImpressao() {
-  const dataImpressao = document.getElementById('dataImpressao');
-  const horaImpressao = document.getElementById('horaImpressao');
+  const dataImpressao = document.getElementById("dataImpressao");
+  const horaImpressao = document.getElementById("horaImpressao");
 
   dataImpressao.value = getDataAtual();
 
   const agora = new Date();
-  const horaMinuto = agora.toLocaleTimeString('pt-BR', {
-    hour: '2-digit',
-    minute: '2-digit',
+  const horaMinuto = agora.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit",
   });
 
   horaImpressao.value = horaMinuto;
@@ -449,13 +481,13 @@ function getFormDataAsJson(formId) {
 
 // enviar o JSON para a API
 async function sendDataToAPI(jsonObject) {
-  document.getElementById('responseMessage').innerText = '';
+  document.getElementById("responseMessage").innerText = "";
   try {
     // Fazendo a requisição usando fetch
-    const response = await fetch(API_URL + 'tce', {
-      method: 'POST',
+    const response = await fetch(API_URL + "tce", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(jsonObject),
     });
@@ -465,11 +497,11 @@ async function sendDataToAPI(jsonObject) {
     }
 
     const data = await response.json();
-    document.getElementById('responseMessage').innerText = '';
+    document.getElementById("responseMessage").innerText = "";
     console.log(data.message);
   } catch (error) {
     document.getElementById(
-      'responseMessage'
+      "responseMessage"
     ).innerText = `Erro ao chamar API: ${error.message}`;
   }
 }
@@ -478,19 +510,19 @@ async function sendDataToAPI(jsonObject) {
 function criarAtalho() {
   preencherComUUIDSeVazio();
 
-  const formDataJson = getFormDataAsJson('myForm');
+  const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
 
-  const idUnico = document.getElementById('idUnico');
-  const matrEstag = document.getElementById('matriculaEstagiario');
-  const nomeEstag = document.getElementById('nomeEstagiario');
+  const idUnico = document.getElementById("idUnico");
+  const matrEstag = document.getElementById("matriculaEstagiario");
+  const nomeEstag = document.getElementById("nomeEstagiario");
 
   const tceUrl = TCE_URL; // URL do site desejado
   const faviconUrl = FAVICON_URL;
   const nomeArquivo =
-    'Cedup ' + matrEstag.value + ' ' + nomeEstag.value + '.url';
-  const atalhoUrl = tceUrl + '?id=' + idUnico.value;
+    "Cedup " + matrEstag.value + " " + nomeEstag.value + ".url";
+  const atalhoUrl = tceUrl + "?id=" + idUnico.value;
 
   const conteudo = `[InternetShortcut]
 URL=${atalhoUrl}
@@ -498,8 +530,8 @@ IconIndex=0
 IconFile=${faviconUrl}
 `;
 
-  const blob = new Blob([conteudo], { type: 'text/plain' });
-  const a = document.createElement('a');
+  const blob = new Blob([conteudo], { type: "text/plain" });
+  const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = nomeArquivo;
   a.click();
@@ -511,26 +543,26 @@ IconFile=${faviconUrl}
 function saveDados() {
   preencherComUUIDSeVazio();
 
-  const formDataJson = getFormDataAsJson('myForm');
+  const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
 
   let fileName =
-    'Cedup ' +
-    formDataJson['matriculaEstagiario'] +
-    ' ' +
-    formDataJson['nomeEstagiario'];
+    "Cedup " +
+    formDataJson["matriculaEstagiario"] +
+    " " +
+    formDataJson["nomeEstagiario"];
 
   const jsonString = JSON.stringify(formDataJson, null, 2); // Converter objeto JSON para string
-  const blob = new Blob([jsonString], { type: 'application/json' }); // Criar um Blob com o conteúdo JSON
+  const blob = new Blob([jsonString], { type: "application/json" }); // Criar um Blob com o conteúdo JSON
   const url = URL.createObjectURL(blob); // Criar uma URL para o Blob
 
   // coloque isso se precisar abrir um dialogo para alterar o nome do arquivo
   // fileName = prompt('Entre o nome do arquivo para salvar:', fileName);
 
   if (fileName) {
-    fileName = fileName + '.json';
-    const a = document.createElement('a'); // Criar um elemento de link
+    fileName = fileName + ".json";
+    const a = document.createElement("a"); // Criar um elemento de link
     a.href = url;
     a.download = fileName; // Nome sugerido para o arquivo
     document.body.appendChild(a); // Adicionar o link ao DOM
@@ -543,12 +575,12 @@ function saveDados() {
 function copiarLink() {
   preencherComUUIDSeVazio();
 
-  const formDataJson = getFormDataAsJson('myForm');
+  const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
 
-  const id = formDataJson['idUnico'];
+  const id = formDataJson["idUnico"];
 
   const link = `https://lco.com.br/cedup/estagio/tce/?id=${id}`;
-  navigator.clipboard.writeText(link).then(() => alert('Link copiado!'));
+  navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
 }
