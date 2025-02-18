@@ -60,17 +60,20 @@
           },
           body: JSON.stringify({ senha }),
         })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.message) {
-              alert("Estagiário deletado com sucesso!");
-              document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
-                if (row.innerHTML.includes(id)) {
-                  row.remove();
-                }
+          .then((response) => {
+            if (response.status === 200) {
+              return response.json().then((data) => {
+                alert("Estagiário deletado com sucesso!");
+                document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
+                  if (row.innerHTML.includes(id)) {
+                    row.remove();
+                  }
+                });
               });
             } else {
-              alert("Erro: " + data.message);
+              return response.json().then((data) => {
+                alert("Erro: " + data.mensagem);
+              });
             }
           })
           .catch((error) => console.error("Erro ao deletar: ", error));
