@@ -62,7 +62,7 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data.sucesso) {
+            if (data.message) {
               alert("Estagiário deletado com sucesso!");
               document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
                 if (row.innerHTML.includes(id)) {
@@ -70,7 +70,7 @@
                 }
               });
             } else {
-              alert("Erro: " + data.mensagem);
+              alert("Erro: " + data.message);
             }
           })
           .catch((error) => console.error("Erro ao deletar: ", error));
