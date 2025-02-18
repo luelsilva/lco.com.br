@@ -14,17 +14,13 @@
     ></script>
     <script defer>
       document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const authCode = urlParams.get("auth");
-        const podeExcluir = authCode === "123";
-
         fetch("https://colupe.com/tces") // Substitua pela URL real da API
           .then((response) => response.json())
-          .then((data) => preencherTabela(data, podeExcluir))
+          .then((data) => preencherTabela(data))
           .catch((error) => console.error("Erro ao buscar dados: ", error));
       });
 
-      function preencherTabela(dados, podeExcluir) {
+      function preencherTabela(dados) {
         const tbody = document.getElementById("tabela-corpo");
         tbody.innerHTML = "";
         dados.forEach((estagiario) => {
@@ -33,17 +29,9 @@
                     <td>${estagiario.matriculaEstagiario}</td>
                     <td>${estagiario.nomeEstagiario}</td>
                     <td>${estagiario.nomeEmpresa}</td>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${
-                      estagiario.idUnico
-                    }')">📋</button></td>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary" onclick="editar('${
-                      estagiario.idUnico
-                    }')">✏️</button></td>
-                    ${
-                      podeExcluir
-                        ? `<td class="text-center"><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>`
-                        : ""
-                    }
+                    <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.idUnico}')">📋</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.idUnico}')">✏️</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>
                 `;
           tbody.appendChild(tr);
         });
@@ -59,11 +47,22 @@
       }
 
       function deletar(id) {
+        const senha = prompt("Digite a senha para excluir:");
+        if (!senha) {
+          alert("Exclusão cancelada.");
+          return;
+        }
+
         fetch(`https://colupe.com/tce/${id}`, {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ senha }),
         })
-          .then((response) => {
-            if (response.ok) {
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.sucesso) {
               alert("Estagiário deletado com sucesso!");
               document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
                 if (row.innerHTML.includes(id)) {
@@ -71,7 +70,7 @@
                 }
               });
             } else {
-              alert("Erro ao deletar estagiário.");
+              alert("Erro: " + data.mensagem);
             }
           })
           .catch((error) => console.error("Erro ao deletar: ", error));
