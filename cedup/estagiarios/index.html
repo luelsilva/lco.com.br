@@ -61,6 +61,8 @@
           body: JSON.stringify({ senha }),
         })
           .then((response) => {
+            console.log(response.status);
+
             if (response.status === 200) {
               return response.json().then((data) => {
                 alert("Estagiário deletado com sucesso!");
