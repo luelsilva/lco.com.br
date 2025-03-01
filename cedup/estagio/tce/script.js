@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
+  carregaCursos();
+
   if (id) {
     // Faz uma solicitação GET para a API
     fetch(`${API_URL}tce/${id}`)
