@@ -9,7 +9,7 @@ const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
 // carrega cursos no form select 'siglaCurso'
-document.addEventListener("DOMContentLoaded", function () {
+function carregaCursos() {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
@@ -31,6 +31,35 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Erro ao carregar os cursos:", error);
       alert("Erro ao carregar os cursos");
     });
+}
+
+// Verifica se há parâmetros na URL para carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  if (id) {
+    // Faz uma solicitação GET para a API
+    fetch(`${API_URL}tce/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar dados da API");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Preenche os campos do formulário com os dados retornados
+        Object.keys(data).forEach((key) => {
+          const input = document.querySelector(`[name="${key}"]`);
+          if (input) {
+            input.value = data[key];
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      });
+  }
 });
 
 // funções de busca cep
@@ -357,35 +386,6 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
     empresaCep;
 
   imprimir(formObject);
-});
-
-// Verifica se há parâmetros na URL para carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
-
-  if (id) {
-    // Faz uma solicitação GET para a API
-    fetch(`${API_URL}tce/${id}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Erro ao buscar dados da API");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Preenche os campos do formulário com os dados retornados
-        Object.keys(data).forEach((key) => {
-          const input = document.querySelector(`[name="${key}"]`);
-          if (input) {
-            input.value = data[key];
-          }
-        });
-      })
-      .catch((error) => {
-        console.error("Erro:", error);
-      });
-  }
 });
 
 // preenche o campo com UUID se estiver vazio
