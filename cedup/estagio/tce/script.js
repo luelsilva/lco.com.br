@@ -8,7 +8,7 @@ const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/old/";
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
-let mmSiglaCurso = "";
+let mmSiglaCurso = ""; // essa variável precisa ser definida antes, pode ser de algum lugar do seu sistema
 
 document.addEventListener("DOMContentLoaded", async () => {
   mmSiglaCurso = "";
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   verificaParametrosUrl();
 });
 
-async function carregaCursos() {
+async function carregaCursos_old() {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
@@ -42,6 +42,47 @@ async function carregaCursos() {
       console.error("Erro ao carregar os cursos:", error);
       alert("Erro ao carregar os cursos");
     });
+}
+
+async function carregaCursos() {
+  try {
+    const response = await fetch(CURSOS_URL);
+    const data = await response.text();
+
+    const linhas = data.split("\n");
+    console.log("passo 1");
+
+    const linhasSemPrimeira = linhas.slice(1);
+    const cursoSelect = document.getElementById("siglaCurso");
+    cursoSelect.innerHTML = ""; // Limpa opções antigas
+
+    linhasSemPrimeira.forEach((linha) => {
+      const colunas = linha.split(",");
+      if (colunas.length >= 2) {
+        const option = document.createElement("option");
+        option.value = colunas[0].trim();
+        option.textContent = colunas[1].trim();
+        cursoSelect.appendChild(option);
+      }
+    });
+
+    // Após popular o select, verifica e seleciona mmSiglaCurso, se existir
+    if (mmSiglaCurso) {
+      const optionToSelect = cursoSelect.querySelector(
+        `option[value="${mmSiglaCurso}"]`
+      );
+      if (optionToSelect) {
+        cursoSelect.value = mmSiglaCurso;
+      } else {
+        console.warn(
+          `Valor ${mmSiglaCurso} não encontrado no select siglaCurso`
+        );
+      }
+    }
+  } catch (error) {
+    console.error("Erro ao carregar os cursos:", error);
+    alert("Erro ao carregar os cursos");
+  }
 }
 
 // Verifica se há parâmetros na URL para carregar a página
