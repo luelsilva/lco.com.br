@@ -8,17 +8,23 @@ const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/old/";
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
-// carrega cursos no form select 'siglaCurso'
-document.addEventListener("DOMContentLoaded", function carregaCursos() {
+document.addEventListener("DOMContentLoaded", () => {
+  carregaCursos();
+  verificaParametrosUrl();
+});
+
+function carregaCursos() {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
       const linhas = data.split("\n");
-      // Ignora a primeira linha
       console.log("passo 1");
 
+      // Ignora a primeira linha
       const linhasSemPrimeira = linhas.slice(1);
       const cursoSelect = document.getElementById("siglaCurso");
+      cursoSelect.innerHTML = ""; // Limpa opções antigas
+
       linhasSemPrimeira.forEach((linha) => {
         const colunas = linha.split(",");
         if (colunas.length >= 2) {
@@ -33,17 +39,16 @@ document.addEventListener("DOMContentLoaded", function carregaCursos() {
       console.error("Erro ao carregar os cursos:", error);
       alert("Erro ao carregar os cursos");
     });
-});
+}
 
 // Verifica se há parâmetros na URL para carregar a página
-document.addEventListener("DOMContentLoaded", () => {
+function verificaParametrosUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
   console.log("passo 2");
 
   if (id) {
-    // Faz uma solicitação GET para a API
     fetch(`${API_URL}tce/${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -64,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Erro:", error);
       });
   }
-});
+}
 
 // funções de busca cep
 function meu_callback_estagiario(conteudo) {
