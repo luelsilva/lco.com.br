@@ -8,12 +8,12 @@ const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/old/";
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
-document.addEventListener("DOMContentLoaded", () => {
-  carregaCursos();
+document.addEventListener("DOMContentLoaded", async () => {
+  await carregaCursos();
   verificaParametrosUrl();
 });
 
-function carregaCursos() {
+async function carregaCursos() {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
