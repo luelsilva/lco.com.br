@@ -8,7 +8,10 @@ const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/old/";
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
+let mmSiglaCurso = "";
+
 document.addEventListener("DOMContentLoaded", async () => {
+  mmSiglaCurso = "";
   await carregaCursos();
   verificaParametrosUrl();
 });
@@ -64,6 +67,10 @@ function verificaParametrosUrl() {
 
           if (input) {
             input.value = data[key];
+            if (key === "siglaCurso") {
+              mmSiglaCurso = data[key];
+              console.log(mmSiglaCurso);
+            }
           }
         });
       })
