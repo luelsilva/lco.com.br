@@ -15,6 +15,8 @@ function carregaCursos() {
     .then((data) => {
       const linhas = data.split("\n");
       // Ignora a primeira linha
+      console.log("passo 1");
+
       const linhasSemPrimeira = linhas.slice(1);
       const cursoSelect = document.getElementById("siglaCurso");
       linhasSemPrimeira.forEach((linha) => {
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const id = urlParams.get("id");
 
   carregaCursos();
+  console.log("passo 2");
 
   if (id) {
     // Faz uma solicitação GET para a API
