@@ -60,6 +60,8 @@ function verificaParametrosUrl() {
         // Preenche os campos do formulário com os dados retornados
         Object.keys(data).forEach((key) => {
           const input = document.querySelector(`[name="${key}"]`);
+          console.log(`[name="${key}"]`);
+
           if (input) {
             input.value = data[key];
           }
