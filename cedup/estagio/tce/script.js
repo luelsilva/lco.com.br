@@ -9,7 +9,7 @@ const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
 
 // carrega cursos no form select 'siglaCurso'
-function carregaCursos() {
+document.addEventListener("DOMContentLoaded", function carregaCursos() {
   fetch(CURSOS_URL)
     .then((response) => response.text())
     .then((data) => {
@@ -33,14 +33,13 @@ function carregaCursos() {
       console.error("Erro ao carregar os cursos:", error);
       alert("Erro ao carregar os cursos");
     });
-}
+});
 
 // Verifica se há parâmetros na URL para carregar a página
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
-  carregaCursos();
   console.log("passo 2");
 
   if (id) {
