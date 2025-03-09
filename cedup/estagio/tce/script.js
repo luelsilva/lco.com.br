@@ -3,7 +3,7 @@ const CURSOS_URL =
 
 const API_URL = "https://colupe.com/";
 
-const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/old/";
+const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/";
 
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
