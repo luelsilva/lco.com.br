@@ -17,7 +17,7 @@
       const dantas_api = "https://dantas-api.vercel.app";
 
       document.addEventListener("DOMContentLoaded", () => {
-        fetch(`${dantas_api}/estagiario`) // Substitua pela URL real da API
+        fetch(`${dantas_api}/estagiarios`) // Substitua pela URL real da API
           .then((response) => response.json())
           .then((data) => preencherTabela(data))
           .catch((error) => console.error("Erro ao buscar dados: ", error));
