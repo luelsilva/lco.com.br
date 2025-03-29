@@ -472,17 +472,20 @@ async function sendDataToAPI(jsonObject) {
       body: JSON.stringify(jsonObject),
     });
 
+    const responseData = await response.json(); // Extrai o JSON da resposta
+
     if (!response.ok) {
-      throw new Error(`Erro: ${response.status}`);
+      throw new Error(responseData.error || `Erro: ${response.status}`);
     }
 
-    const data = await response.json();
-    document.getElementById("responseMessage").innerText = "";
-    console.log(data.message);
+    // Se a requisição for bem-sucedida
+    document.getElementById("responseMessage").innerText = "Sucesso!";
+    console.log(responseData.message);
   } catch (error) {
     document.getElementById(
       "responseMessage"
     ).innerText = `Erro ao chamar API: ${error.message}`;
+    console.error("Erro na API:", error.message);
   }
 }
 
