@@ -1,9 +1,9 @@
 const CURSOS_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vShZorYX2beBEdGmUYadD9rofdIPRH7GMZ2R8FjmAa0zWz1Mzs3q9Wmd_2iCM2UmUYjWd8wgSG7k5E8/pub?output=csv";
 
-const API_URL = "https://colupe.com/";
+const DANTAS_API = "https://dantas-api.vercel.app/cedup/estagio";
 
-const TCE_URL = "https://www.lco.com.br/cedup/estagio/tce/";
+const TCE_URL = "https://www.lco.com.br/cedup/estagio/estagiarios/tce/";
 
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
@@ -16,41 +16,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   verificaParametrosUrl();
 });
 
-async function carregaCursos_old() {
-  fetch(CURSOS_URL)
-    .then((response) => response.text())
-    .then((data) => {
-      const linhas = data.split("\n");
-      console.log("passo 1");
-
-      // Ignora a primeira linha
-      const linhasSemPrimeira = linhas.slice(1);
-      const cursoSelect = document.getElementById("siglaCurso");
-      cursoSelect.innerHTML = ""; // Limpa opções antigas
-
-      linhasSemPrimeira.forEach((linha) => {
-        const colunas = linha.split(",");
-        if (colunas.length >= 2) {
-          const option = document.createElement("option");
-          option.value = colunas[0].trim();
-          option.textContent = colunas[1].trim();
-          cursoSelect.appendChild(option);
-        }
-      });
-    })
-    .catch((error) => {
-      console.error("Erro ao carregar os cursos:", error);
-      alert("Erro ao carregar os cursos");
-    });
-}
-
 async function carregaCursos() {
   try {
     const response = await fetch(CURSOS_URL);
     const data = await response.text();
 
     const linhas = data.split("\n");
-    console.log("passo 1");
 
     const linhasSemPrimeira = linhas.slice(1);
     const cursoSelect = document.getElementById("siglaCurso");
@@ -90,10 +61,8 @@ function verificaParametrosUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
 
-  console.log("passo 2");
-
   if (id) {
-    fetch(`${API_URL}tce/${id}`)
+    fetch(`${DANTAS_API}/estagiarios/tce/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erro ao buscar dados da API");
@@ -316,8 +285,8 @@ async function imprimir(formObject) {
     const divPrint = document.getElementById("print");
     const originalContent = divPrint.innerHTML;
 
-    // não substitui duas vezes, porque a palavra chava já foi substituída
-    // em que carregar o texto novamente
+    // não substitui duas vezes, porque a palavra chave já foi substituída
+    // tem que carregar o texto novamente
     // Substitui os placeholders com os valores do objeto JSON
 
     divPrint.innerHTML = divPrint.innerHTML
@@ -389,7 +358,6 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   // Impede o envio do formulário
   event.preventDefault();
 
-  preencherComUUIDSeVazio();
   preencherDataHoraImpressao();
 
   // pega dados do form
@@ -446,20 +414,6 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   imprimir(formObject);
 });
 
-// preenche o campo com UUID se estiver vazio
-function preencherComUUIDSeVazio() {
-  const idUnico = document.getElementById("idUnico");
-  const createAt = document.getElementById("createAt");
-  const timeUnix = document.getElementById("timeUnix");
-
-  // Verifica se o campo está vazio
-  if (idUnico.value.trim() === "") {
-    idUnico.value = crypto.randomUUID(); // Gera e preenche com um UUID
-    createAt.value = Date();
-    timeUnix.value = Date.now();
-  }
-}
-
 // preenche a data e hora de impressao
 function preencherDataHoraImpressao() {
   const dataImpressao = document.getElementById("dataImpressao");
@@ -510,7 +464,7 @@ async function sendDataToAPI(jsonObject) {
   document.getElementById("responseMessage").innerText = "";
   try {
     // Fazendo a requisição usando fetch
-    const response = await fetch(API_URL + "tce", {
+    const response = await fetch(DANTAS_API + "/estagiarios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -534,13 +488,10 @@ async function sendDataToAPI(jsonObject) {
 
 // faz download de um atalho
 function criarAtalho() {
-  preencherComUUIDSeVazio();
-
   const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
 
-  const idUnico = document.getElementById("idUnico");
   const matrEstag = document.getElementById("matriculaEstagiario");
   const nomeEstag = document.getElementById("nomeEstagiario");
 
@@ -548,7 +499,7 @@ function criarAtalho() {
   const faviconUrl = FAVICON_URL;
   const nomeArquivo =
     "Cedup " + matrEstag.value + " " + nomeEstag.value + ".url";
-  const atalhoUrl = tceUrl + "?id=" + idUnico.value;
+  const atalhoUrl = tceUrl + "?id=" + matrEstag.value;
 
   const conteudo = `[InternetShortcut]
 URL=${atalhoUrl}
@@ -567,8 +518,6 @@ IconFile=${faviconUrl}
 // faz download dos dados em um arquivo json
 // não estou usando emm produção, somente para testes
 function saveDados() {
-  preencherComUUIDSeVazio();
-
   const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
@@ -599,14 +548,12 @@ function saveDados() {
 }
 
 function copiarLink() {
-  preencherComUUIDSeVazio();
-
   const formDataJson = getFormDataAsJson("myForm");
 
   sendDataToAPI(formDataJson);
 
-  const id = formDataJson["idUnico"];
+  const id = formDataJson["matriculaEstagiario"];
 
-  const link = `https://lco.com.br/cedup/estagio/tce/?id=${id}`;
+  const link = `https://lco.com.br/cedup/estagio/estagiarios/tce/?id=${id}`;
   navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
 }
