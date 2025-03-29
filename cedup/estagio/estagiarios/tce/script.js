@@ -462,8 +462,8 @@ function getFormDataAsJson(formId) {
 // enviar o JSON para a API
 async function sendDataToAPI(jsonObject) {
   document.getElementById("responseMessage").innerText = "";
+
   try {
-    // Fazendo a requisição usando fetch
     const response = await fetch(DANTAS_API + "/estagiarios", {
       method: "POST",
       headers: {
@@ -472,57 +472,73 @@ async function sendDataToAPI(jsonObject) {
       body: JSON.stringify(jsonObject),
     });
 
-    const responseData = await response.json(); // Extrai o JSON da resposta
+    const responseData = await response.json();
 
     if (!response.ok) {
       throw new Error(responseData.error || `Erro: ${response.status}`);
     }
 
-    // Se a requisição for bem-sucedida
     document.getElementById("responseMessage").innerText = "Sucesso!";
     console.log(responseData.message);
+
+    return responseData; // Retorna os dados de sucesso
   } catch (error) {
     document.getElementById(
       "responseMessage"
     ).innerText = `Erro: ${error.message}`;
     console.error("Erro na API:", error.message);
+
+    throw error; // Propaga o erro para quem chamou a função
   }
 }
 
 // faz download de um atalho
-function criarAtalho() {
-  const formDataJson = getFormDataAsJson("myForm");
+async function criarAtalho() {
+  try {
+    const formDataJson = getFormDataAsJson("myForm");
 
-  sendDataToAPI(formDataJson);
+    await sendDataToAPI(formDataJson);
 
-  const matrEstag = document.getElementById("matriculaEstagiario");
-  const nomeEstag = document.getElementById("nomeEstagiario");
+    const matrEstag = document.getElementById("matriculaEstagiario");
+    const nomeEstag = document.getElementById("nomeEstagiario");
 
-  const faviconUrl = FAVICON_URL;
-  const nomeArquivo = `Cedup ${matrEstag.value} ${nomeEstag.value}.url`;
-  const atalhoUrl = TCE_URL + "/?id=" + matrEstag.value;
+    const faviconUrl = FAVICON_URL;
+    const nomeArquivo = `Cedup ${matrEstag.value} ${nomeEstag.value}.url`;
+    const atalhoUrl = TCE_URL + "/?id=" + matrEstag.value;
 
-  const conteudo = `[InternetShortcut]
+    const conteudo = `[InternetShortcut]
 URL=${atalhoUrl}
 IconIndex=0
 IconFile=${faviconUrl}
 `;
 
-  const blob = new Blob([conteudo], { type: "text/plain" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = nomeArquivo;
-  a.click();
-  URL.revokeObjectURL(a.href);
+    const blob = new Blob([conteudo], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = nomeArquivo;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  } catch (error) {
+    console.log("Erro na requisição. Interrompendo execução...");
+    return; // Evita que o código seguinte seja executado
+  }
+  console.log("Esta linha só será executada se não houver erro!");
 }
 
-function copiarLink() {
-  const formDataJson = getFormDataAsJson("myForm");
+async function copiarLink() {
+  try {
+    const formDataJson = getFormDataAsJson("myForm");
 
-  sendDataToAPI(formDataJson);
+    await sendDataToAPI(formDataJson);
 
-  const id = formDataJson["matriculaEstagiario"];
+    const id = formDataJson["matriculaEstagiario"];
 
-  const link = `${TCE_URL}/?id=${id}`;
-  navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
+    const link = `${TCE_URL}/?id=${id}`;
+    navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
+  } catch (error) {
+    console.log("Erro na requisição. Interrompendo execução...");
+    return; // Evita que o código seguinte seja executado
+  }
+
+  console.log("Esta linha só será executada se não houver erro!");
 }
