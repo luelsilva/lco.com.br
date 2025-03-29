@@ -43,12 +43,12 @@
       }
 
       function copiarLink(id) {
-        const link = `${dantas_site}/tce/?id=${id}`;
+        const link = `${dantas_site}/estagiarios/tce/?id=${id}`;
         navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
       }
 
       function editar(id) {
-        window.open(`${dantas_site}/tce/?id=${id}`, "_blank");
+        window.open(`${dantas_site}/estagiarios/tce/?id=${id}`, "_blank");
       }
 
       function deletar(id) {
