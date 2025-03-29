@@ -3,7 +3,7 @@ const CURSOS_URL =
 
 const DANTAS_API = "https://dantas-api.vercel.app/cedup/estagio";
 
-const TCE_URL = "https://www.lco.com.br/cedup/estagio/estagiarios/tce/";
+const TCE_URL = "https://www.lco.com.br/cedup/estagio/estagiarios";
 
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
@@ -495,11 +495,9 @@ function criarAtalho() {
   const matrEstag = document.getElementById("matriculaEstagiario");
   const nomeEstag = document.getElementById("nomeEstagiario");
 
-  const tceUrl = TCE_URL; // URL do site desejado
   const faviconUrl = FAVICON_URL;
-  const nomeArquivo =
-    "Cedup " + matrEstag.value + " " + nomeEstag.value + ".url";
-  const atalhoUrl = tceUrl + "?id=" + matrEstag.value;
+  const nomeArquivo = `Cedup ${matrEstag.value} ${nomeEstag.value}.url`;
+  const atalhoUrl = TCE_URL + "/?id=" + matrEstag.value;
 
   const conteudo = `[InternetShortcut]
 URL=${atalhoUrl}
@@ -554,6 +552,6 @@ function copiarLink() {
 
   const id = formDataJson["matriculaEstagiario"];
 
-  const link = `https://lco.com.br/cedup/estagio/estagiarios/tce/?id=${id}`;
+  const link = `${TCE_URL}/?id=${id}`;
   navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
 }
