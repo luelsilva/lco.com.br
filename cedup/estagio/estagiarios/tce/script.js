@@ -473,9 +473,7 @@ async function sendDataToAPI(jsonObject) {
     });
 
     if (!response.ok) {
-      console.log(response);
-
-      throw new Error(`Erro: ${response.status}`);
+      throw new Error(`Erro: ${response.json}`);
     }
 
     const data = await response.json();
