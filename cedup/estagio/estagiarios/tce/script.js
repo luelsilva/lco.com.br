@@ -484,7 +484,7 @@ async function sendDataToAPI(jsonObject) {
   } catch (error) {
     document.getElementById(
       "responseMessage"
-    ).innerText = `Erro ao chamar API: ${error.message}`;
+    ).innerText = `Erro: ${error.message}`;
     console.error("Erro na API:", error.message);
   }
 }
