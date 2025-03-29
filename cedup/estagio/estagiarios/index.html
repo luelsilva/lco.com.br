@@ -71,8 +71,19 @@
             if (response.status === 200) {
               return response.json().then((data) => {
                 alert("Estagiário deletado com sucesso!");
+
+                // document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
+                //   if (row.innerHTML.includes(id)) {
+                //     row.remove();
+                //   }
+                // });
+
                 document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
-                  if (row.innerHTML.includes(id)) {
+                  const matriculaCell = row.querySelector("td:first-child"); // Primeiro <td> (Matrícula)
+                  if (
+                    matriculaCell &&
+                    matriculaCell.textContent.trim() === id
+                  ) {
                     row.remove();
                   }
                 });
