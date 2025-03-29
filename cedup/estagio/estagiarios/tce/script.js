@@ -62,7 +62,7 @@ function verificaParametrosUrl() {
   const id = urlParams.get("id");
 
   if (id) {
-    fetch(`${DANTAS_API}/estagiarios/tce/${id}`)
+    fetch(`${DANTAS_API}/estagiarios/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erro ao buscar dados da API");
