@@ -13,56 +13,77 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
-        fetch('https://colupe.com/tces') // Substitua pela URL real da API
+      // dantas-api
+      const dantas_api = "https://dantas-api.vercel.app";
+      // dantas-site
+      const dantas_site = "https://www.lco.com.br/cedup/interns";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch(`${dantas_api}/estagiarios`) // Substitua pela URL real da API
           .then((response) => response.json())
           .then((data) => preencherTabela(data))
-          .catch((error) => console.error('Erro ao buscar dados: ', error));
+          .catch((error) => console.error("Erro ao buscar dados: ", error));
       });
 
       function preencherTabela(dados) {
-        const tbody = document.getElementById('tabela-corpo');
-        tbody.innerHTML = '';
+        const tbody = document.getElementById("tabela-corpo");
+        tbody.innerHTML = "";
         dados.forEach((estagiario) => {
-          const tr = document.createElement('tr');
+          const tr = document.createElement("tr");
           tr.innerHTML = `
-                    <td>${estagiario.matriculaEstagiario}</td>
-                    <td>${estagiario.nomeEstagiario}</td>
-                    <td>${estagiario.nomeEmpresa}</td>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.idUnico}')">📋</button></td>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.idUnico}')">✏️</button></td>
-                    <td class="text-center"><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.idUnico}')">🗑️</button></td>
+                    <td>${estagiario.matricula}</td>
+                    <td>${estagiario.nome}</td>
+                    <td>${estagiario.empresa}</td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="copiarLink('${estagiario.matricula}')">📋</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-secondary" onclick="editar('${estagiario.matricula}')">✏️</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-outline-danger" onclick="deletar('${estagiario.matricula}')">🗑️</button></td>
                 `;
           tbody.appendChild(tr);
         });
       }
 
       function copiarLink(id) {
-        const link = `https://lco.com.br/cedup/estagio/tce/?id=${id}`;
-        navigator.clipboard.writeText(link).then(() => alert('Link copiado!'));
+        const link = `${dantas_site}/?id=${id}`;
+        navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
       }
 
       function editar(id) {
-        window.open(`https://lco.com.br/cedup/estagio/tce/?id=${id}`, '_blank');
+        window.open(`${dantas_site}/?id=${id}`, "_blank");
       }
 
       function deletar(id) {
-        fetch(`https://colupe.com/tce/${id}`, {
-          method: 'DELETE',
+        const senha = prompt("Digite a senha para excluir:");
+        if (!senha) {
+          alert("Exclusão cancelada.");
+          return;
+        }
+
+        fetch(`${dantas_api}/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ senha }),
         })
           .then((response) => {
-            if (response.ok) {
-              alert('Estagiário deletado com sucesso!');
-              document.querySelectorAll('#tabela-corpo tr').forEach((row) => {
-                if (row.innerHTML.includes(id)) {
-                  row.remove();
-                }
+            console.log(response.status);
+
+            if (response.status === 200) {
+              return response.json().then((data) => {
+                alert("Estagiário deletado com sucesso!");
+                document.querySelectorAll("#tabela-corpo tr").forEach((row) => {
+                  if (row.innerHTML.includes(id)) {
+                    row.remove();
+                  }
+                });
               });
             } else {
-              alert('Erro ao deletar estagiário.');
+              return response.json().then((data) => {
+                alert("Erro: " + data.message);
+              });
             }
           })
-          .catch((error) => console.error('Erro ao deletar: ', error));
+          .catch((error) => console.error("Erro ao deletar: ", error));
       }
     </script>
   </head>
@@ -76,10 +97,12 @@
           <tr>
             <th style="width: 10%">Matrícula</th>
             <th style="width: 30%">Nome</th>
-            <th style="width: 45%">Empresa</th>
-            <th class="text-center" style="width: 5%">Copiar</th>
-            <th class="text-center" style="width: 5%">Editar</th>
-            <th class="text-center" style="width: 5%">Excluir</th>
+            <th style="width: 30%">Empresa</th>
+            <th class="text-center" style="width: 10%">Copiar</th>
+            <th class="text-center" style="width: 10%">Editar</th>
+            <th class="text-center" style="width: 10%" id="coluna-excluir">
+              Excluir
+            </th>
           </tr>
         </thead>
         <tbody id="tabela-corpo">
