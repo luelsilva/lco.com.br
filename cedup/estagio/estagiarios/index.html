@@ -14,13 +14,12 @@
     ></script>
     <script defer>
       // dantas-api
-      const dantas_api =
-        "https://dantas-api.vercel.app/cedup/estagio/estagiarios";
+      const dantas_api = "https://dantas-api.vercel.app/cedup/estagio";
       // dantas-site
-      const dantas_site = "https://www.lco.com.br/cedup/interns";
+      const dantas_site = "https://www.lco.com.br/cedup/estagio";
 
       document.addEventListener("DOMContentLoaded", () => {
-        fetch(`${dantas_api}`) // Substitua pela URL real da API
+        fetch(`${dantas_api}/estagiarios`) // Substitua pela URL real da API
           .then((response) => response.json())
           .then((data) => preencherTabela(data))
           .catch((error) => console.error("Erro ao buscar dados: ", error));
@@ -44,12 +43,12 @@
       }
 
       function copiarLink(id) {
-        const link = `${dantas_site}/?id=${id}`;
+        const link = `${dantas_site}/tce/?id=${id}`;
         navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
       }
 
       function editar(id) {
-        window.open(`${dantas_site}/?id=${id}`, "_blank");
+        window.open(`${dantas_site}/tce/?id=${id}`, "_blank");
       }
 
       function deletar(id) {
