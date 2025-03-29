@@ -473,6 +473,8 @@ async function sendDataToAPI(jsonObject) {
     });
 
     if (!response.ok) {
+      console.log(response);
+
       throw new Error(`Erro: ${response.status}`);
     }
 
@@ -511,38 +513,6 @@ IconFile=${faviconUrl}
   a.download = nomeArquivo;
   a.click();
   URL.revokeObjectURL(a.href);
-}
-
-// faz download dos dados em um arquivo json
-// não estou usando emm produção, somente para testes
-function saveDados() {
-  const formDataJson = getFormDataAsJson("myForm");
-
-  sendDataToAPI(formDataJson);
-
-  let fileName =
-    "Cedup " +
-    formDataJson["matriculaEstagiario"] +
-    " " +
-    formDataJson["nomeEstagiario"];
-
-  const jsonString = JSON.stringify(formDataJson, null, 2); // Converter objeto JSON para string
-  const blob = new Blob([jsonString], { type: "application/json" }); // Criar um Blob com o conteúdo JSON
-  const url = URL.createObjectURL(blob); // Criar uma URL para o Blob
-
-  // coloque isso se precisar abrir um dialogo para alterar o nome do arquivo
-  // fileName = prompt('Entre o nome do arquivo para salvar:', fileName);
-
-  if (fileName) {
-    fileName = fileName + ".json";
-    const a = document.createElement("a"); // Criar um elemento de link
-    a.href = url;
-    a.download = fileName; // Nome sugerido para o arquivo
-    document.body.appendChild(a); // Adicionar o link ao DOM
-    a.click(); // clicar nele para abrir a janela de diálogo "Salvar Como"
-    document.body.removeChild(a); // Remover o link do DOM
-    URL.revokeObjectURL(url); // Liberar a URL
-  }
 }
 
 function copiarLink() {
