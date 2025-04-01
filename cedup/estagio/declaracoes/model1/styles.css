@@ -1,0 +1,142 @@
+/* Definir a variável */
+:root {
+    --minha-cor-de-fundo: #ddd;
+    /* Azul */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.dados {
+    padding-top: 100px;
+    width: 650px;
+    margin: 0 auto;
+}
+
+.print {
+    display: none;
+    padding-top: 150px;
+    width: 900px;
+    margin: 0 auto;
+}
+
+/* Estilos do cabeçalho */
+#cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    /* Ajuste conforme necessário */
+    /* border-bottom: 1px solid #ccc; */
+}
+
+#cabecalho-text {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.normal00 {
+    text-align: center;
+    line-height: 130%;
+    font-size: 10pt;
+}
+
+#titulo {
+    text-align: center;
+    line-height: 130%;
+    font-size: 16pt;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Estilos do rodapé */
+#rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    /* Ajuste conforme necessário */
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    /* border-top: 1px solid #ccc; */
+}
+
+table {
+    border-collapse: collapse;
+    /* width: 100%; */
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    /* Diminuir o padding vertical para reduzir a altura */
+    text-align: center;
+    line-height: 1.45;
+    /* Ajustar a altura da linha */
+}
+
+th {
+    background-color: var(--minha-cor-de-fundo);
+    /* Cor do cabeçalho */
+}
+
+/* Cor de fundo para linhas de sábado e domingo */
+tr.sabado,
+tr.domingo {
+    background-color: var(--minha-cor-de-fundo);
+    /* Mesma cor do cabeçalho */
+}
+
+/* Estilo para texto diferenciado no sábado e domingo */
+td.sabado,
+td.domingo {
+    font-weight: bold;
+}
+
+td:first-child {
+    background-color: var(--minha-cor-de-fundo) !important;
+}
+
+/* Estilos de impressão */
+@media print {
+    .print {
+        display: block;
+    }
+
+    .dados {
+        display: none;
+    }
+
+    /* Forçar a impressão do background-color */
+    th,
+    td {
+        -webkit-print-color-adjust: exact;
+        /* Para navegadores baseados no WebKit (como Chrome e Safari) */
+        print-color-adjust: exact;
+        /* Para outros navegadores */
+    }
+
+    /* Forçar a cor de fundo nas linhas de sábado e domingo */
+    tr.sabado,
+    tr.domingo {
+        background-color: var(--minha-cor-de-fundo) !important;
+    }
+
+    /* Forçar a cor de fundo na coluna "Dia" */
+    td:first-child {
+        background-color: var(--minha-cor-de-fundo) !important;
+    }
+}

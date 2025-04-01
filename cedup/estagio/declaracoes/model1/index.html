@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha Ponto</title>
+
+    <link rel="icon" href="https://www.lco.com.br/cedup/estagio/assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.lco.com.br/cedup/estagio/ponto/styles.css">
+</head>
+
+<body>
+    <div id="cabecalho">
+        <img src="https://www.lco.com.br/cedup/estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="106"
+            height="91">
+        <div id="cabecalho-text">
+            ESTADO DE SANTA CATARINA</br>
+            SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
+            COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
+            CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” - CEDUP</br>
+            SETOR DE ESTÁGIO - JOINVILLE
+        </div>
+        <img src="https://www.lco.com.br/cedup/estagio/assets/img/logo_cedup_242x242.png" alt="logo_cedup" width="91"
+            height="91">
+    </div>
+
+    <div class="dados">
+        <div class="container mt-5">
+            <h2 class="mb-4">Folha Ponto</h2>
+        </div>
+        <!-- Formulário para escolher mês e ano -->
+        <form id="tableForm">
+            <div class="form-group">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="nomeAluno">Nome Completo do Aluno</label>
+                    <a href="https://docs.google.com/spreadsheets/d/1z7w8EqC-GUW2pKOYleRnkllsgNw4W05u/edit?usp=drive_link&ouid=110841182330939065822&rtpof=true&sd=true"
+                        target=”_blank” class="ml-2">Acesso a Planilha</a>
+                </div>
+                <input type="text" class="form-control" id="nomeAluno" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="mes">Mês:</label>
+                    <select class="form-control" id="mes" name="mes">
+                        <option value="0">Janeiro</option>
+                        <option value="1">Fevereiro</option>
+                        <option value="2">Março</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Maio</option>
+                        <option value="5">Junho</option>
+                        <option value="6">Julho</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Setembro</option>
+                        <option value="9">Outubro</option>
+                        <option value="10">Novembro</option>
+                        <option value="11">Dezembro</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="ano">Ano:</label>
+                    <input type="number" class="form-control" id="ano" name="ano" min="1900" max="2100" value="2024"
+                        required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Imprimir</button>
+        </form>
+    </div>
+
+    <div class="print">
+
+        <div id="titulo">
+            <p>FOLHA PONTO – <span id="print_mes_ano">${mes_ano}</span></p>
+            <p>ESTAGIÁRIO – <span id="print_nome_aluno">${nome_aluno}</span></p>
+        </div>
+
+        <!-- Tabela gerada dinamicamente -->
+        <table id="dynamicTable">
+            <thead>
+                <tr>
+                    <th style="width: 30px;"> Dia</th>
+                    <th style="width: 450px;"> Nome</th>
+                    <th style="width: 130px;"> Entrada</th>
+                    <th style="width: 130px;"> Saída</th>
+                    <th style="width: 180px;"> Rubrica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas serão geradas dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="rodape">
+        <p class="normal00"><span>Rua Monsenhor Gercino, 2071 – Bairro Itaum – CEP 89210-155 – Joinville – SC Telefone -
+                34812136</span></br>
+            <span style="text-decoration:underline; color:#1155cc">www.cedup.com.br</span><span> - email - </span><span
+                style="text-decoration:underline; color:#1155cc">estagiocedupjlle@sed.sc.gov.br</span></br>
+            <span>Copyright © 2024 LCO Systems, All rights reserved.</span>
+        </p>
+    </div>
+
+    <script src="https://www.lco.com.br/cedup/estagio/ponto/script.js"></script>
+</body>
+
+</html>
