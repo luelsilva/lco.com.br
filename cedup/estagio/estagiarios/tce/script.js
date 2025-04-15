@@ -3,7 +3,7 @@ const CURSOS_URL =
 
 const DANTAS_API = "https://dantas-api.vercel.app/cedup/estagio";
 
-const TCE_URL = "https://www.lco.com.br/cedup/estagio/estagiarios";
+const TCE_URL = "https://www.lco.com.br/cedup/estagio/estagiarios/tce";
 
 const FAVICON_URL =
   "https://www.lco.com.br/cedup/estagio/assets/img/favicon.png";
