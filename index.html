@@ -193,8 +193,14 @@
 
           const result = await response.json();
           if (result.success) {
-            alert(result.data);
-            console.log(result.data);
+            console.log(result);
+
+            if (result.data) {
+              console.log(result.data);
+              alert("E-mail enviado com sucesso.");
+            } else {
+              alert("Erro ao enviar. Tente novamente.");
+            }
             e.target.reset();
           } else {
             alert("Erro ao enviar. Tente novamente.");
