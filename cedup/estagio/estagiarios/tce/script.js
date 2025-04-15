@@ -534,11 +534,41 @@ async function copiarLink() {
     const id = formDataJson["matriculaEstagiario"];
 
     const link = `${TCE_URL}/?id=${id}`;
-    navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
+
+    await copyToClipboard(link);
+
+    //navigator.clipboard.writeText(link).then(() => alert("Link copiado!"));
   } catch (error) {
     console.log("Erro na requisição. Interrompendo execução...");
     return; // Evita que o código seguinte seja executado
   }
 
   console.log("Esta linha só será executada se não houver erro!");
+}
+
+async function copyToClipboard(text) {
+  // Modern approach using Clipboard API
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        console.log("Text copied to clipboard");
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand("copy");
+      console.log("Text copied to clipboard");
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+    document.body.removeChild(textArea);
+  }
 }
