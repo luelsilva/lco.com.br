@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const linhas = data.split("\n");
       // Ignora a primeira linha
       const linhasSemPrimeira = linhas.slice(1);
-      const cursoSelect = document.getElementById("curso");
+      const cursoSelect = document.getElementById("nomeCurso");
       linhasSemPrimeira.forEach((linha) => {
         const colunas = linha.split(",");
         if (colunas.length >= 2) {
@@ -56,7 +56,7 @@ async function imprimir() {
   var selectedIndex = selectElement.selectedIndex;
   var selectedText = selectElement.options[selectedIndex].text;
 
-  document.getElementById("print_nome_curso").innerHTML = selectedText;
+  document.getElementById("print_nomeCurso").innerHTML = selectedText;
 
   document.getElementById("print_data_atual").innerHTML =
     "Joinville, " + getDataAtual();
