@@ -552,10 +552,10 @@ async function copyToClipboard(text) {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log("Text copied to clipboard");
+        console.log("Tentativa 1 -> Text copied to clipboard");
       })
       .catch((err) => {
-        console.error("Failed to copy text: ", err);
+        console.error("Tentativa 1 -> Failed to copy text: ", err);
       });
   } else {
     // Fallback for older browsers
@@ -565,9 +565,9 @@ async function copyToClipboard(text) {
     textArea.select();
     try {
       document.execCommand("copy");
-      console.log("Text copied to clipboard");
+      console.log("Tentativa 2 -> Text copied to clipboard");
     } catch (err) {
-      console.error("Failed to copy text: ", err);
+      console.error("Tentativa 2 -> Failed to copy text: ", err);
     }
     document.body.removeChild(textArea);
   }
