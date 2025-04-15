@@ -27,6 +27,15 @@ async function carregaCursos() {
     const cursoSelect = document.getElementById("siglaCurso");
     cursoSelect.innerHTML = ""; // Limpa opções antigas
 
+    // Adiciona a opção padrão antes de popular o select
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    defaultOption.textContent = "Selecione um curso";
+    cursoSelect.appendChild(defaultOption);
+
+    // Adiciona as opções dos cursos
     linhasSemPrimeira.forEach((linha) => {
       const colunas = linha.split(",");
       if (colunas.length >= 2) {
