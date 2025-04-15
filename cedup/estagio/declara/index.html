@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Apresentação</title>
+    <!-- Autor: Luiz Carlos Oliveira da Silva -->
+    <!-- E-mail: luizkrx@gmail.com -->
+    <!-- Versão: 2.0 -->
+    <link rel="icon" href="https://www.lco.com.br/cedup/estagio/assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.lco.com.br/cedup/estagio/carta/styles.css">
+</head>
+
+<body>
+    <div class="dados">
+        <div class="container mt-5">
+            <h1 class="mb-4">Declaração Modelo I</h1>
+            <form id="formCarta">
+                <div class="form-group">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label for="nomeAluno">Nome Completo do Aluno</label>
+                        <a href="https://docs.google.com/spreadsheets/d/1z7w8EqC-GUW2pKOYleRnkllsgNw4W05u/edit?usp=drive_link&ouid=110841182330939065822&rtpof=true&sd=true"
+                            target=”_blank” class="ml-2">Acesso a Planilha</a>
+                    </div>
+                    <input type="text" class="form-control" id="nomeAluno" required>
+                </div>
+                <div class="form-group">
+                    <label for="matriculaAluno">Matrícula do Aluno</label>
+                    <input type="number" class="form-control" id="matriculaAluno" required>
+                </div>
+                <div class="form-group">
+                    <label for="cargaHoraria">Carga Horária</label>
+                    <input type="number" class="form-control" id="cargaHoraria" required>
+                </div>
+                <div class="form-group">
+                    <label for="curso">Selecione o nome do curso</label>
+                    <select class="form-control" id="curso" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+                <div><span id="mensagem"></span></div>
+                </br>
+                <button type="submit" class="btn btn-primary">Imprimir</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="print">
+        <div id="cabecalho">
+            <img src="https://www.lco.com.br/cedup/estagio/assets/img/brazao_sc_217x233.png" alt="brasao_sc" width="71"
+                height="61">
+            <div id="cabecalho-text">
+                ESTADO DE SANTA CATARINA</br>
+                SECRETARIA DE ESTADO DA EDUCAÇÃO</br>
+                COORDENADORIA REGIONAL DA EDUCAÇÃO - CRE</br>
+                CENTRO DE EDUCAÇÃO PROFISSIONAL “DARIO GERALDO SALLES” CEDUP JOINVILLE
+            </div>
+            <img src="https://www.lco.com.br/cedup/estagio/assets/img/logo_cedup_242x242.png" alt="logo_cedup"
+                width="61" height="62">
+        </div>
+
+        <div id="conteudo">
+            <p class="normal00" style="text-align:center; page-break-after:avoid; line-height:normal"><span
+                    style="font-weight:bold">CARTA DE APRESENTAÇÃO ESTÁGIO CURRICULAR OBRIGATÓRIO</span></p>
+            <p class="normal00">
+              Declaramos para os devidos fins que o (a) aluno ${nomeAluno}, Matrícula ${matriculaAluno},
+              CPF nº ${cpfAluno}, matriculado no ${nomeCurso}, no Centro de Educação Profissional
+              Dario Geraldo Salles, em Joinville, concluiu as disciplinas teóricas e práticas do
+              1º e 2º módulos. Estando pendente com o 3º módulo, no qual está cursando a Disciplina
+              de Estágio Obrigatório de ${cargaHoraria} horas. O aluno é estagiário na Empresa
+              ${nomeEmpresa}, previsto para término do seu estágio em ${dataFim}. Contudo deverá
+              seguir os processos internos para aprovação e obtenção do diploma.
+              </p>
+            <p class="normal00" style="text-align:right; line-height:115%"><span id="print_data_atual">Joinville,
+                    ${data_atual}.</span></p>
+        </div>
+        <div id="rodape">
+            <p class="normal00" style="text-align:center"><span>Rua Monsenhor Gercino, 2071
+                    – Bairro Itaum – CEP 89210-155 – Joinville – SC Telefone - 34812136</span></p>
+            <p class="normal00" style="text-align:center">
+                <span style="text-decoration:underline; color:#1155cc">www.cedup.com.br</span>
+                <span> - email - </span><span
+                    style="text-decoration:underline; color:#1155cc">estagiocedupjlle@sed.sc.gov.br</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://www.lco.com.br/cedup/estagio/carta/script.js"></script>
+
+</body>
+
+</html>
