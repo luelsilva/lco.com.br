@@ -2,24 +2,163 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LCO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LCO Engenharia Elétrica</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hero {
+        background: #004080;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+      }
+      .servico-icon {
+        font-size: 40px;
+        color: #004080;
+      }
+      .bg-lco {
+        background-color: #f0f4ff;
+      }
+      footer {
+        background-color: #00264d;
+        color: white;
+        padding: 20px 0;
+      }
+    </style>
   </head>
   <body>
-    <svg>
-      <g
-        id="SvgjsG1375"
-        featurekey="xG21Y3-0"
-        transform="matrix(1.1111111111111112,0,0,1.1111111111111112,14.444444444444445,14.444444444444445)"
-        fill="#4ecca3"
-      >
-        <g xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M77.886,57.308l7.853,8.791l-11.787-0.061c0,0-12.342-9.901-23.731-15.815c5.223,11.78,14.331,24.663,14.331,24.663   l-0.664,11.769l-8.29-8.378c0,0-1.727-15.729-5.598-27.967c-4.64,12.023-7.307,27.576-7.307,27.576l-8.791,7.853l0.062-11.787   c0,0,9.902-12.342,15.817-23.732C37.997,55.44,25.114,64.552,25.114,64.552l-11.768-0.665l8.377-8.291   c0,0,15.729-1.726,27.965-5.597c-12.022-4.64-27.574-7.307-27.574-7.307l-7.852-8.791l11.787,0.061c0,0,12.342,9.901,23.731,15.815   c-5.22-11.78-14.331-24.663-14.331-24.663l0.664-11.769l8.29,8.377c0,0,1.726,15.728,5.599,27.963   c4.639-12.021,7.306-27.571,7.306-27.571l8.791-7.853l-0.061,11.786c0,0-9.901,12.343-15.815,23.733   c11.78-5.222,24.663-14.333,24.663-14.333l11.768,0.665l-8.377,8.291c0,0-15.726,1.726-27.965,5.597   C62.334,54.641,77.886,57.308,77.886,57.308z M65.245,35.397c5.922-5.136,14.438-9.94,14.438-9.94l2.699-6.637l-6.737,2.442   c0,0-5.102,8.305-10.485,14.048L65.245,35.397z M34.756,64.603c-5.923,5.136-14.439,9.94-14.439,9.94l-2.699,6.637l6.737-2.442   c0,0,5.102-8.306,10.485-14.048L34.756,64.603z M28.842,49.364c-7.819-0.554-17.239-3.18-17.239-3.18L5,48.97l6.492,3.037   c0,0,9.481-2.266,17.348-2.52L28.842,49.364z M88.508,47.993c0,0-9.479,2.266-17.348,2.52v0.123   c7.817,0.554,17.236,3.18,17.236,3.18L95,51.03L88.508,47.993z M50.637,28.841c0.553-7.819,3.179-17.239,3.179-17.239L51.032,5   l-3.038,6.492c0,0,2.266,9.479,2.521,17.348L50.637,28.841z M49.363,71.157c-0.553,7.82-3.179,17.237-3.179,17.237L48.968,95   l3.038-6.494c0,0-2.266-9.479-2.518-17.347L49.363,71.157z M35.311,34.841l0.087-0.086c-5.137-5.921-9.939-14.438-9.939-14.438   l-6.638-2.7l2.442,6.738C21.263,24.355,29.566,29.457,35.311,34.841z M64.689,65.159l-0.09,0.086   c5.14,5.92,9.942,14.438,9.942,14.438l6.638,2.698l-2.442-6.736C78.737,75.645,70.431,70.541,64.689,65.159z"
-          ></path>
-        </g>
-      </g>
-    </svg>
-    LCO
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="display-4">LCO Engenharia Elétrica</h1>
+        <p class="lead">
+          Projetos, instalações e soluções completas em engenharia elétrica
+        </p>
+        <a href="#contato" class="btn btn-light btn-lg mt-3"
+          >Solicite um orçamento</a
+        >
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="py-5">
+      <div class="container text-center">
+        <h2>Quem Somos</h2>
+        <p class="mt-3">
+          Somos especialistas em engenharia elétrica com experiência em projetos
+          e execuções de alta qualidade. Atuamos com responsabilidade, segurança
+          e foco na satisfação do cliente.
+        </p>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="py-5 bg-lco">
+      <div class="container">
+        <h2 class="text-center mb-4">Nossos Serviços</h2>
+        <div class="row g-4">
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">⚡</div>
+            <h5>Painéis Elétricos</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🌞</div>
+            <h5>Energia Solar</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🌩️</div>
+            <h5>SPDA (Para-raios)</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🌍</div>
+            <h5>Sistemas de Aterramento</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🏠</div>
+            <h5>Automação Residencial</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🔥</div>
+            <h5>Adequação à Norma de Bombeiros</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">🔌</div>
+            <h5>Padrão de Entrada</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">💡</div>
+            <h5>Iluminação de Emergência</h5>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="servico-icon mb-2">📄</div>
+            <h5>Laudos Técnicos</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="py-5">
+      <div class="container text-center">
+        <h2>Por que escolher a LCO?</h2>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <h5>✔️ Experiência e Qualidade</h5>
+            <p>Equipe capacitada e soluções personalizadas.</p>
+          </div>
+          <div class="col-md-4">
+            <h5>✔️ Segurança em Primeiro Lugar</h5>
+            <p>Normas técnicas sempre seguidas à risca.</p>
+          </div>
+          <div class="col-md-4">
+            <h5>✔️ Atendimento Personalizado</h5>
+            <p>Do projeto à instalação com foco no cliente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="py-5 bg-lco" id="contato">
+      <div class="container">
+        <h2 class="text-center mb-4">Fale Conosco</h2>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" required />
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="col-12">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea
+              class="form-control"
+              id="mensagem"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p class="mb-0">
+          © 2025 LCO Engenharia Elétrica. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
