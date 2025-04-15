@@ -173,6 +173,7 @@
     </footer>
 
     <script>
+      const DANTAS_API = "https://dantas-api.vercel.app";
       document
         .getElementById("contato-form")
         .addEventListener("submit", async function (e) {
@@ -182,7 +183,7 @@
           const email = document.getElementById("email").value;
           const mensagem = document.getElementById("mensagem").value;
 
-          const response = await fetch("/enviar-email", {
+          const response = await fetch(`${DANTAS_API}/enviar-email`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
