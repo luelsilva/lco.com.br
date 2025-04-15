@@ -50,7 +50,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                  <label for="nomeEmpresa">CPF do Aluno</label>
+                  <label for="nomeEmpresa">Nome da Empresa</label>
                   <input type="text" class="form-control" id="nomeEmpresa" required>
               </div>
                 <div><span id="mensagem"></span></div>
@@ -78,16 +78,16 @@
             <p class="normal00" style="text-align:center; page-break-after:avoid; line-height:normal"><span
                     style="font-weight:bold">CARTA DE APRESENTAÇÃO ESTÁGIO CURRICULAR OBRIGATÓRIO</span></p>
             <p class="normal00">
-              Declaramos para os devidos fins que o (a) aluno ${nomeAluno}, Matrícula ${matriculaAluno},
-              CPF nº ${cpfAluno}, matriculado no ${nomeCurso}, no Centro de Educação Profissional
+              Declaramos para os devidos fins que o (a) aluno ${print_nomeAluno}, Matrícula ${matriculaAluno},
+              CPF nº ${print_cpfAluno}, matriculado no ${print_nomeCurso}, no Centro de Educação Profissional
               Dario Geraldo Salles, em Joinville, concluiu as disciplinas teóricas e práticas do
               1º e 2º módulos. Estando pendente com o 3º módulo, no qual está cursando a Disciplina
-              de Estágio Obrigatório de ${cargaHoraria} horas. O aluno é estagiário na Empresa
-              ${nomeEmpresa}, previsto para término do seu estágio em ${dataFim}. Contudo deverá
+              de Estágio Obrigatório de ${print_cargaHoraria} horas. O aluno é estagiário na Empresa
+              ${print_nomeEmpresa}, previsto para término do seu estágio em ${print_dataFim}. Contudo deverá
               seguir os processos internos para aprovação e obtenção do diploma.
               </p>
             <p class="normal00" style="text-align:right; line-height:115%"><span id="print_data_atual">Joinville,
-                    ${data_atual}.</span></p>
+                    ${print_data_atual}.</span></p>
         </div>
         <div id="rodape">
             <p class="normal00" style="text-align:center"><span>Rua Monsenhor Gercino, 2071
