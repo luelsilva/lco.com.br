@@ -2,8 +2,9 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Página movida</title>
+    <title>Redirecionando...</title>
     <script>
+      // Quando a página carregar
       window.onload = function () {
         // Captura a parte da URL após o "?"
         var queryString = window.location.search;
@@ -12,21 +13,12 @@
         var novaURL =
           "https://cedup.vercel.app/estagio/estagiarios/tce/" + queryString;
 
-        // Atualiza o link dinamicamente
-        var link = document.getElementById("link-novo-endereco");
-        link.href = novaURL;
-        link.textContent = novaURL;
+        // Redireciona para a nova URL
+        window.location.replace(novaURL);
       };
     </script>
   </head>
   <body>
-    <h1>Esta página foi movida</h1>
-    <p>
-      O endereço desta página foi alterado. Por favor, clique no link abaixo
-      para acessar o novo local:
-    </p>
-    <p>
-      <a id="link-novo-endereco" href="#">Carregando novo endereço...</a>
-    </p>
+    <p>Redirecionando...</p>
   </body>
 </html>
