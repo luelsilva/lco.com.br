@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecionando...</title>
+    <script>
+      // Quando a página carregar
+      window.onload = function () {
+        // Captura a parte da URL após o "?"
+        var queryString = window.location.search;
+
+        // Monta a nova URL com o mesmo query string
+        var novaURL =
+          "https://cedup.vercel.app/estagio/estagiarios/tce/" + queryString;
+
+        // Redireciona para a nova URL
+        window.location.replace(novaURL);
+      };
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>
