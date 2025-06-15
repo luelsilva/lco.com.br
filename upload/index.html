@@ -86,10 +86,13 @@
           formData.append("arquivo", arquivo);
 
           try {
-            const response = await fetch("https://sua-api-aqui.com/upload", {
-              method: "POST",
-              body: formData,
-            });
+            const response = await fetch(
+              "https://uploader-api-seven.vercel.app/",
+              {
+                method: "POST",
+                body: formData,
+              }
+            );
 
             if (response.ok) {
               mensagem.innerHTML =
