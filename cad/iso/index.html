@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galeria de Imagens</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="mb-4 text-center">Galeria de Imagens</h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <!-- Cards das imagens -->
+        <!-- As imagens vão de image-62.png até image-70.png -->
+        <!-- Loop para gerar os cards -->
+        <!-- Você pode copiar o trecho abaixo e repetir se for fazer manualmente -->
+        <!-- Aqui está automatizado com HTML apenas -->
+
+        <!-- Início dos cards -->
+        <!-- Você pode copiar e colar esse bloco e trocar os números se quiser mudar ou adicionar mais -->
+        <!-- Abaixo estão os 9 cards -->
+        <script>
+          const container = document.currentScript.parentElement;
+          for (let i = 62; i <= 70; i++) {
+            const col = document.createElement("div");
+            col.className = "col";
+
+            const card = document.createElement("div");
+            card.className = "card h-100";
+
+            const link = document.createElement("a");
+            link.href = `https://lco.com.br/cad/iso/Prop3DCAD-0${i}.png`;
+            link.target = "_blank";
+
+            const img = document.createElement("img");
+            img.src = `https://lco.com.br/cad/iso/Prop3DCAD-0${i}.png`;
+            img.className = "card-img-top";
+            img.alt = `Imagem ${i}`;
+
+            link.appendChild(img);
+            card.appendChild(link);
+
+            const body = document.createElement("div");
+            body.className = "card-body text-center";
+            body.innerHTML = `<h5 class="card-title">Imagem ${i}</h5>`;
+
+            card.appendChild(body);
+            col.appendChild(card);
+            container.appendChild(col);
+          }
+        </script>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
